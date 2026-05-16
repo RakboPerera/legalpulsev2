@@ -3162,12 +3162,12 @@
 .settings-page h1 { margin-bottom: 6px; }
 .settings-loading {
   display: inline-flex; align-items: center; gap: 8px;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
 }
 .settings-section {
   margin-top: 28px;
   padding: 24px;
-  border: 1px solid var(--octave-n300);
+  border: 1px solid var(--octave-n700);
   border-radius: var(--radius-md);
   background: var(--octave-panel, transparent);
 }
@@ -3193,12 +3193,12 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
   display: flex; align-items: center; gap: 8px;
 }
 .settings-field-help {
   font-size: 12px;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
 }
 .settings-field-help code {
   background: rgba(255,255,255,0.06);
@@ -3225,10 +3225,11 @@
   text-align: left;
   padding: 14px;
   background: transparent;
-  border: 1px solid var(--octave-n300);
+  border: 1px solid var(--octave-n700);
   border-radius: var(--radius-sm, 8px);
   cursor: pointer;
   transition: border-color 0.12s, background 0.12s;
+  color: var(--octave-text-on-panel);
 }
 .settings-provider-card:hover {
   border-color: var(--octave-accent);
@@ -3240,23 +3241,23 @@
 .settings-provider-name {
   font-weight: 600;
   font-size: 14px;
-  color: var(--octave-text, #fff);
+  color: var(--octave-text-on-panel);
   margin-bottom: 4px;
 }
 .settings-provider-sub {
   font-size: 11.5px;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
 }
 .settings-provider-pricing {
   font-size: 11px;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
   margin-top: 6px;
   font-style: italic;
 }
 .settings-key-row {
   display: flex; align-items: center;
   gap: 0;
-  border: 1px solid var(--octave-n300);
+  border: 1px solid var(--octave-n700);
   border-radius: var(--radius-sm, 8px);
   overflow: hidden;
 }
@@ -3269,16 +3270,19 @@
   border: none;
   outline: none;
   padding: 10px 12px;
-  color: var(--octave-text, #fff);
+  color: var(--octave-text-on-panel);
   font-family: var(--font-mono, monospace);
   font-size: 13px;
+}
+.settings-input::placeholder {
+  color: var(--octave-n500);
 }
 .settings-key-toggle {
   background: transparent;
   border: none;
-  border-left: 1px solid var(--octave-n300);
+  border-left: 1px solid var(--octave-n700);
   padding: 0 14px;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
   cursor: pointer;
   font-size: 12px;
   height: 100%;
@@ -3335,7 +3339,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--octave-text-muted, #8a8a8a);
+  color: var(--octave-text-on-panel-muted);
   margin-bottom: 8px;
 }
 .settings-info-list {
@@ -3347,10 +3351,10 @@
 }
 .settings-info-list li {
   font-size: 13px;
-  color: var(--octave-text-muted, #aaa);
+  color: var(--octave-text-on-panel-muted);
   line-height: 1.5;
 }
-.settings-info-list strong { color: var(--octave-text, #fff); font-weight: 600; }
+.settings-info-list strong { color: var(--octave-text-on-panel); font-weight: 600; }
 
 .spin {
   animation: spin 1s linear infinite;
