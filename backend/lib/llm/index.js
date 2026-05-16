@@ -119,6 +119,15 @@ export async function validateProviderKey(provider, apiKey) {
     });
     return { ok: true, model, sample: (result.text || '').slice(0, 40) };
   } catch (err) {
+    console.error('[validateProviderKey] provider=%s model-tier=fast error:', provider, {
+      status: err.status,
+      name: err.name,
+      message: err.message,
+      headers: err.headers,
+      error: err.error,
+      keyPrefix: apiKey?.slice(0, 14) + '…',
+      keyLen: apiKey?.length
+    });
     return { ok: false, error: err.message?.slice(0, 200) || 'validation_failed' };
   }
 }
