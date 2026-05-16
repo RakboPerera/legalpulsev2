@@ -1,0 +1,15 @@
+{
+  "conflicts": [
+    { "entityName": "Royal Dutch Shell plc", "reason": "Active matter — adverse to BP plc in Nigerian JV dispute", "since": "2024-09-01" },
+    { "entityName": "Chevron Corporation", "reason": "Active panel relationship — engagement bar on BD outreach", "since": "2023-01-01" },
+    { "entityName": "Equinor ASA", "reason": "Adverse — currently representing Sanofi in unrelated matter against Equinor subsidiary", "since": "2025-02-12" },
+    { "entityName": "Mediterranean Shipping Company", "reason": "Adverse to Maersk in container price-fixing class action", "since": "2024-11-04" },
+    { "entityName": "BYD Company Ltd", "reason": "Active VW representation — engagement bar on EV competitor outreach", "since": "2025-03-22" },
+    { "entityName": "Huawei Technologies Co Ltd", "reason": "Adverse — representing ASML in export-control matter", "since": "2024-07-19" },
+    { "entityName": "Airbus SE", "reason": "Adverse to Rolls-Royce / Boeing in engine certification proceedings", "since": "2024-04-09" },
+    { "entityName": "Novartis AG", "reason": "Adverse to Sanofi in patent litigation", "since": "2023-11-30" },
+    { "entityName": "Deutsche Telekom AG", "reason": "Adverse to Vodafone in Three UK merger proceedings", "since": "2024-03-15" },
+    { "entityName": "Wells Fargo & Company", "reason": "Adverse to JPMorgan in mortgage securitisation MDL", "since": "2023-06-01" },
+    { "entityName": "Google LLC", "reason": "Adverse to Microsoft in EU DG COMP cloud bundling investigation", "since": "2025-01-20" }
+  ]
+}

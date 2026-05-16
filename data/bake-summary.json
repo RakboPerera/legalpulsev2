@@ -1,0 +1,106 @@
+{
+  "bakedAt": "2026-05-15T16:35:02.237Z",
+  "bakedBy": "manual-llm-expand-prospects (Claude Code conversation)",
+  "mode": "online-hybrid (manual)",
+  "llmCompose": {
+    "total": 0,
+    "failures": 0
+  },
+  "llmBrief": {
+    "total": 0,
+    "failures": 0
+  },
+  "qualityGate": {
+    "dropped": 17,
+    "demoted": 2,
+    "passed": 19,
+    "preFilteredSanctions": 0,
+    "partnerJudgedRewrites": 8,
+    "partnerJudgedAdditions": 13,
+    "heuristicInputCount": 24
+  },
+  "engineDedup": {
+    "collapsed": 1,
+    "final": 24
+  },
+  "eventScreener": {
+    "clustersScreened": 0,
+    "skipped": 0
+  },
+  "autoProspectDiscovery": {
+    "clustersScreened": 0,
+    "prospectsDiscovered": 0
+  },
+  "apiUsage": {
+    "calls": 0,
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "byModel": {},
+    "estimatedCostUsd": 0
+  },
+  "seedFirm": "Hartwell & Stone LLP",
+  "signalsIngested": 732,
+  "signalsAfterDedup": 608,
+  "signalsClassifiedAsLegallySignificant": 382,
+  "opportunitiesGenerated": {
+    "crossSell": 1,
+    "prospects": 11,
+    "eventDriven": 9
+  },
+  "briefingsGenerated": 21,
+  "auditEntries": 626,
+  "durationSeconds": 619,
+  "perSource": {
+    "tavily": 112,
+    "edgar": 127,
+    "courtlistener": 413,
+    "federal_register": 20,
+    "doj": 25,
+    "ftc": 0,
+    "cftc": 0,
+    "dg_comp": 0,
+    "fca": 0,
+    "cma": 0,
+    "fca_govuk": 0,
+    "ico_govuk": 0,
+    "ofcom": 0,
+    "bank_of_england": 0,
+    "hmt": 0,
+    "fda_warning_letters": 0,
+    "sanctions_cross_ref": 11
+  },
+  "perSourceSignificant": {
+    "tavily": 60,
+    "edgar": 2,
+    "courtlistener": 297,
+    "federal_register": 6,
+    "doj": 10,
+    "ofac_sdn": 7
+  },
+  "perSourceContributedToOpps": {
+    "tavily": 14,
+    "federal_register": 1,
+    "courtlistener": 10,
+    "ofac_sdn": 2
+  },
+  "silentSources": [
+    "ftc",
+    "cftc",
+    "dg_comp",
+    "fca",
+    "cma",
+    "fca_govuk",
+    "ico_govuk",
+    "ofcom",
+    "bank_of_england",
+    "hmt",
+    "fda_warning_letters"
+  ],
+  "topEventScenarios": [
+    "Ofac Advisory likely required for GSK plc following recent activity: \"Economic Fury Ramps Up Pressure on Iran’s Islamic Revolutionary Guard Corps Oil Operations - U.S. De\".",
+    "Force Majeure Advisory likely required for A.P. Moller-Maersk A/S following recent activity: \"U.S.-Flagged Ship Alliance Fairfax Exits Strait Of Hormuz After Months Under Military Escort - Marin\".",
+    "Force Majeure Advisory likely required for Saudi Arabian Oil Company following recent activity: \"Iraqi supertanker turns back near U.S. blockade in Strait of Hormuz - World Oil\".",
+    "Eu Competition likely required for Microsoft Corporation following recent activity: \"UK opens antitrust probe into Microsoft's business software - Reuters\".",
+    "Ofac Advisory likely required for Rolls-Royce Holdings plc following recent activity: \"Speaker Among gets Shs3.4b Rolls-Royce - Daily Monitor\"."
+  ]
+}

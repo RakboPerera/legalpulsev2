@@ -1,0 +1,1030 @@
+[
+  {
+    "id": "c-bp",
+    "legalName": "BP plc",
+    "knownAliases": [
+      "BP",
+      "British Petroleum",
+      "BP plc"
+    ],
+    "sector": "oil_gas",
+    "subSector": "integrated_oil_major",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Iraq",
+      "Azerbaijan",
+      "Egypt",
+      "Angola"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "companiesHouseNumber": "00102498",
+      "leiCode": "213800LBSIQQTXIQNG10",
+      "tickers": [
+        "BP.L",
+        "BP"
+      ]
+    },
+    "publicEntityUrl": "https://www.bp.com",
+    "decisionMakers": [
+      {
+        "name": "Murray Auchincloss",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Ben Luscombe",
+        "role": "Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "deep",
+    "primaryRelationshipPartner": "p-hartwell",
+    "creditRating": "A-",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "esg_pressure"
+    ]
+  },
+  {
+    "id": "c-hsbc",
+    "legalName": "HSBC Holdings plc",
+    "knownAliases": [
+      "HSBC",
+      "HSBC Holdings"
+    ],
+    "sector": "banking",
+    "subSector": "global_universal_bank",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Hong Kong",
+      "Singapore",
+      "Switzerland"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001089113",
+      "companiesHouseNumber": "00617987",
+      "tickers": [
+        "HSBA.L",
+        "HSBC"
+      ]
+    },
+    "publicEntityUrl": "https://www.hsbc.com",
+    "decisionMakers": [
+      {
+        "name": "Georges Elhedery",
+        "role": "Group CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "deep",
+    "primaryRelationshipPartner": "p-webb",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "c-maersk",
+    "legalName": "A.P. Moller-Maersk A/S",
+    "knownAliases": [
+      "Maersk",
+      "Maersk A/S",
+      "A.P. Moller-Maersk"
+    ],
+    "sector": "shipping",
+    "subSector": "container_shipping",
+    "hqJurisdiction": "EU",
+    "countriesOfOperation": [
+      "Denmark",
+      "Singapore",
+      "USA",
+      "UAE"
+    ],
+    "size": "large",
+    "externalIdentifiers": {
+      "leiCode": "549300L0F2KE2BUVNZ40",
+      "tickers": [
+        "MAERSK-B.CO"
+      ]
+    },
+    "publicEntityUrl": "https://www.maersk.com",
+    "decisionMakers": [
+      {
+        "name": "Vincent Clerc",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-hartwell",
+    "creditRating": "BBB+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-vw",
+    "legalName": "Volkswagen AG",
+    "knownAliases": [
+      "VW",
+      "Volkswagen",
+      "Volkswagen AG"
+    ],
+    "sector": "automotive",
+    "subSector": "global_oem",
+    "hqJurisdiction": "EU",
+    "countriesOfOperation": [
+      "Germany",
+      "USA",
+      "China",
+      "Brazil"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001045810",
+      "tickers": [
+        "VOW3.DE"
+      ]
+    },
+    "publicEntityUrl": "https://www.volkswagen-group.com",
+    "decisionMakers": [
+      {
+        "name": "Oliver Blume",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-vogel",
+    "creditRating": "BBB+",
+    "creditOutlook": "negative",
+    "riskFlags": [
+      "regulatory_pressure",
+      "litigation_heavy"
+    ]
+  },
+  {
+    "id": "c-asml",
+    "legalName": "ASML Holding NV",
+    "knownAliases": [
+      "ASML",
+      "ASML Holding"
+    ],
+    "sector": "semiconductors",
+    "subSector": "lithography_equipment",
+    "hqJurisdiction": "EU",
+    "countriesOfOperation": [
+      "Netherlands",
+      "USA",
+      "Taiwan",
+      "South Korea"
+    ],
+    "size": "large",
+    "externalIdentifiers": {
+      "secCik": "0000937966",
+      "tickers": [
+        "ASML"
+      ]
+    },
+    "publicEntityUrl": "https://www.asml.com",
+    "decisionMakers": [
+      {
+        "name": "Christophe Fouquet",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-lin",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "sanctions_adjacent"
+    ]
+  },
+  {
+    "id": "c-rolls",
+    "legalName": "Rolls-Royce Holdings plc",
+    "knownAliases": [
+      "Rolls-Royce",
+      "Rolls Royce Holdings"
+    ],
+    "sector": "defense_aerospace",
+    "subSector": "engines_defense",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Germany"
+    ],
+    "size": "large",
+    "externalIdentifiers": {
+      "companiesHouseNumber": "07524813",
+      "tickers": [
+        "RR.L"
+      ]
+    },
+    "publicEntityUrl": "https://www.rolls-royce.com",
+    "decisionMakers": [
+      {
+        "name": "Tufan Erginbilgic",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-lin",
+    "creditRating": "BBB-",
+    "creditOutlook": "positive",
+    "riskFlags": []
+  },
+  {
+    "id": "c-vodafone",
+    "legalName": "Vodafone Group plc",
+    "knownAliases": [
+      "Vodafone",
+      "Vodafone Group"
+    ],
+    "sector": "telecoms",
+    "subSector": "mobile_operator",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "Germany",
+      "Italy",
+      "Spain",
+      "India"
+    ],
+    "size": "large",
+    "externalIdentifiers": {
+      "secCik": "0000839923",
+      "companiesHouseNumber": "01833679",
+      "tickers": [
+        "VOD.L",
+        "VOD"
+      ]
+    },
+    "publicEntityUrl": "https://www.vodafone.com",
+    "decisionMakers": [
+      {
+        "name": "Margherita Della Valle",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-stone",
+    "creditRating": "BBB",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-exxon",
+    "legalName": "Exxon Mobil Corporation",
+    "knownAliases": [
+      "ExxonMobil",
+      "Exxon",
+      "Exxon Mobil"
+    ],
+    "sector": "oil_gas",
+    "subSector": "integrated_oil_major",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "Guyana",
+      "Qatar",
+      "Nigeria"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000034088",
+      "tickers": [
+        "XOM"
+      ]
+    },
+    "publicEntityUrl": "https://corporate.exxonmobil.com",
+    "decisionMakers": [
+      {
+        "name": "Darren Woods",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-mitchell",
+    "creditRating": "AA-",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "esg_pressure"
+    ]
+  },
+  {
+    "id": "c-boeing",
+    "legalName": "The Boeing Company",
+    "knownAliases": [
+      "Boeing",
+      "Boeing Co"
+    ],
+    "sector": "defense_aerospace",
+    "subSector": "commercial_aviation",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Australia"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000012927",
+      "tickers": [
+        "BA"
+      ]
+    },
+    "publicEntityUrl": "https://www.boeing.com",
+    "decisionMakers": [
+      {
+        "name": "Kelly Ortberg",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-hartwell",
+    "creditRating": "BBB-",
+    "creditOutlook": "negative",
+    "riskFlags": [
+      "regulatory_pressure",
+      "distressed",
+      "litigation_heavy"
+    ]
+  },
+  {
+    "id": "c-gs",
+    "legalName": "The Goldman Sachs Group, Inc.",
+    "knownAliases": [
+      "Goldman Sachs",
+      "Goldman",
+      "GS"
+    ],
+    "sector": "banking",
+    "subSector": "investment_bank",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Singapore",
+      "Japan"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000886982",
+      "tickers": [
+        "GS"
+      ]
+    },
+    "publicEntityUrl": "https://www.goldmansachs.com",
+    "decisionMakers": [
+      {
+        "name": "David Solomon",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-webb",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-jpm",
+    "legalName": "JPMorgan Chase & Co.",
+    "knownAliases": [
+      "JPMorgan",
+      "JPM",
+      "JPMorgan Chase",
+      "Chase"
+    ],
+    "sector": "banking",
+    "subSector": "global_universal_bank",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Singapore",
+      "Brazil"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000019617",
+      "tickers": [
+        "JPM"
+      ]
+    },
+    "publicEntityUrl": "https://www.jpmorganchase.com",
+    "decisionMakers": [
+      {
+        "name": "Jamie Dimon",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-webb",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-msft",
+    "legalName": "Microsoft Corporation",
+    "knownAliases": [
+      "Microsoft",
+      "Microsoft Corp",
+      "MSFT"
+    ],
+    "sector": "technology",
+    "subSector": "enterprise_software_cloud",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Ireland",
+      "India"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000789019",
+      "tickers": [
+        "MSFT"
+      ]
+    },
+    "publicEntityUrl": "https://www.microsoft.com",
+    "decisionMakers": [
+      {
+        "name": "Satya Nadella",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-vasquez",
+    "creditRating": "AAA",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ],
+    "additionalPartners": [
+      "p-chandrasekhar"
+    ]
+  },
+  {
+    "id": "c-citi",
+    "legalName": "Citigroup Inc.",
+    "knownAliases": [
+      "Citi",
+      "Citigroup",
+      "Citibank"
+    ],
+    "sector": "banking",
+    "subSector": "global_universal_bank",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Mexico",
+      "Singapore",
+      "India"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000831001",
+      "leiCode": "6SHGI4ZSSLCXXQSBB395",
+      "tickers": [
+        "C"
+      ]
+    },
+    "publicEntityUrl": "https://www.citigroup.com",
+    "decisionMakers": [
+      {
+        "name": "Jane Fraser",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Brent McIntosh",
+        "role": "Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-webb",
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "c-bofa",
+    "legalName": "Bank of America Corporation",
+    "knownAliases": [
+      "Bank of America",
+      "BofA",
+      "Bank of America Corp"
+    ],
+    "sector": "banking",
+    "subSector": "global_universal_bank",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Hong Kong",
+      "Brazil"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000070858",
+      "leiCode": "B4TYDEB6GKMZO031MB27",
+      "tickers": [
+        "BAC"
+      ]
+    },
+    "publicEntityUrl": "https://www.bankofamerica.com",
+    "decisionMakers": [
+      {
+        "name": "Brian Moynihan",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      },
+      {
+        "name": "Lauren Mogensen",
+        "role": "Global General Counsel",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-webb",
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-ms",
+    "legalName": "Morgan Stanley",
+    "knownAliases": [
+      "Morgan Stanley",
+      "MS"
+    ],
+    "sector": "banking",
+    "subSector": "investment_bank",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Japan",
+      "Hong Kong"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000895421",
+      "leiCode": "IGJSJL3JD5P30I6NJZ34",
+      "tickers": [
+        "MS"
+      ]
+    },
+    "publicEntityUrl": "https://www.morganstanley.com",
+    "decisionMakers": [
+      {
+        "name": "Ted Pick",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      },
+      {
+        "name": "Eric Grossman",
+        "role": "Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-stone",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-barclays",
+    "legalName": "Barclays plc",
+    "knownAliases": [
+      "Barclays",
+      "Barclays plc"
+    ],
+    "sector": "banking",
+    "subSector": "global_universal_bank",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Singapore",
+      "South Africa"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000312070",
+      "companiesHouseNumber": "00048839",
+      "leiCode": "G5GSEF7VJP5I7OUK5573",
+      "tickers": [
+        "BARC.L",
+        "BCS"
+      ]
+    },
+    "publicEntityUrl": "https://home.barclays",
+    "decisionMakers": [
+      {
+        "name": "C.S. Venkatakrishnan",
+        "role": "Group CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Stephen Doherty",
+        "role": "Group General Counsel",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "deep",
+    "primaryRelationshipPartner": "p-webb",
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-gsk",
+    "legalName": "GSK plc",
+    "knownAliases": [
+      "GSK",
+      "GlaxoSmithKline",
+      "GSK plc"
+    ],
+    "sector": "pharma",
+    "subSector": "pharmaceuticals_vaccines",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "China",
+      "India"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001131399",
+      "companiesHouseNumber": "03888792",
+      "leiCode": "5493005ZJUOMF96Q5071",
+      "tickers": [
+        "GSK.L",
+        "GSK"
+      ]
+    },
+    "publicEntityUrl": "https://www.gsk.com",
+    "decisionMakers": [
+      {
+        "name": "Emma Walmsley",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "deep",
+    "primaryRelationshipPartner": "p-dubois",
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "litigation_heavy"
+    ]
+  },
+  {
+    "id": "c-merck",
+    "legalName": "Merck & Co., Inc.",
+    "knownAliases": [
+      "Merck",
+      "Merck & Co",
+      "MSD"
+    ],
+    "sector": "pharma",
+    "subSector": "pharmaceuticals_oncology",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Germany",
+      "Japan"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000310158",
+      "leiCode": "4Y3K2K3HUF03GTMRLO46",
+      "tickers": [
+        "MRK"
+      ]
+    },
+    "publicEntityUrl": "https://www.merck.com",
+    "decisionMakers": [
+      {
+        "name": "Robert Davis",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      },
+      {
+        "name": "Jennifer Zachary",
+        "role": "Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-vasquez",
+    "creditRating": "AA-",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "c-alphabet",
+    "legalName": "Alphabet Inc.",
+    "knownAliases": [
+      "Alphabet",
+      "Google",
+      "Google LLC"
+    ],
+    "sector": "technology",
+    "subSector": "internet_services_advertising",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Ireland",
+      "Singapore",
+      "India"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001652044",
+      "leiCode": "5493006MHB84DD0ZWV18",
+      "tickers": [
+        "GOOGL",
+        "GOOG"
+      ]
+    },
+    "publicEntityUrl": "https://abc.xyz",
+    "decisionMakers": [
+      {
+        "name": "Sundar Pichai",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Kent Walker",
+        "role": "President of Global Affairs & Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-chandrasekhar",
+    "creditRating": "AA+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "c-apple",
+    "legalName": "Apple Inc.",
+    "knownAliases": [
+      "Apple",
+      "Apple Inc"
+    ],
+    "sector": "technology",
+    "subSector": "consumer_electronics_software",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Ireland",
+      "China",
+      "Japan"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000320193",
+      "leiCode": "HWUPKR0MPOU8FGXBT394",
+      "tickers": [
+        "AAPL"
+      ]
+    },
+    "publicEntityUrl": "https://www.apple.com",
+    "decisionMakers": [
+      {
+        "name": "Tim Cook",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Katherine Adams",
+        "role": "General Counsel",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-vasquez",
+    "creditRating": "AA+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "c-amazon",
+    "legalName": "Amazon.com, Inc.",
+    "knownAliases": [
+      "Amazon",
+      "Amazon.com"
+    ],
+    "sector": "technology",
+    "subSector": "ecommerce_cloud",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Germany",
+      "India",
+      "Japan"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001018724",
+      "leiCode": "549300VYFOQ85046XQ45",
+      "tickers": [
+        "AMZN"
+      ]
+    },
+    "publicEntityUrl": "https://www.aboutamazon.com",
+    "decisionMakers": [
+      {
+        "name": "Andy Jassy",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "David Zapolsky",
+        "role": "Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-chandrasekhar",
+    "creditRating": "AA",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "c-shell",
+    "legalName": "Shell plc",
+    "knownAliases": [
+      "Shell",
+      "Royal Dutch Shell",
+      "Shell plc"
+    ],
+    "sector": "oil_gas",
+    "subSector": "integrated_oil_major",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "Netherlands",
+      "USA",
+      "Nigeria",
+      "Qatar"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001306965",
+      "companiesHouseNumber": "04366849",
+      "leiCode": "21380068P1DRHMJ8KU70",
+      "tickers": [
+        "SHEL.L",
+        "SHEL"
+      ]
+    },
+    "publicEntityUrl": "https://www.shell.com",
+    "decisionMakers": [
+      {
+        "name": "Wael Sawan",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Donny Ching",
+        "role": "Legal Director",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "established",
+    "primaryRelationshipPartner": "p-mitchell",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "esg_pressure"
+    ]
+  },
+  {
+    "id": "c-chevron",
+    "legalName": "Chevron Corporation",
+    "knownAliases": [
+      "Chevron",
+      "Chevron Corp"
+    ],
+    "sector": "oil_gas",
+    "subSector": "integrated_oil_major",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "Australia",
+      "Kazakhstan",
+      "Nigeria",
+      "Venezuela"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000093410",
+      "leiCode": "N8CB3ZUS27UVL7BOJL59",
+      "tickers": [
+        "CVX"
+      ]
+    },
+    "publicEntityUrl": "https://www.chevron.com",
+    "decisionMakers": [
+      {
+        "name": "Mike Wirth",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      },
+      {
+        "name": "R. Hewitt Pate",
+        "role": "General Counsel",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-mitchell",
+    "creditRating": "AA-",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "sanctions_adjacent"
+    ]
+  },
+  {
+    "id": "c-northrop",
+    "legalName": "Northrop Grumman Corporation",
+    "knownAliases": [
+      "Northrop Grumman",
+      "Northrop"
+    ],
+    "sector": "defense_aerospace",
+    "subSector": "defense_systems",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Australia"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001133421",
+      "leiCode": "J7A82IC16UPJ2QFEZE57",
+      "tickers": [
+        "NOC"
+      ]
+    },
+    "publicEntityUrl": "https://www.northropgrumman.com",
+    "decisionMakers": [
+      {
+        "name": "Kathy Warden",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      },
+      {
+        "name": "Sheila Cheston",
+        "role": "General Counsel",
+        "source": "annual_report"
+      }
+    ],
+    "relationshipMaturity": "developing",
+    "primaryRelationshipPartner": "p-lin",
+    "creditRating": "BBB+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  }
+]

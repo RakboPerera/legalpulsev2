@@ -1,0 +1,110 @@
+{
+  "practiceAreas": {
+    "corporate_ma": {
+      "services": [
+        { "id": "ma_advisory", "name": "M&A Advisory" },
+        { "id": "domestic_ma", "name": "Domestic M&A", "parentService": "ma_advisory" },
+        { "id": "cross_border_ma", "name": "Cross-border M&A", "parentService": "ma_advisory" },
+        { "id": "public_takeovers", "name": "Public Takeovers", "parentService": "ma_advisory" },
+        { "id": "private_equity_ma", "name": "Private Equity M&A", "parentService": "ma_advisory" },
+        { "id": "joint_ventures", "name": "Joint Ventures" },
+        { "id": "corporate_restructuring_advisory", "name": "Corporate Restructuring Advisory" },
+        { "id": "fdi_clearance", "name": "FDI / National Security Clearance" }
+      ]
+    },
+    "banking_finance": {
+      "services": [
+        { "id": "leveraged_finance", "name": "Leveraged Finance" },
+        { "id": "acquisition_finance", "name": "Acquisition Finance" },
+        { "id": "debt_capital_markets", "name": "Debt Capital Markets" },
+        { "id": "project_finance", "name": "Project Finance" },
+        { "id": "structured_finance", "name": "Structured Finance" }
+      ]
+    },
+    "litigation_disputes": {
+      "services": [
+        { "id": "commercial_litigation", "name": "Commercial Litigation" },
+        { "id": "securities_litigation", "name": "Securities Litigation" },
+        { "id": "product_liability", "name": "Product Liability" },
+        { "id": "class_actions", "name": "Class Actions" },
+        { "id": "international_arbitration", "name": "International Arbitration" },
+        { "id": "force_majeure_advisory", "name": "Force Majeure / Frustration Advisory" },
+        { "id": "regulatory_defense", "name": "Regulatory Defense" }
+      ]
+    },
+    "regulatory_compliance": {
+      "services": [
+        { "id": "eu_competition", "name": "EU Competition" },
+        { "id": "uk_competition", "name": "UK Competition (CMA)" },
+        { "id": "merger_control", "name": "Merger Control" },
+        { "id": "financial_services_regulation", "name": "Financial Services Regulation" },
+        { "id": "data_protection", "name": "Data Protection / GDPR" },
+        { "id": "ai_regulation_advisory", "name": "AI Regulation Advisory" },
+        { "id": "esg_compliance", "name": "ESG Compliance" }
+      ]
+    },
+    "energy_natural_resources": {
+      "services": [
+        { "id": "oil_gas_advisory", "name": "Oil & Gas Advisory" },
+        { "id": "energy_transition", "name": "Energy Transition" },
+        { "id": "renewables_finance", "name": "Renewables Finance" },
+        { "id": "decommissioning", "name": "Decommissioning" },
+        { "id": "windfall_tax_advisory", "name": "Energy Profits / Windfall Tax Advisory" }
+      ]
+    },
+    "ip_technology": {
+      "services": [
+        { "id": "patent_litigation", "name": "Patent Litigation" },
+        { "id": "trade_mark_advisory", "name": "Trade Mark Advisory" },
+        { "id": "trade_secrets_litigation", "name": "Trade Secrets Litigation" },
+        { "id": "technology_transactions", "name": "Technology Transactions" },
+        { "id": "ai_litigation", "name": "AI Litigation" },
+        { "id": "cybersecurity_advisory", "name": "Cybersecurity Advisory" }
+      ]
+    },
+    "real_estate": {
+      "services": [
+        { "id": "commercial_real_estate", "name": "Commercial Real Estate" },
+        { "id": "reit_advisory", "name": "REIT Advisory" },
+        { "id": "real_estate_finance", "name": "Real Estate Finance" },
+        { "id": "real_estate_development", "name": "Real Estate Development" }
+      ]
+    },
+    "restructuring_insolvency": {
+      "services": [
+        { "id": "corporate_restructuring", "name": "Corporate Restructuring" },
+        { "id": "insolvency_proceedings", "name": "Insolvency Proceedings" },
+        { "id": "distressed_ma", "name": "Distressed M&A" },
+        { "id": "schemes_of_arrangement", "name": "Schemes of Arrangement" }
+      ]
+    },
+    "tax": {
+      "services": [
+        { "id": "corporate_tax", "name": "Corporate Tax" },
+        { "id": "transactional_tax", "name": "Transactional Tax" },
+        { "id": "tax_disputes", "name": "Tax Disputes" },
+        { "id": "international_tax", "name": "International Tax" },
+        { "id": "tax_advisory", "name": "Tax Advisory" },
+        { "id": "regulatory_advice", "name": "Regulatory Advice (tax)" }
+      ]
+    },
+    "employment": {
+      "services": [
+        { "id": "senior_executive_employment", "name": "Senior Executive Employment" },
+        { "id": "workforce_restructuring", "name": "Workforce Restructuring" },
+        { "id": "discrimination_claims", "name": "Discrimination Claims" },
+        { "id": "esg_workforce", "name": "ESG / Workforce" }
+      ]
+    },
+    "sanctions_trade": {
+      "services": [
+        { "id": "ofac_advisory", "name": "OFAC Advisory" },
+        { "id": "eu_sanctions_advisory", "name": "EU Sanctions Advisory" },
+        { "id": "uk_ofsi_advisory", "name": "UK OFSI Advisory" },
+        { "id": "export_controls", "name": "Export Controls" },
+        { "id": "trade_compliance_investigations", "name": "Trade Compliance Investigations" },
+        { "id": "regulatory_clearance", "name": "Sanctions / Regulatory Clearance" }
+      ]
+    }
+  }
+}

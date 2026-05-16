@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "legalpulse-backend",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["backend/server.js"],
+      "port": 8000,
+      "autoPort": true
+    },
+    {
+      "name": "legalpulse-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "frontend"],
+      "port": 5173,
+      "env": { "VITE_BACKEND_URL": "http://localhost:65409" }
+    }
+  ]
+}

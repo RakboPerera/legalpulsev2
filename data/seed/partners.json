@@ -1,0 +1,92 @@
+[
+  {
+    "id": "p-hartwell",
+    "name": "James Hartwell QC",
+    "practiceAreas": ["litigation_disputes"],
+    "expertiseTags": ["energy_disputes", "shipping_disputes", "hormuz", "force_majeure", "international_arbitration"],
+    "office": "London",
+    "email": "j.hartwell@hartwellstone.com",
+    "notableMatters": ["M-2019-0078", "M-2020-0312", "M-2024-0142"]
+  },
+  {
+    "id": "p-stone",
+    "name": "Catherine Stone",
+    "practiceAreas": ["corporate_ma"],
+    "expertiseTags": ["cross_border_ma", "financial_sponsors", "private_equity", "uk_ma"],
+    "office": "London",
+    "email": "c.stone@hartwellstone.com",
+    "notableMatters": ["M-2024-0455", "M-2023-0612", "M-2022-0788"]
+  },
+  {
+    "id": "p-chandrasekhar",
+    "name": "Dr. Ravi Chandrasekhar",
+    "practiceAreas": ["regulatory_compliance"],
+    "expertiseTags": ["eu_competition", "dg_comp", "financial_services_regulation", "ai_act"],
+    "office": "Brussels",
+    "email": "r.chandrasekhar@hartwellstone.com",
+    "notableMatters": ["M-2023-0190", "M-2024-0290", "M-2024-0511"]
+  },
+  {
+    "id": "p-webb",
+    "name": "Marcus Webb",
+    "practiceAreas": ["banking_finance", "restructuring_insolvency"],
+    "expertiseTags": ["leveraged_finance", "restructuring", "distressed", "uk_schemes"],
+    "office": "London",
+    "email": "m.webb@hartwellstone.com",
+    "notableMatters": ["M-2023-0421", "M-2024-0667"]
+  },
+  {
+    "id": "p-vasquez",
+    "name": "Elena Vasquez",
+    "practiceAreas": ["ip_technology"],
+    "expertiseTags": ["tech_litigation", "ai_regulation", "patent_litigation", "trade_secrets"],
+    "office": "London/New York",
+    "email": "e.vasquez@hartwellstone.com",
+    "notableMatters": ["M-2024-0233", "M-2024-0501", "M-2023-0814"]
+  },
+  {
+    "id": "p-lin",
+    "name": "Robert Lin",
+    "practiceAreas": ["sanctions_trade"],
+    "expertiseTags": ["ofac", "eu_sanctions", "uk_ofsi", "export_controls", "china_us_controls"],
+    "office": "New York",
+    "email": "r.lin@hartwellstone.com",
+    "notableMatters": ["M-2023-0501", "M-2024-0331", "M-2024-0712"]
+  },
+  {
+    "id": "p-mitchell",
+    "name": "Sarah Mitchell",
+    "practiceAreas": ["energy_natural_resources"],
+    "expertiseTags": ["north_sea", "energy_transition", "renewables", "windfall_tax", "decommissioning"],
+    "office": "London",
+    "email": "s.mitchell@hartwellstone.com",
+    "notableMatters": ["M-2023-0891", "M-2024-0118", "M-2022-0902"]
+  },
+  {
+    "id": "p-vogel",
+    "name": "Henrik Vogel",
+    "practiceAreas": ["corporate_ma", "regulatory_compliance"],
+    "expertiseTags": ["german_ma", "eu_fdi", "automotive_ma", "cross_border_clearance"],
+    "office": "Frankfurt",
+    "email": "h.vogel@hartwellstone.com",
+    "notableMatters": ["M-2023-0552", "M-2024-0388"]
+  },
+  {
+    "id": "p-dubois",
+    "name": "Marie Dubois",
+    "practiceAreas": ["litigation_disputes", "regulatory_compliance"],
+    "expertiseTags": ["class_actions", "eu_disputes", "consumer_litigation", "antitrust_followon"],
+    "office": "Brussels",
+    "email": "m.dubois@hartwellstone.com",
+    "notableMatters": ["M-2024-0241", "M-2023-0712"]
+  },
+  {
+    "id": "p-park",
+    "name": "David Park",
+    "practiceAreas": ["real_estate"],
+    "expertiseTags": ["commercial_real_estate", "reits", "uk_offices", "logistics_re"],
+    "office": "London",
+    "email": "d.park@hartwellstone.com",
+    "notableMatters": ["M-2023-0114", "M-2024-0099"]
+  }
+]

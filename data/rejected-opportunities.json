@@ -1,0 +1,1153 @@
+{
+  "generatedAt": "2026-05-15T19:48:49.969Z",
+  "generatedBy": "scripts/reconstruct-rejected-opportunities.js",
+  "source": "data/demo-snapshot.backup-pre-no-llm-bake.json (heuristic bake) vs current (partner-judged)",
+  "reasonTaxonomy": {
+    "cross_entity_attribution": "Cited signals are about a different entity or context",
+    "service_mismatch": "Service doesn't fit the signal content",
+    "service_overgeneration": "Heuristic spawned multiple irrelevant services from one cluster",
+    "zero_signals": "Cross-sell with no supporting event signals",
+    "weak_trigger": "Signal exists but creates no actionable legal need",
+    "dockets_only": "Court captions only, no substantive claim text",
+    "substring_collision": "Sanctions / alias false-positive on unrelated entity",
+    "duplicate_engine_output": "Same (entity, service) surfaced by another engine — kept higher-scored version",
+    "system_miss": "Heuristic call was defensible; partner-judgment dropped it but worth re-review"
+  },
+  "rejections": [
+    {
+      "id": "rej-1f125fdf0636e0b4",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "esg_compliance",
+      "engineSource": "cross_sell",
+      "originalScore": 66,
+      "signalIds": [
+        "sig-68ca2fcdedf248fd",
+        "sig-7ada12cab0255169"
+      ],
+      "signals": [
+        {
+          "id": "sig-68ca2fcdedf248fd",
+          "source": "tavily",
+          "title": "bp inks offshore gas exploration deal with Venezuela - Oil & Gas 360",
+          "excerpt": "# bp inks offshore gas exploration deal with Venezuela. * BP, offshore gas exploration, Venezuela. (World Oil) – **bp Plc** and Venezuela agreed on a deal to explore for natural gas offshore as the South American country’s energy revival gathers pace following the U.S. capture of",
+          "url": "https://www.oilandgas360.com/bp-inks-offshore-gas-exploration-deal-with-venezuela/",
+          "publishedAt": "2026-04-30T16:24:06.000Z"
+        },
+        {
+          "id": "sig-7ada12cab0255169",
+          "source": "tavily",
+          "title": "bp inks offshore gas exploration deal with Venezuela - World Oil",
+          "excerpt": "World Oil Events Gulf Energy Information Excellence Awards Women's Global Leadership Conference World Oil Forecast Breakfast Deepwater Development Conference (MCEDD). # bp inks offshore gas exploration deal with Venezuela. (Bloomberg) – **bp Plc** and Venezuela agreed on a deal t",
+          "url": "https://www.worldoil.com/news/2026/4/29/bp-inks-offshore-gas-exploration-deal-with-venezuela/",
+          "publishedAt": "2026-04-29T21:39:13.000Z"
+        }
+      ],
+      "reasonCode": "zero_signals",
+      "reasonLabel": "Cross-sell with no supporting event signals",
+      "reasonText": "Cross-sell match on sector positioning only. Cited signals are about BP's Venezuela gas exploration deal — unrelated to ESG compliance work. No prior ESG matter pattern with us to justify a structural cross-sell either.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-a2e22c8126e2b2b2",
+      "entity": "c-exxon",
+      "entityName": "Exxon Mobil Corporation",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "USA",
+      "service": "ma_advisory",
+      "engineSource": "cross_sell",
+      "originalScore": 64,
+      "signalIds": [
+        "sig-c89f02a33f6ba20d"
+      ],
+      "signals": [
+        {
+          "id": "sig-c89f02a33f6ba20d",
+          "source": "tavily",
+          "title": "5th Circ. Unsure If Exxon Can Be Subpoenaed In French Suit - Law360",
+          "excerpt": "# Law360. ## The Practice of Law. # Law360 Pulse. ## Business of Law. # Law360 Authority. ## Insurance Authority. ## Global Coverage. ## Law360 UK. # Law360 | The Practice of Law. # Law360 Authority | Deep News & Analysis. # Insurance Authority. # Law360 UK. # Law360 Canada. # Me",
+          "url": "https://www.law360.com/securities/articles/2471637/5th-circ-unsure-if-exxon-can-be-subpoenaed-in-french-suit?about=securities",
+          "publishedAt": "2026-04-29T21:36:00.000Z"
+        }
+      ],
+      "reasonCode": "service_mismatch",
+      "reasonLabel": "Service doesn't fit the signal content",
+      "reasonText": "Signal is a Law360 article on whether Exxon can be subpoenaed in a French climate suit — that's litigation work, not M&A. Heuristic regex matched on the word 'subpoena' → 'litigation' but routed to 'ma_advisory' for unclear reasons; misfire.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-5726fc606207b06b",
+      "entity": "c-chevron",
+      "entityName": "Chevron Corporation",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "USA",
+      "service": "cross_border_ma",
+      "engineSource": "cross_sell",
+      "originalScore": 64,
+      "signalIds": [],
+      "signals": [],
+      "reasonCode": "zero_signals",
+      "reasonLabel": "Cross-sell with no supporting event signals",
+      "reasonText": "Cross-sell match on sector cluster (oil_gas / mega) alone — no supporting event signals at all. Peer adoption pattern was thin in the same cluster; not strong enough to pitch without a triggering event.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-f3aa79ba2211df55",
+      "entity": "c-chevron",
+      "entityName": "Chevron Corporation",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "USA",
+      "service": "decommissioning",
+      "engineSource": "cross_sell",
+      "originalScore": 62,
+      "signalIds": [],
+      "signals": [],
+      "reasonCode": "zero_signals",
+      "reasonLabel": "Cross-sell with no supporting event signals",
+      "reasonText": "Same zero-signal pattern. Chevron has not announced any decommissioning programmes in the data; the heuristic matched on sector + service-frequency in peers, but the evidence is too thin.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-4b24b80d7e3d702d",
+      "entity": "c-gs",
+      "entityName": "The Goldman Sachs Group, Inc.",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "USA",
+      "service": "leveraged_finance",
+      "engineSource": "cross_sell",
+      "originalScore": 64,
+      "signalIds": [
+        "sig-71eef290ac819df8"
+      ],
+      "signals": [
+        {
+          "id": "sig-71eef290ac819df8",
+          "source": "tavily",
+          "title": "OpenAI Finalizes $10 Billion Joint Venture With PE Firms to Deploy AI - Bloomberg.com",
+          "excerpt": "## **Takeaways** by Bloomberg AISubscribe. OpenAI and Anthropic PBC are both forming joint ventures with some of world’s most recognizable financial institutions in a race to drive more adoption of their artificial intelligence tools. OpenAI has raised more than $4 billion from i",
+          "url": "https://www.bloomberg.com/news/articles/2026-05-04/openai-finalizes-10-billion-joint-venture-with-pe-firms-to-deploy-ai",
+          "publishedAt": "2026-05-04T15:03:52.000Z"
+        }
+      ],
+      "reasonCode": "weak_trigger",
+      "reasonLabel": "Signal exists but creates no actionable legal need",
+      "reasonText": "Cited signal is a Bloomberg article on OpenAI's $10bn joint venture with PE firms — GS isn't named as the financier in the article. The heuristic latched on 'PE firms' + 'banking' and assumed Goldman exposure; no concrete mandate.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-e524400846e79763",
+      "entity": "c-gs",
+      "entityName": "The Goldman Sachs Group, Inc.",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "USA",
+      "service": "acquisition_finance",
+      "engineSource": "cross_sell",
+      "originalScore": 58,
+      "signalIds": [
+        "sig-71eef290ac819df8"
+      ],
+      "signals": [
+        {
+          "id": "sig-71eef290ac819df8",
+          "source": "tavily",
+          "title": "OpenAI Finalizes $10 Billion Joint Venture With PE Firms to Deploy AI - Bloomberg.com",
+          "excerpt": "## **Takeaways** by Bloomberg AISubscribe. OpenAI and Anthropic PBC are both forming joint ventures with some of world’s most recognizable financial institutions in a race to drive more adoption of their artificial intelligence tools. OpenAI has raised more than $4 billion from i",
+          "url": "https://www.bloomberg.com/news/articles/2026-05-04/openai-finalizes-10-billion-joint-venture-with-pe-firms-to-deploy-ai",
+          "publishedAt": "2026-05-04T15:03:52.000Z"
+        }
+      ],
+      "reasonCode": "weak_trigger",
+      "reasonLabel": "Signal exists but creates no actionable legal need",
+      "reasonText": "Same OpenAI-PE-JV signal. Speculative routing — Goldman might or might not be the lender of choice for OpenAI's deployment financing; the article doesn't say.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-382fa48baf03775f",
+      "entity": "c-bofa",
+      "entityName": "Bank of America Corporation",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "USA",
+      "service": "leveraged_finance",
+      "engineSource": "cross_sell",
+      "originalScore": 58,
+      "signalIds": [],
+      "signals": [],
+      "reasonCode": "zero_signals",
+      "reasonLabel": "Cross-sell with no supporting event signals",
+      "reasonText": "Cross-sell from banking-sector cluster with no event signals. BoA's recent matter history with the firm doesn't include leveraged-finance work to justify a structural pitch either.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-2d1b504cc9d7b558",
+      "entity": "c-bofa",
+      "entityName": "Bank of America Corporation",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "USA",
+      "service": "acquisition_finance",
+      "engineSource": "cross_sell",
+      "originalScore": 58,
+      "signalIds": [],
+      "signals": [],
+      "reasonCode": "zero_signals",
+      "reasonLabel": "Cross-sell with no supporting event signals",
+      "reasonText": "Same — no signals, no triggering event. Cross-sell engine matched on peer-firm adoption of acquisition_finance in the banking cluster but couldn't connect it to a BoA-specific opportunity.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-b9edf0d45b875778",
+      "entity": "c-ms",
+      "entityName": "Morgan Stanley",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "USA",
+      "service": "financial_services_regulation",
+      "engineSource": "cross_sell",
+      "originalScore": 76,
+      "signalIds": [
+        "sig-095c00c304d7ba55"
+      ],
+      "signals": [
+        {
+          "id": "sig-095c00c304d7ba55",
+          "source": "tavily",
+          "title": "Morgan Stanley’s Investment Banking Program in Budapest Hit by U.S. Probe - WSJ",
+          "excerpt": "# Morgan Stanley’s Investment Banking Program in Budapest Hit by U.S. Probe - WSJ. https://www.wsj.com/finance/banking/morgan-stanleys-investment-banking-program-in-budapest-hit-by-u-s-probe-72e03e93. # Morgan Stanley’s Investment Banking Program in Budapest Hit by U.S. Probe. Im",
+          "url": "https://www.wsj.com/finance/banking/morgan-stanleys-investment-banking-program-in-budapest-hit-by-u-s-probe-72e03e93",
+          "publishedAt": "2026-05-05T01:00:00.000Z"
+        }
+      ],
+      "reasonCode": "weak_trigger",
+      "reasonLabel": "Signal exists but creates no actionable legal need",
+      "reasonText": "WSJ reports Morgan Stanley's Budapest investment-banking programme is under US probe. Real signal, but it's a single-source story without specifics — outreach pitch would need confirmation via PACER / DOJ press release before approaching the GC.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-c74cff8ccf65159b",
+      "entity": "c-ms",
+      "entityName": "Morgan Stanley",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "USA",
+      "service": "regulatory_defense",
+      "engineSource": "cross_sell",
+      "originalScore": 74,
+      "signalIds": [
+        "sig-095c00c304d7ba55"
+      ],
+      "signals": [
+        {
+          "id": "sig-095c00c304d7ba55",
+          "source": "tavily",
+          "title": "Morgan Stanley’s Investment Banking Program in Budapest Hit by U.S. Probe - WSJ",
+          "excerpt": "# Morgan Stanley’s Investment Banking Program in Budapest Hit by U.S. Probe - WSJ. https://www.wsj.com/finance/banking/morgan-stanleys-investment-banking-program-in-budapest-hit-by-u-s-probe-72e03e93. # Morgan Stanley’s Investment Banking Program in Budapest Hit by U.S. Probe. Im",
+          "url": "https://www.wsj.com/finance/banking/morgan-stanleys-investment-banking-program-in-budapest-hit-by-u-s-probe-72e03e93",
+          "publishedAt": "2026-05-05T01:00:00.000Z"
+        }
+      ],
+      "reasonCode": "duplicate_engine_output",
+      "reasonLabel": "Same (entity, service) surfaced by another engine — kept higher-scored version",
+      "reasonText": "Same WSJ Budapest-probe signal as the financial_services_regulation reject above. Heuristic spawned two services off the same investigation; if one is going to be pitched it should be financial_services_regulation, not both.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-65659a91470597b8",
+      "entity": "c-barclays",
+      "entityName": "Barclays plc",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "UK",
+      "service": "acquisition_finance",
+      "engineSource": "cross_sell",
+      "originalScore": 64,
+      "signalIds": [
+        "sig-08071b3221f738b5"
+      ],
+      "signals": [
+        {
+          "id": "sig-08071b3221f738b5",
+          "source": "tavily",
+          "title": "Rosen Law Firm Encourages Barclays PLC Investors to Inquire About Securities Class Action Investigation - BCS - Morningstar",
+          "excerpt": "# Rosen Law Firm Encourages Barclays PLC Investors to Inquire About Securities Class Action Investigation - BCS. Why: Rosen Law Firm, a global investor rights law firm, continues to investigate potential securities claims on behalf of shareholders of Barclays PLC (NYSE: BCS) resu",
+          "url": "https://www.morningstar.com/news/pr-newswire/20260511dc55768/rosen-law-firm-encourages-barclays-plc-investors-to-inquire-about-securities-class-action-investigation-bcs",
+          "publishedAt": "2026-05-11T05:25:14.000Z"
+        }
+      ],
+      "reasonCode": "service_mismatch",
+      "reasonLabel": "Service doesn't fit the signal content",
+      "reasonText": "Cited signal is a Rosen Law Firm press release encouraging Barclays securities-class-action investigators — that's a SECURITIES_LITIGATION trigger (defence side), not acquisition_finance. Service routing misfire.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-0bc4622dd8922b80",
+      "entity": "c-apple",
+      "entityName": "Apple Inc.",
+      "entityType": "client",
+      "sector": "technology",
+      "hqJurisdiction": "USA",
+      "service": "uk_competition",
+      "engineSource": "cross_sell",
+      "originalScore": 74,
+      "signalIds": [
+        "sig-89f8f76ccc371f86",
+        "sig-59a58953f8304f8f",
+        "sig-6e5076320017649a"
+      ],
+      "signals": [
+        {
+          "id": "sig-89f8f76ccc371f86",
+          "source": "tavily",
+          "title": "Rave Sues Apple for Kicking Its Co-Viewing Product Off App Store - Bloomberg Law News",
+          "excerpt": "# Rave Sues Apple for Kicking Its Co-Viewing Product Off App Store. May 7, 2026, 8:16 PM UTC. Apple Inc. was accused Thursday by Rave Inc. of monopolizing the smartphone market and removing its “co-viewing” app while promoting Apple’s competing SharePlay product. Apple allegedly ",
+          "url": "https://news.bloomberglaw.com/antitrust/rave-sues-apple-for-kicking-its-co-viewing-product-off-app-store",
+          "publishedAt": "2026-05-07T20:16:08.000Z"
+        },
+        {
+          "id": "sig-59a58953f8304f8f",
+          "source": "tavily",
+          "title": "Apple Апп Сторе устидан суд жараёнида яна мағлуб бўлди - Zamin.uz",
+          "excerpt": "# Apple loses again in the lawsuit over the App Store. The U.S. Court of Appeals for the Ninth Circuit has denied Apple's request to pause changes to its App Store payment system. The iPhone manufacturer is now required to allow developers to include links to external payment sys",
+          "url": "https://zamin.uz/en/technology/198479-apple-loses-again-in-the-lawsuit-over-the-app-store.html",
+          "publishedAt": "2026-04-29T14:24:46.000Z"
+        },
+        {
+          "id": "sig-6e5076320017649a",
+          "source": "tavily",
+          "title": "Apple reaches $250 million settlement with iPhone owners over AI claims - The Jerusalem Post",
+          "excerpt": "# Apple settles with iPhone owners for $250 million over misleading AI claims. ## The Tuesday settlement resolved claims that the company misled consumers about the capabilities of its “Apple Intelligence” system, with some users eligible for payments of up to $95. In this photo ",
+          "url": "https://www.jpost.com/international/article-895305",
+          "publishedAt": "2026-05-10T05:17:51.000Z"
+        }
+      ],
+      "reasonCode": "substring_collision",
+      "reasonLabel": "Sanctions / alias false-positive on unrelated entity",
+      "reasonText": "Heuristic linked Apple Inc. via an OFAC SDN substring match against 'ORIENTAL APPLE COMPANY PTE LTD' (unrelated foreign entity). The other cited signals — Rave's app-store suit, a $250m AI-claims settlement — are real Apple matters but don't create UK competition work specifically.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-fced1710d12ebd74",
+      "entity": "c-apple",
+      "entityName": "Apple Inc.",
+      "entityType": "client",
+      "sector": "technology",
+      "hqJurisdiction": "USA",
+      "service": "eu_competition",
+      "engineSource": "cross_sell",
+      "originalScore": 68,
+      "signalIds": [
+        "sig-89f8f76ccc371f86",
+        "sig-59a58953f8304f8f",
+        "sig-6e5076320017649a"
+      ],
+      "signals": [
+        {
+          "id": "sig-89f8f76ccc371f86",
+          "source": "tavily",
+          "title": "Rave Sues Apple for Kicking Its Co-Viewing Product Off App Store - Bloomberg Law News",
+          "excerpt": "# Rave Sues Apple for Kicking Its Co-Viewing Product Off App Store. May 7, 2026, 8:16 PM UTC. Apple Inc. was accused Thursday by Rave Inc. of monopolizing the smartphone market and removing its “co-viewing” app while promoting Apple’s competing SharePlay product. Apple allegedly ",
+          "url": "https://news.bloomberglaw.com/antitrust/rave-sues-apple-for-kicking-its-co-viewing-product-off-app-store",
+          "publishedAt": "2026-05-07T20:16:08.000Z"
+        },
+        {
+          "id": "sig-59a58953f8304f8f",
+          "source": "tavily",
+          "title": "Apple Апп Сторе устидан суд жараёнида яна мағлуб бўлди - Zamin.uz",
+          "excerpt": "# Apple loses again in the lawsuit over the App Store. The U.S. Court of Appeals for the Ninth Circuit has denied Apple's request to pause changes to its App Store payment system. The iPhone manufacturer is now required to allow developers to include links to external payment sys",
+          "url": "https://zamin.uz/en/technology/198479-apple-loses-again-in-the-lawsuit-over-the-app-store.html",
+          "publishedAt": "2026-04-29T14:24:46.000Z"
+        },
+        {
+          "id": "sig-6e5076320017649a",
+          "source": "tavily",
+          "title": "Apple reaches $250 million settlement with iPhone owners over AI claims - The Jerusalem Post",
+          "excerpt": "# Apple settles with iPhone owners for $250 million over misleading AI claims. ## The Tuesday settlement resolved claims that the company misled consumers about the capabilities of its “Apple Intelligence” system, with some users eligible for payments of up to $95. In this photo ",
+          "url": "https://www.jpost.com/international/article-895305",
+          "publishedAt": "2026-05-10T05:17:51.000Z"
+        }
+      ],
+      "reasonCode": "substring_collision",
+      "reasonLabel": "Sanctions / alias false-positive on unrelated entity",
+      "reasonText": "Same OFAC-substring + Rave-app-store signals as the UK reject. The app-store dispute could conceivably trigger EU competition follow-on, but the cited material doesn't establish that link.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-59f7f6a17e074584",
+      "entity": "c-amazon",
+      "entityName": "Amazon.com, Inc.",
+      "entityType": "client",
+      "sector": "technology",
+      "hqJurisdiction": "USA",
+      "service": "ai_regulation_advisory",
+      "engineSource": "cross_sell",
+      "originalScore": 62,
+      "signalIds": [
+        "sig-83750717156abf95",
+        "sig-ce21d9ca84a22f68"
+      ],
+      "signals": [
+        {
+          "id": "sig-83750717156abf95",
+          "source": "tavily",
+          "title": "Вольксwаген Ривиан компаниясининг энг йирик акциядорига айланди - Zamin.uz",
+          "excerpt": "# Volkswagen Becomes Rivian's Largest Shareholder. According to new filings with the U.S. Securities and Exchange Commission, Volkswagen has surpassed Amazon to become Rivian's largest shareholder. Volkswagen Group's stake in Rivian has increased from 8.6% to 15.9% in less than t",
+          "url": "https://zamin.uz/en/technology/199239-volkswagen-becomes-rivian-s-largest-shareholder.html",
+          "publishedAt": "2026-05-05T20:50:17.000Z"
+        },
+        {
+          "id": "sig-ce21d9ca84a22f68",
+          "source": "tavily",
+          "title": "FCA US recalls more than 12K Ram pickup trucks. See affected models - USA Today",
+          "excerpt": "The U.S. Consumer Product Safety Commission said Amazon may be held responsible for the recall of faulty products. Fiat Chrysler Automobiles (FCA US, LLC) has recalled nearly 13,000 Ram pickup trucks due to a software error that may cause a driver to lose control of their vehicle",
+          "url": "https://www.usatoday.com/story/cars/recalls/2026/05/11/fca-us-ram-pickup-truck-recall/90028118007/",
+          "publishedAt": "2026-05-11T15:42:00.000Z"
+        }
+      ],
+      "reasonCode": "cross_entity_attribution",
+      "reasonLabel": "Cited signals are about a different entity or context",
+      "reasonText": "Cited signals are a Volkswagen-Rivian filing in Uzbek and an FCA US (Stellantis) Ram pickup recall. Neither involves Amazon, let alone AI regulation. Pure entity-link false-positive — likely matched on 'AI' keyword in tangential coverage.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-19bc8587e04e744b",
+      "entity": "pr-anthropic",
+      "entityName": "Anthropic, PBC",
+      "entityType": "prospect",
+      "sector": "technology",
+      "hqJurisdiction": "USA",
+      "service": "ai_regulation_advisory",
+      "engineSource": "prospect_discovery",
+      "originalScore": 52,
+      "signalIds": [
+        "sig-916fc8b28641de61"
+      ],
+      "signals": [
+        {
+          "id": "sig-916fc8b28641de61",
+          "source": "tavily",
+          "title": "White House AI Memo Hits Issues in Anthropic-Pentagon Feud - Bloomberg.com",
+          "excerpt": "# White House AI Memo Hits Issues in Anthropic-Pentagon Feud. Provide news feedback or report an error. Send a tip to our reporters. ## **Takeaways** by Bloomberg AISubscribe. White House officials are preparing a wide-ranging artificial intelligence policy memo that outlines req",
+          "url": "https://www.bloomberg.com/news/articles/2026-04-30/white-house-ai-memo-hits-issues-driving-anthropic-pentagon-feud",
+          "publishedAt": "2026-04-30T15:32:51.000Z"
+        }
+      ],
+      "reasonCode": "service_mismatch",
+      "reasonLabel": "Service doesn't fit the signal content",
+      "reasonText": "Heuristic picked ai_regulation_advisory off the White House AI memo / Pentagon-feud signal. The actual triggers for Anthropic in this snapshot are the three publisher copyright suits (Cruz, Chicken Soup, Cognella) — kept as commercial_litigation, which is the right service for AI training-data litigation defence.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-694aa1f5ed9397dc",
+      "entity": "pr-pfizer",
+      "entityName": "Pfizer Inc.",
+      "entityType": "prospect",
+      "sector": "pharma",
+      "hqJurisdiction": "USA",
+      "service": "patent_litigation",
+      "engineSource": "prospect_discovery",
+      "originalScore": 58,
+      "signalIds": [
+        "sig-2e176b4f3fde6a44"
+      ],
+      "signals": [
+        {
+          "id": "sig-2e176b4f3fde6a44",
+          "source": "tavily",
+          "title": "GSK Ends Acuitas’ Bid to Clear Covid Shot of Patent Allegations - Bloomberg Law News",
+          "excerpt": "# GSK Ends Acuitas’ Bid to Clear Covid Shot of Patent Allegations. May 8, 2026, 4:07 PM UTC. A federal judge tossed Acuitas Therapeutics Inc.'s lawsuit seeking a declaration the Covid-19 vaccine Comirnaty doesn’t infringe patents that GSK Plc asserts in a separate case against Ac",
+          "url": "https://news.bloomberglaw.com/ip-law/gsk-ends-acuitas-bid-to-clear-covid-shot-of-patent-allegations",
+          "publishedAt": "2026-05-08T16:07:49.000Z"
+        }
+      ],
+      "reasonCode": "service_mismatch",
+      "reasonLabel": "Service doesn't fit the signal content",
+      "reasonText": "Cited signal is a GSK-Acuitas COVID-shot patent case — about GSK, not Pfizer. Heuristic entity-linked Pfizer via the 'Covid' keyword. Pfizer's real Class-Action wave (10+ filings on a single day) is the kept opportunity.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-dd0bbf6d49c21635",
+      "entity": "c-hsbc",
+      "entityName": "HSBC Holdings plc",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "UK",
+      "service": "regulatory_defense",
+      "engineSource": "event_intelligence",
+      "originalScore": 78,
+      "signalIds": [
+        "sig-f0de88e9f720a965",
+        "sig-e03f5c4f6a9f9a15",
+        "sig-1c56deb6fe3165cc",
+        "sig-6968a3910626ae6e",
+        "sig-f7d815c123838645"
+      ],
+      "signals": [
+        {
+          "id": "sig-f0de88e9f720a965",
+          "source": "tavily",
+          "title": "HSBC Results Disappoint With Shock $400 Million MFS Charge - Yahoo Finance",
+          "excerpt": "(Bloomberg) -- HSBC Holdings Plc reported profit that missed estimates, weighed down by an unexpected charge related to the collapse of UK mortgage lender Market Financial Solutions Ltd. and rising economic risks stemming from the conflict in the Middle East. This was driven part",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/hsbc-results-disappoint-surprise-400-091813485.html",
+          "publishedAt": "2026-05-05T11:57:51.000Z"
+        },
+        {
+          "id": "sig-e03f5c4f6a9f9a15",
+          "source": "tavily",
+          "title": "HSBC Profit Misses on Charges Related to the UK, Middle East - Bloomberg.com",
+          "excerpt": "# HSBC Results Disappoint With Shock $400 Million MFS Charge. Send a tip to our reporters. HSBC Holdings Plc reported profit that missed estimates, weighed down by an unexpected charge related to the collapse of UK mortgage lender Market Financial Solutions Ltd. and rising econom",
+          "url": "https://www.bloomberg.com/news/articles/2026-05-05/hsbc-profit-misses-on-charges-related-to-the-uk-middle-east",
+          "publishedAt": "2026-05-05T11:57:51.000Z"
+        },
+        {
+          "id": "sig-1c56deb6fe3165cc",
+          "source": "tavily",
+          "title": "HSBC profits fall amid $400m fraud-related charge and Iran war - The Guardian",
+          "excerpt": "HSBC has taken a $1.3bn (£961m) hit to profits, fuelled by the fallout from the US-Israel war on Iran and fraud in the troubled private credit sector. The profit decline was linked to a jump in the potential losses it could see on soured loans to $1.3bn, which included $300m spec",
+          "url": "https://www.theguardian.com/business/2026/may/05/hsbc-profits-fall-fraud-related-charge-iran-war",
+          "publishedAt": "2026-05-05T07:22:50.000Z"
+        },
+        {
+          "id": "sig-6968a3910626ae6e",
+          "source": "tavily",
+          "title": "HSBC reports flat first-quarter profit; expects further credit loss - Reuters",
+          "excerpt": "# HSBC profit underwhelms on unexpected $400 million private credit loss | Reuters. ## Browse World. ## Browse Business. HONG KONG/LONDON, May 5 (Reuters) - HSBC (HSBA.L), opens new tab reported an unexpected $400 million loss linked to a fraud case ‌in Britain on Tuesday, causin",
+          "url": "https://www.reuters.com/business/finance/hsbc-reports-flat-first-quarter-profit-misses-estimates-2026-05-05/",
+          "publishedAt": "2026-05-05T04:11:02.000Z"
+        },
+        {
+          "id": "sig-f7d815c123838645",
+          "source": "tavily",
+          "title": "HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud - WSJ",
+          "excerpt": "# HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud - WSJ. S&P 500 Futures 7251.25 0.29%. # HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud. Image 1: A man wearing a face mask uses his phone outside the HSBC headquarters in Hong Kong. HSBCHSBA-5.62%decre",
+          "url": "https://www.wsj.com/finance/banking/hsbc-posts-flat-quarterly-net-profit-11339e59",
+          "publishedAt": "2026-05-05T04:42:00.000Z"
+        }
+      ],
+      "reasonCode": "service_overgeneration",
+      "reasonLabel": "Heuristic spawned multiple irrelevant services from one cluster",
+      "reasonText": "Same HSBC $400m MFS-fraud cluster that produced the kept financial_services_regulation opp. Regulatory_defense is a plausible adjacent service, but FCA s.166 review (financial_services_regulation) is the more specific routing for this trigger.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-898b9745f74fdc98",
+      "entity": "c-hsbc",
+      "entityName": "HSBC Holdings plc",
+      "entityType": "client",
+      "sector": "banking",
+      "hqJurisdiction": "UK",
+      "service": "commercial_litigation",
+      "engineSource": "event_intelligence",
+      "originalScore": 74,
+      "signalIds": [
+        "sig-f0de88e9f720a965",
+        "sig-e03f5c4f6a9f9a15",
+        "sig-1c56deb6fe3165cc",
+        "sig-6968a3910626ae6e",
+        "sig-f7d815c123838645"
+      ],
+      "signals": [
+        {
+          "id": "sig-f0de88e9f720a965",
+          "source": "tavily",
+          "title": "HSBC Results Disappoint With Shock $400 Million MFS Charge - Yahoo Finance",
+          "excerpt": "(Bloomberg) -- HSBC Holdings Plc reported profit that missed estimates, weighed down by an unexpected charge related to the collapse of UK mortgage lender Market Financial Solutions Ltd. and rising economic risks stemming from the conflict in the Middle East. This was driven part",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/hsbc-results-disappoint-surprise-400-091813485.html",
+          "publishedAt": "2026-05-05T11:57:51.000Z"
+        },
+        {
+          "id": "sig-e03f5c4f6a9f9a15",
+          "source": "tavily",
+          "title": "HSBC Profit Misses on Charges Related to the UK, Middle East - Bloomberg.com",
+          "excerpt": "# HSBC Results Disappoint With Shock $400 Million MFS Charge. Send a tip to our reporters. HSBC Holdings Plc reported profit that missed estimates, weighed down by an unexpected charge related to the collapse of UK mortgage lender Market Financial Solutions Ltd. and rising econom",
+          "url": "https://www.bloomberg.com/news/articles/2026-05-05/hsbc-profit-misses-on-charges-related-to-the-uk-middle-east",
+          "publishedAt": "2026-05-05T11:57:51.000Z"
+        },
+        {
+          "id": "sig-1c56deb6fe3165cc",
+          "source": "tavily",
+          "title": "HSBC profits fall amid $400m fraud-related charge and Iran war - The Guardian",
+          "excerpt": "HSBC has taken a $1.3bn (£961m) hit to profits, fuelled by the fallout from the US-Israel war on Iran and fraud in the troubled private credit sector. The profit decline was linked to a jump in the potential losses it could see on soured loans to $1.3bn, which included $300m spec",
+          "url": "https://www.theguardian.com/business/2026/may/05/hsbc-profits-fall-fraud-related-charge-iran-war",
+          "publishedAt": "2026-05-05T07:22:50.000Z"
+        },
+        {
+          "id": "sig-6968a3910626ae6e",
+          "source": "tavily",
+          "title": "HSBC reports flat first-quarter profit; expects further credit loss - Reuters",
+          "excerpt": "# HSBC profit underwhelms on unexpected $400 million private credit loss | Reuters. ## Browse World. ## Browse Business. HONG KONG/LONDON, May 5 (Reuters) - HSBC (HSBA.L), opens new tab reported an unexpected $400 million loss linked to a fraud case ‌in Britain on Tuesday, causin",
+          "url": "https://www.reuters.com/business/finance/hsbc-reports-flat-first-quarter-profit-misses-estimates-2026-05-05/",
+          "publishedAt": "2026-05-05T04:11:02.000Z"
+        },
+        {
+          "id": "sig-f7d815c123838645",
+          "source": "tavily",
+          "title": "HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud - WSJ",
+          "excerpt": "# HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud - WSJ. S&P 500 Futures 7251.25 0.29%. # HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud. Image 1: A man wearing a face mask uses his phone outside the HSBC headquarters in Hong Kong. HSBCHSBA-5.62%decre",
+          "url": "https://www.wsj.com/finance/banking/hsbc-posts-flat-quarterly-net-profit-11339e59",
+          "publishedAt": "2026-05-05T04:42:00.000Z"
+        }
+      ],
+      "reasonCode": "service_overgeneration",
+      "reasonLabel": "Heuristic spawned multiple irrelevant services from one cluster",
+      "reasonText": "Same MFS-fraud cluster. Recovery litigation against the fraudster IS a commercial_litigation angle, but the lead service for HSBC's exposure is the FCA-level regulatory review — kept as financial_services_regulation.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-3a24356e9781062d",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "ofac_advisory",
+      "engineSource": "event_intelligence",
+      "originalScore": 79,
+      "signalIds": [
+        "sig-68ca2fcdedf248fd",
+        "sig-7ada12cab0255169",
+        "sig-e75eefaf6353d2c3",
+        "sig-39aac17e131eaa66",
+        "sig-bf5df47b175cb34a"
+      ],
+      "signals": [
+        {
+          "id": "sig-68ca2fcdedf248fd",
+          "source": "tavily",
+          "title": "bp inks offshore gas exploration deal with Venezuela - Oil & Gas 360",
+          "excerpt": "# bp inks offshore gas exploration deal with Venezuela. * BP, offshore gas exploration, Venezuela. (World Oil) – **bp Plc** and Venezuela agreed on a deal to explore for natural gas offshore as the South American country’s energy revival gathers pace following the U.S. capture of",
+          "url": "https://www.oilandgas360.com/bp-inks-offshore-gas-exploration-deal-with-venezuela/",
+          "publishedAt": "2026-04-30T16:24:06.000Z"
+        },
+        {
+          "id": "sig-7ada12cab0255169",
+          "source": "tavily",
+          "title": "bp inks offshore gas exploration deal with Venezuela - World Oil",
+          "excerpt": "World Oil Events Gulf Energy Information Excellence Awards Women's Global Leadership Conference World Oil Forecast Breakfast Deepwater Development Conference (MCEDD). # bp inks offshore gas exploration deal with Venezuela. (Bloomberg) – **bp Plc** and Venezuela agreed on a deal t",
+          "url": "https://www.worldoil.com/news/2026/4/29/bp-inks-offshore-gas-exploration-deal-with-venezuela/",
+          "publishedAt": "2026-04-29T21:39:13.000Z"
+        },
+        {
+          "id": "sig-e75eefaf6353d2c3",
+          "source": "tavily",
+          "title": "OPay eyes $4 billion valuation, hires Citigroup Inc., Deutsche Bank AG, JPMorgan Chase & Co. for planned US IPO - Business Insider Africa",
+          "excerpt": "# OPay eyes $4 billion valuation, hires Citigroup Inc., Deutsche Bank AG, JPMorgan Chase & Co. for planned US IPO. OPay eyes $4 billion valuation, hires Citigroup Inc., Deutsche Bank AG, JPMorgan Chase & Co. for planned US IPO. * markets  UAE-based African Rail to raise $170 mill",
+          "url": "https://africa.businessinsider.com/local/markets/opay-eyes-dollar4-billion-valuation-hires-citigroup-inc-deutsche-bank-ag-jpmorgan/6egj0h0",
+          "publishedAt": "2026-05-02T17:45:58.000Z"
+        },
+        {
+          "id": "sig-39aac17e131eaa66",
+          "source": "tavily",
+          "title": "Lockheed Martin Awarded U.S. Space Force Space-Based Interceptor Contracts to Meet Layered Missile Defense Demand – Company Announcement - FT.com - Financial Times",
+          "excerpt": "### Lockheed Martin Awarded U.S. Space Force Space-Based Interceptor Contracts to Meet Layered Missile Defense Demand. , May 1, 2026 /PRNewswire/ -- Lockheed Martin (NYSE: LMT) has been selected by U.S. Space Force Space Systems Command to develop capabilities supporting the Spac",
+          "url": "https://markets.ft.com/data/announce/detail?dockey=600-202605011752PR_NEWS_USPRX____SF49490-1",
+          "publishedAt": "2026-05-01T21:52:00.000Z"
+        },
+        {
+          "id": "sig-bf5df47b175cb34a",
+          "source": "tavily",
+          "title": "Lockheed Martin bows out of US Navy T-45 replacement competition - FlightGlobal",
+          "excerpt": "Defence manufacturer Lockheed Martin has bowed out of the competition to find a new trainer jet for the US Navy. After years of delays and requirement development, the navy in March **launched** the Undergraduate Jet Training System (UJTS) effort to replace its Boeing T-45 Goshaw",
+          "url": "https://www.flightglobal.com/archive/2026/05/lockheed-martin-bows-out-of-us-navy-t-45-replacement-competition/",
+          "publishedAt": "2026-05-01T18:11:02.000Z"
+        }
+      ],
+      "reasonCode": "service_mismatch",
+      "reasonLabel": "Service doesn't fit the signal content",
+      "reasonText": "Signals are a BP-Venezuela offshore gas exploration deal plus an OPay valuation press release that names JPMorgan and Citi (not BP). Venezuela exposure could merit OFAC review eventually, but the cited articles don't describe a sanctions trigger — they're commercial M&A coverage.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-13513d1f84814597",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "joint_ventures",
+      "engineSource": "event_intelligence",
+      "originalScore": 72,
+      "signalIds": [
+        "sig-68ca2fcdedf248fd",
+        "sig-7ada12cab0255169",
+        "sig-e75eefaf6353d2c3",
+        "sig-39aac17e131eaa66",
+        "sig-bf5df47b175cb34a"
+      ],
+      "signals": [
+        {
+          "id": "sig-68ca2fcdedf248fd",
+          "source": "tavily",
+          "title": "bp inks offshore gas exploration deal with Venezuela - Oil & Gas 360",
+          "excerpt": "# bp inks offshore gas exploration deal with Venezuela. * BP, offshore gas exploration, Venezuela. (World Oil) – **bp Plc** and Venezuela agreed on a deal to explore for natural gas offshore as the South American country’s energy revival gathers pace following the U.S. capture of",
+          "url": "https://www.oilandgas360.com/bp-inks-offshore-gas-exploration-deal-with-venezuela/",
+          "publishedAt": "2026-04-30T16:24:06.000Z"
+        },
+        {
+          "id": "sig-7ada12cab0255169",
+          "source": "tavily",
+          "title": "bp inks offshore gas exploration deal with Venezuela - World Oil",
+          "excerpt": "World Oil Events Gulf Energy Information Excellence Awards Women's Global Leadership Conference World Oil Forecast Breakfast Deepwater Development Conference (MCEDD). # bp inks offshore gas exploration deal with Venezuela. (Bloomberg) – **bp Plc** and Venezuela agreed on a deal t",
+          "url": "https://www.worldoil.com/news/2026/4/29/bp-inks-offshore-gas-exploration-deal-with-venezuela/",
+          "publishedAt": "2026-04-29T21:39:13.000Z"
+        },
+        {
+          "id": "sig-e75eefaf6353d2c3",
+          "source": "tavily",
+          "title": "OPay eyes $4 billion valuation, hires Citigroup Inc., Deutsche Bank AG, JPMorgan Chase & Co. for planned US IPO - Business Insider Africa",
+          "excerpt": "# OPay eyes $4 billion valuation, hires Citigroup Inc., Deutsche Bank AG, JPMorgan Chase & Co. for planned US IPO. OPay eyes $4 billion valuation, hires Citigroup Inc., Deutsche Bank AG, JPMorgan Chase & Co. for planned US IPO. * markets  UAE-based African Rail to raise $170 mill",
+          "url": "https://africa.businessinsider.com/local/markets/opay-eyes-dollar4-billion-valuation-hires-citigroup-inc-deutsche-bank-ag-jpmorgan/6egj0h0",
+          "publishedAt": "2026-05-02T17:45:58.000Z"
+        },
+        {
+          "id": "sig-39aac17e131eaa66",
+          "source": "tavily",
+          "title": "Lockheed Martin Awarded U.S. Space Force Space-Based Interceptor Contracts to Meet Layered Missile Defense Demand – Company Announcement - FT.com - Financial Times",
+          "excerpt": "### Lockheed Martin Awarded U.S. Space Force Space-Based Interceptor Contracts to Meet Layered Missile Defense Demand. , May 1, 2026 /PRNewswire/ -- Lockheed Martin (NYSE: LMT) has been selected by U.S. Space Force Space Systems Command to develop capabilities supporting the Spac",
+          "url": "https://markets.ft.com/data/announce/detail?dockey=600-202605011752PR_NEWS_USPRX____SF49490-1",
+          "publishedAt": "2026-05-01T21:52:00.000Z"
+        },
+        {
+          "id": "sig-bf5df47b175cb34a",
+          "source": "tavily",
+          "title": "Lockheed Martin bows out of US Navy T-45 replacement competition - FlightGlobal",
+          "excerpt": "Defence manufacturer Lockheed Martin has bowed out of the competition to find a new trainer jet for the US Navy. After years of delays and requirement development, the navy in March **launched** the Undergraduate Jet Training System (UJTS) effort to replace its Boeing T-45 Goshaw",
+          "url": "https://www.flightglobal.com/archive/2026/05/lockheed-martin-bows-out-of-us-navy-t-45-replacement-competition/",
+          "publishedAt": "2026-05-01T18:11:02.000Z"
+        }
+      ],
+      "reasonCode": "service_overgeneration",
+      "reasonLabel": "Heuristic spawned multiple irrelevant services from one cluster",
+      "reasonText": "Heuristic spawned this from the same Venezuela-gas-deal cluster that produced the OFAC reject. The deal is technically a JV, but the cluster is too thin to support a pitch (single deal announcement, no execution-phase needs surfaced).",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-c7275d822f80d692",
+      "entity": "c-vw",
+      "entityName": "Volkswagen AG",
+      "entityType": "client",
+      "sector": "automotive",
+      "hqJurisdiction": "EU",
+      "service": "product_liability",
+      "engineSource": "event_intelligence",
+      "originalScore": 62,
+      "signalIds": [
+        "sig-d3eb36ca84914efd",
+        "sig-71ecee05cd8bc2a1"
+      ],
+      "signals": [
+        {
+          "id": "sig-d3eb36ca84914efd",
+          "source": "tavily",
+          "title": "Volkswagen Taos Recalled Due to Fire Risk After Crash - Consumer Reports",
+          "excerpt": "# Volkswagen Taos Recalled Due to Fire Risk After Crash. Volkswagen Group of America is recalling certain 2025-2026 Volkswagen Taos SUVs because a dislodged or separated fuel pressure sensor in the fuel tank can cause a fuel leak after a rollover crash, increasing the risk of a f",
+          "url": "https://www.consumerreports.org/cars/car-recalls-defects/volkswagen-taos-recalled-due-to-fire-risk-after-crash-a2249499943/",
+          "publishedAt": "2026-04-29T18:02:08.000Z"
+        },
+        {
+          "id": "sig-71ecee05cd8bc2a1",
+          "source": "tavily",
+          "title": "Volkswagen Recalls 38,000 SUVs For Fuel Tank Issues - Motor1.com",
+          "excerpt": "# Volkswagen Recalls 38,000 SUVs For Fuel Tank Issues. ## The crossovers have a wiring harness for the fuel pressure sensor that is too short, which could result in a fuel leak. * **Volkswagen is recalling 38,710 Taos crossovers from the 202 and 2026 model years.**. Volkswagen is",
+          "url": "https://www.motor1.com/news/794434/volkswagen-taos-recall-fuel-tank-leak/",
+          "publishedAt": "2026-04-29T19:00:29.000Z"
+        }
+      ],
+      "reasonCode": "duplicate_engine_output",
+      "reasonLabel": "Same (entity, service) surfaced by another engine — kept higher-scored version",
+      "reasonText": "Two Consumer Reports / Motor1 articles on Volkswagen Taos recalls (fuel-tank + fire risk). Real triggers, but the engine-dedup pass kept the cross_border_ma version of the VW opp (Rivian top-shareholder filing) which scored higher. Product-liability remains a fair re-review candidate.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-df7d502db920a697",
+      "entity": "c-vw",
+      "entityName": "Volkswagen AG",
+      "entityType": "client",
+      "sector": "automotive",
+      "hqJurisdiction": "EU",
+      "service": "class_actions",
+      "engineSource": "event_intelligence",
+      "originalScore": 64,
+      "signalIds": [
+        "sig-d3eb36ca84914efd",
+        "sig-71ecee05cd8bc2a1"
+      ],
+      "signals": [
+        {
+          "id": "sig-d3eb36ca84914efd",
+          "source": "tavily",
+          "title": "Volkswagen Taos Recalled Due to Fire Risk After Crash - Consumer Reports",
+          "excerpt": "# Volkswagen Taos Recalled Due to Fire Risk After Crash. Volkswagen Group of America is recalling certain 2025-2026 Volkswagen Taos SUVs because a dislodged or separated fuel pressure sensor in the fuel tank can cause a fuel leak after a rollover crash, increasing the risk of a f",
+          "url": "https://www.consumerreports.org/cars/car-recalls-defects/volkswagen-taos-recalled-due-to-fire-risk-after-crash-a2249499943/",
+          "publishedAt": "2026-04-29T18:02:08.000Z"
+        },
+        {
+          "id": "sig-71ecee05cd8bc2a1",
+          "source": "tavily",
+          "title": "Volkswagen Recalls 38,000 SUVs For Fuel Tank Issues - Motor1.com",
+          "excerpt": "# Volkswagen Recalls 38,000 SUVs For Fuel Tank Issues. ## The crossovers have a wiring harness for the fuel pressure sensor that is too short, which could result in a fuel leak. * **Volkswagen is recalling 38,710 Taos crossovers from the 202 and 2026 model years.**. Volkswagen is",
+          "url": "https://www.motor1.com/news/794434/volkswagen-taos-recall-fuel-tank-leak/",
+          "publishedAt": "2026-04-29T19:00:29.000Z"
+        }
+      ],
+      "reasonCode": "duplicate_engine_output",
+      "reasonLabel": "Same (entity, service) surfaced by another engine — kept higher-scored version",
+      "reasonText": "Same VW recall signals as the product_liability reject. Two services off one event cluster; the manual-rewrite kept cross_border_ma instead. If the recalls drive litigation, this returns as a real class_actions opportunity.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-d6df8822c27500bb",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "ma_advisory",
+      "engineSource": "event_intelligence",
+      "originalScore": 82,
+      "signalIds": [
+        "sig-0ad567d414ae1121",
+        "sig-f6cd1f85e0722cd1",
+        "sig-ed2e471d4aa190c4",
+        "sig-69b836790e0a4660",
+        "sig-9451bdf36231efaf"
+      ],
+      "signals": [
+        {
+          "id": "sig-0ad567d414ae1121",
+          "source": "tavily",
+          "title": "bp considers exit from UK North Sea as CEO reviews upstream portfolio - World Oil",
+          "excerpt": "# bp considers exit from UK North Sea as CEO reviews upstream portfolio. (Bloomberg) – **bp Plc** is considering potentially exiting part or all of its operations in the UK North Sea, people familiar with the matter said, as the oil giant works to strip assets and pay down debt. ",
+          "url": "https://worldoil.com/news/2026/5/1/bp-considers-exit-from-uk-north-sea-as-ceo-reviews-upstream-portfolio/",
+          "publishedAt": "2026-05-01T15:55:10.000Z"
+        },
+        {
+          "id": "sig-f6cd1f85e0722cd1",
+          "source": "tavily",
+          "title": "BP Considers Exiting UK North Sea Assets, Reportedly Eyes £2bn Sale - Global Banking & Finance Review",
+          "excerpt": "# BP considers potential exit from UK North Sea assets, Bloomberg reports. ## BP Weighs Potential Exit From UK North Sea Assets Amid Strategic Review. May 1 (Reuters) - Energy major BP is considering potentially exiting part or all of its operations in the UK North Sea, Bloomberg",
+          "url": "https://www.globalbankingandfinance.com/bp-considers-potential-exit-uk-north-sea-assets-bloomberg/",
+          "publishedAt": "2026-05-01T15:24:13.000Z"
+        },
+        {
+          "id": "sig-ed2e471d4aa190c4",
+          "source": "tavily",
+          "title": "Trader or driller? Iran war exposes Big Oil's transatlantic divide - Reuters",
+          "excerpt": "LONDON, April 30 (Reuters) - European oil majors’ first-quarter profits were lifted by bumper trading gains as the Iran war upended supply chains, underscoring how the ability to shift barrels around the world can sometimes trump pumping them out of the ground. BP (BP.L), opens n",
+          "url": "https://www.reuters.com/markets/commodities/trader-or-driller-iran-war-exposes-big-oils-transatlantic-divide-2026-04-30/",
+          "publishedAt": "2026-04-30T06:11:33.000Z"
+        },
+        {
+          "id": "sig-69b836790e0a4660",
+          "source": "tavily",
+          "title": "Flares went off at BP refinery Sunday night, IDEM monitoring - Chicago Tribune",
+          "excerpt": "# Flares went off at BP refinery Sunday night, IDEM monitoring. Flares went off at BP’s Whiting refinery Sunday night after a “brief loss of electric power disrupted operations,” according to a company statement. “Power has been restored and operations are stable,” the BP stateme",
+          "url": "https://www.chicagotribune.com/2026/04/29/flares-went-off-at-bp-refinery-sunday-night-idem-monitoring/",
+          "publishedAt": "2026-04-29T20:51:46.000Z"
+        },
+        {
+          "id": "sig-9451bdf36231efaf",
+          "source": "tavily",
+          "title": "bound4blue Installs Wind Propulsion System on Maersk's Tanker - Marine News Magazine",
+          "excerpt": "# bound4blue Installs Wind Propulsion System on Maersk's Tanker. Wind propulsion specialist bound4blue has completed the second installation of its suction sail system for Maersk Tankers, fitting four 24-meter eSAIL units on the Maersk Tahiti at a shipyard in China. “The agreemen",
+          "url": "https://www.marinelink.com/news/boundblue-installs-wind-propulsion-system-538645",
+          "publishedAt": "2026-04-30T06:44:18.000Z"
+        }
+      ],
+      "reasonCode": "system_miss",
+      "reasonLabel": "Heuristic call was defensible; partner-judgment dropped it but worth re-review",
+      "reasonText": "Cited signals confirm BP is reviewing UK North Sea divestiture worth ~£2bn (World Oil + Global Banking & Finance Review). This was actually a real M&A trigger — partner-judgment pass dropped it in favour of letting the cluster be handled under force-majeure for the Hormuz angle. Worth re-review by the corporate partner.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-b4ce14673eb6b98d",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "decommissioning",
+      "engineSource": "event_intelligence",
+      "originalScore": 82,
+      "signalIds": [
+        "sig-0ad567d414ae1121",
+        "sig-f6cd1f85e0722cd1",
+        "sig-ed2e471d4aa190c4",
+        "sig-69b836790e0a4660",
+        "sig-9451bdf36231efaf"
+      ],
+      "signals": [
+        {
+          "id": "sig-0ad567d414ae1121",
+          "source": "tavily",
+          "title": "bp considers exit from UK North Sea as CEO reviews upstream portfolio - World Oil",
+          "excerpt": "# bp considers exit from UK North Sea as CEO reviews upstream portfolio. (Bloomberg) – **bp Plc** is considering potentially exiting part or all of its operations in the UK North Sea, people familiar with the matter said, as the oil giant works to strip assets and pay down debt. ",
+          "url": "https://worldoil.com/news/2026/5/1/bp-considers-exit-from-uk-north-sea-as-ceo-reviews-upstream-portfolio/",
+          "publishedAt": "2026-05-01T15:55:10.000Z"
+        },
+        {
+          "id": "sig-f6cd1f85e0722cd1",
+          "source": "tavily",
+          "title": "BP Considers Exiting UK North Sea Assets, Reportedly Eyes £2bn Sale - Global Banking & Finance Review",
+          "excerpt": "# BP considers potential exit from UK North Sea assets, Bloomberg reports. ## BP Weighs Potential Exit From UK North Sea Assets Amid Strategic Review. May 1 (Reuters) - Energy major BP is considering potentially exiting part or all of its operations in the UK North Sea, Bloomberg",
+          "url": "https://www.globalbankingandfinance.com/bp-considers-potential-exit-uk-north-sea-assets-bloomberg/",
+          "publishedAt": "2026-05-01T15:24:13.000Z"
+        },
+        {
+          "id": "sig-ed2e471d4aa190c4",
+          "source": "tavily",
+          "title": "Trader or driller? Iran war exposes Big Oil's transatlantic divide - Reuters",
+          "excerpt": "LONDON, April 30 (Reuters) - European oil majors’ first-quarter profits were lifted by bumper trading gains as the Iran war upended supply chains, underscoring how the ability to shift barrels around the world can sometimes trump pumping them out of the ground. BP (BP.L), opens n",
+          "url": "https://www.reuters.com/markets/commodities/trader-or-driller-iran-war-exposes-big-oils-transatlantic-divide-2026-04-30/",
+          "publishedAt": "2026-04-30T06:11:33.000Z"
+        },
+        {
+          "id": "sig-69b836790e0a4660",
+          "source": "tavily",
+          "title": "Flares went off at BP refinery Sunday night, IDEM monitoring - Chicago Tribune",
+          "excerpt": "# Flares went off at BP refinery Sunday night, IDEM monitoring. Flares went off at BP’s Whiting refinery Sunday night after a “brief loss of electric power disrupted operations,” according to a company statement. “Power has been restored and operations are stable,” the BP stateme",
+          "url": "https://www.chicagotribune.com/2026/04/29/flares-went-off-at-bp-refinery-sunday-night-idem-monitoring/",
+          "publishedAt": "2026-04-29T20:51:46.000Z"
+        },
+        {
+          "id": "sig-9451bdf36231efaf",
+          "source": "tavily",
+          "title": "bound4blue Installs Wind Propulsion System on Maersk's Tanker - Marine News Magazine",
+          "excerpt": "# bound4blue Installs Wind Propulsion System on Maersk's Tanker. Wind propulsion specialist bound4blue has completed the second installation of its suction sail system for Maersk Tankers, fitting four 24-meter eSAIL units on the Maersk Tahiti at a shipyard in China. “The agreemen",
+          "url": "https://www.marinelink.com/news/boundblue-installs-wind-propulsion-system-538645",
+          "publishedAt": "2026-04-30T06:44:18.000Z"
+        }
+      ],
+      "reasonCode": "service_overgeneration",
+      "reasonLabel": "Heuristic spawned multiple irrelevant services from one cluster",
+      "reasonText": "Same UK North Sea exit cluster as the ma_advisory above. Decommissioning would only fire if BP actually retains the assets and wraps them down — the news is a SALE, which is M&A work, not decommissioning.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-1907ba94d55522a5",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "windfall_tax_advisory",
+      "engineSource": "event_intelligence",
+      "originalScore": 74,
+      "signalIds": [
+        "sig-0ad567d414ae1121",
+        "sig-f6cd1f85e0722cd1",
+        "sig-ed2e471d4aa190c4",
+        "sig-69b836790e0a4660",
+        "sig-9451bdf36231efaf"
+      ],
+      "signals": [
+        {
+          "id": "sig-0ad567d414ae1121",
+          "source": "tavily",
+          "title": "bp considers exit from UK North Sea as CEO reviews upstream portfolio - World Oil",
+          "excerpt": "# bp considers exit from UK North Sea as CEO reviews upstream portfolio. (Bloomberg) – **bp Plc** is considering potentially exiting part or all of its operations in the UK North Sea, people familiar with the matter said, as the oil giant works to strip assets and pay down debt. ",
+          "url": "https://worldoil.com/news/2026/5/1/bp-considers-exit-from-uk-north-sea-as-ceo-reviews-upstream-portfolio/",
+          "publishedAt": "2026-05-01T15:55:10.000Z"
+        },
+        {
+          "id": "sig-f6cd1f85e0722cd1",
+          "source": "tavily",
+          "title": "BP Considers Exiting UK North Sea Assets, Reportedly Eyes £2bn Sale - Global Banking & Finance Review",
+          "excerpt": "# BP considers potential exit from UK North Sea assets, Bloomberg reports. ## BP Weighs Potential Exit From UK North Sea Assets Amid Strategic Review. May 1 (Reuters) - Energy major BP is considering potentially exiting part or all of its operations in the UK North Sea, Bloomberg",
+          "url": "https://www.globalbankingandfinance.com/bp-considers-potential-exit-uk-north-sea-assets-bloomberg/",
+          "publishedAt": "2026-05-01T15:24:13.000Z"
+        },
+        {
+          "id": "sig-ed2e471d4aa190c4",
+          "source": "tavily",
+          "title": "Trader or driller? Iran war exposes Big Oil's transatlantic divide - Reuters",
+          "excerpt": "LONDON, April 30 (Reuters) - European oil majors’ first-quarter profits were lifted by bumper trading gains as the Iran war upended supply chains, underscoring how the ability to shift barrels around the world can sometimes trump pumping them out of the ground. BP (BP.L), opens n",
+          "url": "https://www.reuters.com/markets/commodities/trader-or-driller-iran-war-exposes-big-oils-transatlantic-divide-2026-04-30/",
+          "publishedAt": "2026-04-30T06:11:33.000Z"
+        },
+        {
+          "id": "sig-69b836790e0a4660",
+          "source": "tavily",
+          "title": "Flares went off at BP refinery Sunday night, IDEM monitoring - Chicago Tribune",
+          "excerpt": "# Flares went off at BP refinery Sunday night, IDEM monitoring. Flares went off at BP’s Whiting refinery Sunday night after a “brief loss of electric power disrupted operations,” according to a company statement. “Power has been restored and operations are stable,” the BP stateme",
+          "url": "https://www.chicagotribune.com/2026/04/29/flares-went-off-at-bp-refinery-sunday-night-idem-monitoring/",
+          "publishedAt": "2026-04-29T20:51:46.000Z"
+        },
+        {
+          "id": "sig-9451bdf36231efaf",
+          "source": "tavily",
+          "title": "bound4blue Installs Wind Propulsion System on Maersk's Tanker - Marine News Magazine",
+          "excerpt": "# bound4blue Installs Wind Propulsion System on Maersk's Tanker. Wind propulsion specialist bound4blue has completed the second installation of its suction sail system for Maersk Tankers, fitting four 24-meter eSAIL units on the Maersk Tahiti at a shipyard in China. “The agreemen",
+          "url": "https://www.marinelink.com/news/boundblue-installs-wind-propulsion-system-538645",
+          "publishedAt": "2026-04-30T06:44:18.000Z"
+        }
+      ],
+      "reasonCode": "service_overgeneration",
+      "reasonLabel": "Heuristic spawned multiple irrelevant services from one cluster",
+      "reasonText": "Same North Sea exit cluster. Energy Profits Levy applies to producers, not sellers — if BP exits, the levy work moves with the buyer, not the seller. Wrong service routing.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-0bcf6b7f3c3d0e51",
+      "entity": "c-bp",
+      "entityName": "BP plc",
+      "entityType": "client",
+      "sector": "oil_gas",
+      "hqJurisdiction": "UK",
+      "service": "corporate_restructuring",
+      "engineSource": "event_intelligence",
+      "originalScore": 82,
+      "signalIds": [
+        "sig-0ad567d414ae1121",
+        "sig-f6cd1f85e0722cd1",
+        "sig-ed2e471d4aa190c4",
+        "sig-69b836790e0a4660",
+        "sig-9451bdf36231efaf"
+      ],
+      "signals": [
+        {
+          "id": "sig-0ad567d414ae1121",
+          "source": "tavily",
+          "title": "bp considers exit from UK North Sea as CEO reviews upstream portfolio - World Oil",
+          "excerpt": "# bp considers exit from UK North Sea as CEO reviews upstream portfolio. (Bloomberg) – **bp Plc** is considering potentially exiting part or all of its operations in the UK North Sea, people familiar with the matter said, as the oil giant works to strip assets and pay down debt. ",
+          "url": "https://worldoil.com/news/2026/5/1/bp-considers-exit-from-uk-north-sea-as-ceo-reviews-upstream-portfolio/",
+          "publishedAt": "2026-05-01T15:55:10.000Z"
+        },
+        {
+          "id": "sig-f6cd1f85e0722cd1",
+          "source": "tavily",
+          "title": "BP Considers Exiting UK North Sea Assets, Reportedly Eyes £2bn Sale - Global Banking & Finance Review",
+          "excerpt": "# BP considers potential exit from UK North Sea assets, Bloomberg reports. ## BP Weighs Potential Exit From UK North Sea Assets Amid Strategic Review. May 1 (Reuters) - Energy major BP is considering potentially exiting part or all of its operations in the UK North Sea, Bloomberg",
+          "url": "https://www.globalbankingandfinance.com/bp-considers-potential-exit-uk-north-sea-assets-bloomberg/",
+          "publishedAt": "2026-05-01T15:24:13.000Z"
+        },
+        {
+          "id": "sig-ed2e471d4aa190c4",
+          "source": "tavily",
+          "title": "Trader or driller? Iran war exposes Big Oil's transatlantic divide - Reuters",
+          "excerpt": "LONDON, April 30 (Reuters) - European oil majors’ first-quarter profits were lifted by bumper trading gains as the Iran war upended supply chains, underscoring how the ability to shift barrels around the world can sometimes trump pumping them out of the ground. BP (BP.L), opens n",
+          "url": "https://www.reuters.com/markets/commodities/trader-or-driller-iran-war-exposes-big-oils-transatlantic-divide-2026-04-30/",
+          "publishedAt": "2026-04-30T06:11:33.000Z"
+        },
+        {
+          "id": "sig-69b836790e0a4660",
+          "source": "tavily",
+          "title": "Flares went off at BP refinery Sunday night, IDEM monitoring - Chicago Tribune",
+          "excerpt": "# Flares went off at BP refinery Sunday night, IDEM monitoring. Flares went off at BP’s Whiting refinery Sunday night after a “brief loss of electric power disrupted operations,” according to a company statement. “Power has been restored and operations are stable,” the BP stateme",
+          "url": "https://www.chicagotribune.com/2026/04/29/flares-went-off-at-bp-refinery-sunday-night-idem-monitoring/",
+          "publishedAt": "2026-04-29T20:51:46.000Z"
+        },
+        {
+          "id": "sig-9451bdf36231efaf",
+          "source": "tavily",
+          "title": "bound4blue Installs Wind Propulsion System on Maersk's Tanker - Marine News Magazine",
+          "excerpt": "# bound4blue Installs Wind Propulsion System on Maersk's Tanker. Wind propulsion specialist bound4blue has completed the second installation of its suction sail system for Maersk Tankers, fitting four 24-meter eSAIL units on the Maersk Tahiti at a shipyard in China. “The agreemen",
+          "url": "https://www.marinelink.com/news/boundblue-installs-wind-propulsion-system-538645",
+          "publishedAt": "2026-04-30T06:44:18.000Z"
+        }
+      ],
+      "reasonCode": "service_overgeneration",
+      "reasonLabel": "Heuristic spawned multiple irrelevant services from one cluster",
+      "reasonText": "Same North Sea exit cluster. 'Restructuring' here means asset-portfolio review, not Chapter-11-style insolvency restructuring (which is the firm's restructuring practice). Service taxonomy mismatch.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    },
+    {
+      "id": "rej-47c5fdd12938aed9",
+      "entity": "pr-screen-market-financial-solutions-ltd",
+      "entityName": "Market Financial Solutions Ltd.",
+      "entityType": "prospect",
+      "sector": "banking",
+      "hqJurisdiction": "UK",
+      "service": "corporate_restructuring",
+      "engineSource": "prospect_discovery",
+      "originalScore": 72,
+      "signalIds": [
+        "sig-f0de88e9f720a965",
+        "sig-e03f5c4f6a9f9a15",
+        "sig-1c56deb6fe3165cc",
+        "sig-6968a3910626ae6e",
+        "sig-f7d815c123838645"
+      ],
+      "signals": [
+        {
+          "id": "sig-f0de88e9f720a965",
+          "source": "tavily",
+          "title": "HSBC Results Disappoint With Shock $400 Million MFS Charge - Yahoo Finance",
+          "excerpt": "(Bloomberg) -- HSBC Holdings Plc reported profit that missed estimates, weighed down by an unexpected charge related to the collapse of UK mortgage lender Market Financial Solutions Ltd. and rising economic risks stemming from the conflict in the Middle East. This was driven part",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/hsbc-results-disappoint-surprise-400-091813485.html",
+          "publishedAt": "2026-05-05T11:57:51.000Z"
+        },
+        {
+          "id": "sig-e03f5c4f6a9f9a15",
+          "source": "tavily",
+          "title": "HSBC Profit Misses on Charges Related to the UK, Middle East - Bloomberg.com",
+          "excerpt": "# HSBC Results Disappoint With Shock $400 Million MFS Charge. Send a tip to our reporters. HSBC Holdings Plc reported profit that missed estimates, weighed down by an unexpected charge related to the collapse of UK mortgage lender Market Financial Solutions Ltd. and rising econom",
+          "url": "https://www.bloomberg.com/news/articles/2026-05-05/hsbc-profit-misses-on-charges-related-to-the-uk-middle-east",
+          "publishedAt": "2026-05-05T11:57:51.000Z"
+        },
+        {
+          "id": "sig-1c56deb6fe3165cc",
+          "source": "tavily",
+          "title": "HSBC profits fall amid $400m fraud-related charge and Iran war - The Guardian",
+          "excerpt": "HSBC has taken a $1.3bn (£961m) hit to profits, fuelled by the fallout from the US-Israel war on Iran and fraud in the troubled private credit sector. The profit decline was linked to a jump in the potential losses it could see on soured loans to $1.3bn, which included $300m spec",
+          "url": "https://www.theguardian.com/business/2026/may/05/hsbc-profits-fall-fraud-related-charge-iran-war",
+          "publishedAt": "2026-05-05T07:22:50.000Z"
+        },
+        {
+          "id": "sig-6968a3910626ae6e",
+          "source": "tavily",
+          "title": "HSBC reports flat first-quarter profit; expects further credit loss - Reuters",
+          "excerpt": "# HSBC profit underwhelms on unexpected $400 million private credit loss | Reuters. ## Browse World. ## Browse Business. HONG KONG/LONDON, May 5 (Reuters) - HSBC (HSBA.L), opens new tab reported an unexpected $400 million loss linked to a fraud case ‌in Britain on Tuesday, causin",
+          "url": "https://www.reuters.com/business/finance/hsbc-reports-flat-first-quarter-profit-misses-estimates-2026-05-05/",
+          "publishedAt": "2026-05-05T04:11:02.000Z"
+        },
+        {
+          "id": "sig-f7d815c123838645",
+          "source": "tavily",
+          "title": "HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud - WSJ",
+          "excerpt": "# HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud - WSJ. S&P 500 Futures 7251.25 0.29%. # HSBC Takes $400 Million Hit From Private-Credit Alleged Fraud. Image 1: A man wearing a face mask uses his phone outside the HSBC headquarters in Hong Kong. HSBCHSBA-5.62%decre",
+          "url": "https://www.wsj.com/finance/banking/hsbc-posts-flat-quarterly-net-profit-11339e59",
+          "publishedAt": "2026-05-05T04:42:00.000Z"
+        }
+      ],
+      "reasonCode": "system_miss",
+      "reasonLabel": "Heuristic call was defensible; partner-judgment dropped it but worth re-review",
+      "reasonText": "Auto-prospect-discovery flagged MFS as a new prospect off the HSBC-$400m-fraud cluster (MFS being the collapsed counterparty). Restructuring would be the natural service if MFS is in administration — but the firm's existing client (HSBC) is the recovery-side party, creating a likely conflict. Dropped on conflict grounds; data captured for completeness.",
+      "droppedBy": "manual-rewrite",
+      "droppedAt": "2026-05-15T19:48:49.969Z"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+/* Design tokens — light-mode-first.
+   White canvas, black panels, turquoise accent. */
+
+:root {
+  /* Surfaces */
+  --octave-bg: #FFFFFF;
+  --octave-panel: #0A0A0A;
+
+  /* Text */
+  --octave-text: #0A0A0A;
+  --octave-text-on-panel: #FFFFFF;
+  --octave-text-muted: #7A7A7A;
+  --octave-text-on-panel-muted: #CFCFCF;
+
+  /* Accent */
+  --octave-accent: #26EA9F;
+  --octave-accent-hover: #1FD08C;
+  --octave-accent-wash: #E8FCF4;
+
+  /* Neutrals */
+  --octave-n100: #F4F4F4;
+  --octave-n300: #CFCFCF;
+  --octave-n500: #7A7A7A;
+  --octave-n700: #3A3A3A;
+  --octave-n900: #0A0A0A;
+
+  /* Subtle panel-on-panel separator (used in chat, briefing source blocks).
+     A 4 % white wash on top of black — visible but not noisy. */
+  --octave-panel-inset: rgba(255, 255, 255, 0.04);
+  --octave-panel-inset-border: var(--octave-n700);
+
+  /* Warning red — reserved for safety-critical UI (conflict detected).
+     Not part of the Octave palette; used sparingly per the brief. */
+  --octave-warn: #B00020;
+  --octave-warn-wash: #FFF1F0;
+
+  /* Type */
+  --font-display: 'ITC Avant Garde Gothic Pro', 'Avant Garde', 'Century Gothic', 'Futura', sans-serif;
+  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --chat-width: 360px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; padding: 0; }
+
+body {
+  background: var(--octave-bg);
+  color: var(--octave-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: 48px; }
+h2 { font-size: 32px; }
+h3 { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
+h4 { font-size: 18px; font-weight: 500; letter-spacing: -0.005em; }
+
+p { margin: 0; line-height: 1.55; }
+
+a {
+  color: var(--octave-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--octave-accent); }
+a:focus-visible { outline: 2px solid var(--octave-accent); outline-offset: 2px; }
+
+.panel {
+  background: var(--octave-panel);
+  color: var(--octave-text-on-panel);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.panel a { color: var(--octave-text-on-panel); }
+.panel a:hover { color: var(--octave-accent); }
+.on-panel { color: var(--octave-text-on-panel); }
+.on-panel-muted { color: var(--octave-text-on-panel-muted); }
+
+.btn {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.btn:focus-visible { outline: 2px solid var(--octave-accent); outline-offset: 2px; }
+
+.btn-primary {
+  background: var(--octave-panel);
+  color: var(--octave-text-on-panel);
+  border-color: var(--octave-panel);
+}
+.btn-primary:hover { background: var(--octave-accent); color: var(--octave-panel); border-color: var(--octave-accent); }
+
+.btn-secondary {
+  background: var(--octave-bg);
+  color: var(--octave-panel);
+  border-color: var(--octave-panel);
+}
+.btn-secondary:hover { border-color: var(--octave-accent); color: var(--octave-accent); }
+
+.btn-accent {
+  background: var(--octave-accent);
+  color: var(--octave-panel);
+  border-color: var(--octave-accent);
+}
+.btn-accent:hover { background: var(--octave-accent-hover); border-color: var(--octave-accent-hover); }
+
+.btn-icon-only {
+  background: transparent;
+  color: var(--octave-text-on-panel);
+  border-color: transparent;
+  padding: 6px;
+}
+.btn-icon-only:hover { color: var(--octave-accent); }
+
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.chip {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--octave-n300);
+  background: var(--octave-bg);
+  color: var(--octave-n700);
+  white-space: nowrap;
+}
+.chip-immediate {
+  border-color: var(--octave-accent);
+  color: var(--octave-accent);
+  background: var(--octave-bg);
+  font-weight: 700;
+}
+.chip-this-week {
+  /* Brighter than the original n700-on-black; readable on both white and dark
+     panels. White outline + white text reads clearly inside black panels;
+     dark text on a thin black outline reads clearly on the white canvas. */
+  background: transparent;
+  color: var(--octave-text);
+  border-color: var(--octave-panel);
+  border-width: 1.5px;
+}
+.panel .chip-this-week {
+  color: var(--octave-text-on-panel);
+  border-color: var(--octave-text-on-panel);
+}
+.chip-steady {
+  color: var(--octave-n500);
+  border-color: var(--octave-n300);
+}
+.panel .chip-steady {
+  color: var(--octave-text-on-panel-muted);
+  border-color: var(--octave-n700);
+}
+.chip-accent {
+  background: var(--octave-accent);
+  color: var(--octave-panel);
+  border-color: var(--octave-accent);
+}
+.panel .chip { background: transparent; color: var(--octave-text-on-panel-muted); border-color: var(--octave-n700); }
+.panel .chip-immediate { color: var(--octave-accent); border-color: var(--octave-accent); }
+
+.input, select, textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  border: 1px solid var(--octave-n300);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  background: var(--octave-bg);
+  color: var(--octave-text);
+  width: 100%;
+}
+.input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--octave-accent);
+  outline-offset: 1px;
+  border-color: var(--octave-panel);
+}
+
+.input-on-panel {
+  background: var(--octave-panel-inset);
+  border-color: var(--octave-panel-inset-border);
+  color: var(--octave-text-on-panel);
+}
+.input-on-panel::placeholder { color: var(--octave-n500); }
+
+.caption {
+  font-size: 13px;
+  color: var(--octave-text-muted);
+  letter-spacing: 0.01em;
+}
+.caption-on-panel { color: var(--octave-text-on-panel-muted); }
+.muted-on-panel { color: var(--octave-n500); }
+
+.divider { height: 1px; background: var(--octave-n300); border: none; margin: 16px 0; }
+.panel .divider { background: var(--octave-n700); }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--octave-n700); margin-bottom: 16px; }
+.panel .tabs { border-bottom-color: var(--octave-n700); }
+.tab {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab.active { border-bottom-color: var(--octave-accent); color: var(--octave-accent); }
+.tab:hover:not(.active) { color: var(--octave-accent); }
+
+.confidence-bar {
+  height: 4px;
+  background: var(--octave-n300);
+  border-radius: 2px;
+  overflow: hidden;
+  width: 80px;
+}
+.confidence-fill { height: 100%; background: var(--octave-accent); }
+
+.kpi-tile {
+  background: var(--octave-panel);
+  color: var(--octave-text-on-panel);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+.kpi-tile .label { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--octave-text-on-panel-muted); }
+.kpi-tile .value { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1.1; }
+
+.demo-banner {
+  background: var(--octave-panel);
+  color: var(--octave-text-on-panel);
+  padding: 10px 20px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.demo-banner strong { color: var(--octave-accent); font-family: var(--font-display); letter-spacing: 0.02em; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--octave-n300); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+.panel ::-webkit-scrollbar-thumb { background: var(--octave-n700); }

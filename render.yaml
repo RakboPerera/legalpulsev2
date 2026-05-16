@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: legalpulse
+    runtime: node
+    # Free tier has no persistent disk — accounts, saved keys, audit trails,
+    # and any workspace edits get wiped on every restart / idle spin-down.
+    # Use the starter (or higher) plan so the `lp-data` disk below survives.
+    plan: starter
+    region: oregon
+    branch: main
+    rootDir: .
+    buildCommand: cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install --omit=dev
+    startCommand: cd backend && node server.js
+    disk:
+      name: lp-data
+      mountPath: /var/lp-data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: COURTLISTENER_API_TOKEN
+        sync: false
+      - key: COMPANIES_HOUSE_API_KEY
+        sync: false
+      - key: SEC_EDGAR_USER_AGENT
+        sync: false
+      - key: NODE_ENV
+        value: production
+      # Persistent paths inside the mounted disk. Read by backend/database.js
+      # (LEGALPULSE_DATA_DIR) and lib/workspaceStore.js for any per-workspace
+      # state that must survive a restart. Falls back to backend/storage when
+      # unset (local dev).
+      - key: LEGALPULSE_DATA_DIR
+        value: /var/lp-data

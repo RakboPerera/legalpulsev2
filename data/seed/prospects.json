@@ -1,0 +1,503 @@
+[
+  {
+    "id": "pr-aramco",
+    "legalName": "Saudi Arabian Oil Company",
+    "knownAliases": [
+      "Saudi Aramco",
+      "Aramco"
+    ],
+    "sector": "oil_gas",
+    "subSector": "national_oil_company",
+    "hqJurisdiction": "Other",
+    "countriesOfOperation": [
+      "Saudi Arabia",
+      "China",
+      "South Korea"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "tickers": [
+        "2222.SR"
+      ]
+    },
+    "publicEntityUrl": "https://www.aramco.com",
+    "decisionMakers": [
+      {
+        "name": "Amin Nasser",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "sanctions_adjacent"
+    ]
+  },
+  {
+    "id": "pr-total",
+    "legalName": "TotalEnergies SE",
+    "knownAliases": [
+      "TotalEnergies",
+      "Total",
+      "Total Energies"
+    ],
+    "sector": "oil_gas",
+    "subSector": "integrated_oil_major",
+    "hqJurisdiction": "EU",
+    "countriesOfOperation": [
+      "France",
+      "USA",
+      "Mozambique",
+      "UK"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "tickers": [
+        "TTE.PA",
+        "TTE"
+      ]
+    },
+    "publicEntityUrl": "https://totalenergies.com",
+    "decisionMakers": [
+      {
+        "name": "Patrick Pouyanné",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "esg_pressure"
+    ]
+  },
+  {
+    "id": "pr-stellantis",
+    "legalName": "Stellantis N.V.",
+    "knownAliases": [
+      "Stellantis"
+    ],
+    "sector": "automotive",
+    "subSector": "global_oem",
+    "hqJurisdiction": "EU",
+    "countriesOfOperation": [
+      "Netherlands",
+      "Italy",
+      "USA",
+      "France"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "tickers": [
+        "STLA"
+      ]
+    },
+    "publicEntityUrl": "https://www.stellantis.com",
+    "decisionMakers": [
+      {
+        "name": "John Elkann",
+        "role": "Chair (Interim CEO Office)",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "BBB",
+    "creditOutlook": "negative",
+    "riskFlags": [
+      "distressed"
+    ]
+  },
+  {
+    "id": "pr-glencore",
+    "legalName": "Glencore plc",
+    "knownAliases": [
+      "Glencore"
+    ],
+    "sector": "commodities",
+    "subSector": "mining_trading",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "Switzerland",
+      "UK",
+      "Australia",
+      "DR Congo"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "tickers": [
+        "GLEN.L"
+      ]
+    },
+    "publicEntityUrl": "https://www.glencore.com",
+    "decisionMakers": [
+      {
+        "name": "Gary Nagle",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "BBB+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "sanctions_adjacent",
+      "esg_pressure"
+    ]
+  },
+  {
+    "id": "pr-wise",
+    "legalName": "Wise plc",
+    "knownAliases": [
+      "Wise",
+      "TransferWise"
+    ],
+    "sector": "fintech",
+    "subSector": "cross_border_payments",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Estonia",
+      "Singapore"
+    ],
+    "size": "mid",
+    "externalIdentifiers": {
+      "tickers": [
+        "WISE.L"
+      ]
+    },
+    "publicEntityUrl": "https://wise.com",
+    "decisionMakers": [
+      {
+        "name": "Kristo Käärmann",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "BBB",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "pr-bae",
+    "legalName": "BAE Systems plc",
+    "knownAliases": [
+      "BAE",
+      "BAE Systems"
+    ],
+    "sector": "defense_aerospace",
+    "subSector": "defense_systems",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Saudi Arabia",
+      "Australia"
+    ],
+    "size": "large",
+    "externalIdentifiers": {
+      "tickers": [
+        "BA.L"
+      ]
+    },
+    "publicEntityUrl": "https://www.baesystems.com",
+    "decisionMakers": [
+      {
+        "name": "Charles Woodburn",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "BBB+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "pr-lockheed",
+    "legalName": "Lockheed Martin Corporation",
+    "knownAliases": [
+      "Lockheed Martin",
+      "Lockheed"
+    ],
+    "sector": "defense_aerospace",
+    "subSector": "defense_systems",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Saudi Arabia"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "tickers": [
+        "LMT"
+      ]
+    },
+    "publicEntityUrl": "https://www.lockheedmartin.com",
+    "decisionMakers": [
+      {
+        "name": "James Taiclet",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "signalsObserved": [],
+    "creditRating": "A-",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "pr-sanofi",
+    "legalName": "Sanofi SA",
+    "knownAliases": [
+      "Sanofi"
+    ],
+    "sector": "pharma",
+    "subSector": "pharmaceuticals_vaccines",
+    "hqJurisdiction": "EU",
+    "countriesOfOperation": [
+      "France",
+      "USA",
+      "Germany",
+      "UK"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001121404",
+      "tickers": [
+        "SAN.PA",
+        "SNY"
+      ]
+    },
+    "publicEntityUrl": "https://www.sanofi.com",
+    "decisionMakers": [
+      {
+        "name": "Paul Hudson",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "fitScore": 0.7,
+    "creditRating": "AA-",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "litigation_heavy"
+    ]
+  },
+  {
+    "id": "pr-pfizer",
+    "legalName": "Pfizer Inc.",
+    "knownAliases": [
+      "Pfizer"
+    ],
+    "sector": "pharma",
+    "subSector": "pharmaceuticals",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Germany"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000078003",
+      "tickers": [
+        "PFE"
+      ]
+    },
+    "publicEntityUrl": "https://www.pfizer.com",
+    "decisionMakers": [
+      {
+        "name": "Albert Bourla",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "discoverySource": "reclassified_from_client",
+    "fitScore": 0.7,
+    "discoveryRationale": "Moved from client roster to prospects to surface event-driven external opportunities.",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "litigation_heavy"
+    ]
+  },
+  {
+    "id": "pr-gm",
+    "legalName": "General Motors Company",
+    "knownAliases": [
+      "GM",
+      "General Motors"
+    ],
+    "sector": "automotive",
+    "subSector": "global_oem",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "China",
+      "Mexico",
+      "Canada"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001467858",
+      "tickers": [
+        "GM"
+      ]
+    },
+    "publicEntityUrl": "https://www.gm.com",
+    "decisionMakers": [
+      {
+        "name": "Mary Barra",
+        "role": "CEO/Chair",
+        "source": "annual_report"
+      }
+    ],
+    "discoverySource": "reclassified_from_client",
+    "fitScore": 0.7,
+    "discoveryRationale": "Moved from client roster to prospects to surface event-driven external opportunities.",
+    "creditRating": "BBB",
+    "creditOutlook": "stable",
+    "riskFlags": [
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "pr-az",
+    "legalName": "AstraZeneca plc",
+    "knownAliases": [
+      "AstraZeneca",
+      "AZ"
+    ],
+    "sector": "pharma",
+    "subSector": "pharmaceuticals_oncology",
+    "hqJurisdiction": "UK",
+    "countriesOfOperation": [
+      "UK",
+      "USA",
+      "Sweden",
+      "China",
+      "Japan"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000901832",
+      "companiesHouseNumber": "02723534",
+      "leiCode": "PY082XR54TC1RNVV2I82",
+      "tickers": [
+        "AZN.L",
+        "AZN"
+      ]
+    },
+    "publicEntityUrl": "https://www.astrazeneca.com",
+    "decisionMakers": [
+      {
+        "name": "Pascal Soriot",
+        "role": "CEO",
+        "source": "annual_report"
+      }
+    ],
+    "discoverySource": "reclassified_from_client",
+    "fitScore": 0.7,
+    "discoveryRationale": "Moved from client roster to prospects to surface event-driven external opportunities.",
+    "creditRating": "A",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  },
+  {
+    "id": "pr-ford",
+    "legalName": "Ford Motor Company",
+    "knownAliases": [
+      "Ford",
+      "Ford Motor"
+    ],
+    "sector": "automotive",
+    "subSector": "global_oem",
+    "hqJurisdiction": "USA",
+    "countriesOfOperation": [
+      "USA",
+      "UK",
+      "Germany",
+      "China",
+      "Mexico"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0000037996",
+      "leiCode": "SD3D0YIFNECHM1SSC526",
+      "tickers": [
+        "F"
+      ]
+    },
+    "publicEntityUrl": "https://www.ford.com",
+    "decisionMakers": [
+      {
+        "name": "Jim Farley",
+        "role": "CEO",
+        "source": "annual_report"
+      },
+      {
+        "name": "Steven Croley",
+        "role": "Chief Legal Officer",
+        "source": "annual_report"
+      }
+    ],
+    "discoverySource": "reclassified_from_client",
+    "fitScore": 0.7,
+    "discoveryRationale": "Moved from client roster to prospects to surface event-driven external opportunities.",
+    "creditRating": "BBB-",
+    "creditOutlook": "negative",
+    "riskFlags": [
+      "distressed",
+      "regulatory_pressure"
+    ]
+  },
+  {
+    "id": "pr-toyota",
+    "legalName": "Toyota Motor Corporation",
+    "knownAliases": [
+      "Toyota",
+      "Toyota Motor"
+    ],
+    "sector": "automotive",
+    "subSector": "global_oem",
+    "hqJurisdiction": "Other",
+    "countriesOfOperation": [
+      "Japan",
+      "USA",
+      "UK",
+      "China",
+      "Thailand"
+    ],
+    "size": "mega",
+    "externalIdentifiers": {
+      "secCik": "0001094517",
+      "leiCode": "5493006WCEUI9KUGOK15",
+      "tickers": [
+        "7203.T",
+        "TM"
+      ]
+    },
+    "publicEntityUrl": "https://global.toyota",
+    "decisionMakers": [
+      {
+        "name": "Koji Sato",
+        "role": "President & CEO",
+        "source": "annual_report"
+      }
+    ],
+    "discoverySource": "reclassified_from_client",
+    "fitScore": 0.7,
+    "discoveryRationale": "Moved from client roster to prospects to surface event-driven external opportunities.",
+    "creditRating": "A+",
+    "creditOutlook": "stable",
+    "riskFlags": []
+  }
+]

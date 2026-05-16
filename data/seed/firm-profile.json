@@ -1,0 +1,28 @@
+{
+  "id": "firm-hartwell-stone",
+  "name": "Hartwell & Stone LLP",
+  "headquartered": "London, UK",
+  "offices": ["London", "New York", "Brussels", "Frankfurt", "Dubai"],
+  "founded": 1903,
+  "size": { "partners": 400, "feeEarners": 2000 },
+  "practiceAreas": [
+    { "id": "corporate_ma", "name": "Corporate / M&A", "description": "Domestic and cross-border M&A, joint ventures, corporate restructuring." },
+    { "id": "banking_finance", "name": "Banking & Finance", "description": "Leveraged finance, debt capital markets, structured finance, restructuring." },
+    { "id": "litigation_disputes", "name": "Litigation & Disputes", "description": "Commercial, securities, product liability, class actions, international arbitration." },
+    { "id": "regulatory_compliance", "name": "Regulatory & Compliance", "description": "EU competition, financial services regulation, AI regulation, data protection." },
+    { "id": "energy_natural_resources", "name": "Energy & Natural Resources", "description": "Oil & gas, energy transition, renewables, mining, infrastructure." },
+    { "id": "ip_technology", "name": "Intellectual Property & Technology", "description": "Patent litigation, trade marks, technology transactions, AI regulation." },
+    { "id": "real_estate", "name": "Real Estate", "description": "Commercial real estate, REITs, real estate finance, development." },
+    { "id": "restructuring_insolvency", "name": "Restructuring & Insolvency", "description": "Corporate restructuring, insolvency, distressed M&A, schemes of arrangement." },
+    { "id": "tax", "name": "Tax", "description": "Corporate tax, transactional tax, tax disputes, international tax." },
+    { "id": "employment", "name": "Employment", "description": "Senior executive matters, restructuring, discrimination claims, ESG/workforce." },
+    { "id": "sanctions_trade", "name": "Sanctions & Trade", "description": "OFAC, EU and UK sanctions, export controls, trade compliance investigations." }
+  ],
+  "targetIndustries": [
+    "oil_gas", "banking", "shipping", "automotive", "semiconductors",
+    "defense_aerospace", "pharma", "telecoms", "technology", "commodities", "fintech"
+  ],
+  "targetGeographies": ["UK", "EU", "USA"],
+  "mode": "demo",
+  "createdAt": "2026-05-12T00:00:00Z"
+}
