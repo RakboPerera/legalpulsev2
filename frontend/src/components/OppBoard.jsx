@@ -44,12 +44,21 @@ export default function OppBoard({ mode }) {
   const headerLabel = mode === 'outreach' ? 'New Client Outreach' : 'Existing Client Opportunities';
   const headerLede = mode === 'outreach'
     ? 'Win new clients. We surface external entities the firm has the expertise to serve, plus market events touching prospects already on the radar.'
-    : 'Grow the book. We surface service gaps where industry peers use a service this client does not, plus market events touching clients you already serve.';
-  const primaryEngine = mode === 'outreach' ? 'prospect_discovery' : 'cross_sell';
-  const primaryHeader = mode === 'outreach' ? 'Prospect Discovery' : 'Cross-Sell';
+    : 'Grow the book. We surface service, wallet-share and geographic gaps for clients you already serve, plus market events touching the existing book.';
+  // The "surfacing" column collects every engine that finds a non-event-driven
+  // opportunity. For existing-clients, that's three engines (cross_sell, the
+  // wallet-share gap, and the geographic gap — all introduced in Phase 3).
+  // For outreach, only prospect_discovery surfaces non-event opps. The cards
+  // already carry enough detail (summary + service tag + trigger tags) for a
+  // partner to tell the three engines apart at a glance, so they share one
+  // column rather than fragmenting the board.
+  const surfacingEngines = mode === 'outreach'
+    ? ['prospect_discovery']
+    : ['cross_sell', 'wallet_gap', 'geographic_gap'];
+  const primaryHeader = mode === 'outreach' ? 'Prospect Discovery' : 'Surfaced Opportunities';
   const primarySub = mode === 'outreach'
     ? 'External entities matching firm expertise based on detected signals.'
-    : 'Existing clients with service gaps relative to peers in the same cluster.';
+    : 'Service, wallet-share and geographic gaps for existing clients — peers using a service this client does not, plus untapped legal spend and regions.';
   const eventHeader = 'Event-Driven';
   const eventSub = mode === 'outreach'
     ? 'Time-sensitive market events touching prospects we are tracking.'
@@ -100,7 +109,7 @@ export default function OppBoard({ mode }) {
     return true;
   }), [scoped, filters, searchLower]);
 
-  const primary = filtered.filter(o => o.engineSource === primaryEngine);
+  const primary = filtered.filter(o => surfacingEngines.includes(o.engineSource));
   const eventDriven = filtered.filter(o => o.engineSource === 'event_intelligence');
   const filtersActive = filters.urgency !== 'all'
     || filters.region !== 'all' || filters.service !== 'all'
