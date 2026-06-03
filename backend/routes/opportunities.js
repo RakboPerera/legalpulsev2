@@ -130,15 +130,23 @@ export function createOpportunitiesRouter(db) {
         if (notes !== undefined && typeof notes !== 'string') return { status: 400, body: { error: 'notes must be a string' } };
         if (dismissReason !== undefined && !DISMISS_REASONS.has(dismissReason)) return { status: 400, body: { error: 'invalid dismissReason' } };
         if (status !== undefined) {
+          // Only append to statusHistory when the status actually changes.
+          // Without this guard, double-clicking Mark contacted (or any
+          // repeated transition) produces duplicate consecutive timeline
+          // entries that the opportunity audit panel now visibly renders.
+          // The notes-only update path below still works regardless.
+          const prevStatus = opp.status;
           opp.status = status;
           opp.statusHistory = opp.statusHistory || [];
-          opp.statusHistory.push({
-            status,
-            changedBy: req.user.email,
-            changedAt: new Date().toISOString(),
-            notes,
-            ...(status === 'dismissed' && dismissReason ? { dismissReason } : {})
-          });
+          if (prevStatus !== status) {
+            opp.statusHistory.push({
+              status,
+              changedBy: req.user.email,
+              changedAt: new Date().toISOString(),
+              notes,
+              ...(status === 'dismissed' && dismissReason ? { dismissReason } : {})
+            });
+          }
         }
         if (notes !== undefined) opp.notes = notes;
         if (status === 'dismissed' && dismissReason) opp.dismissReason = dismissReason;
