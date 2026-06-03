@@ -29,8 +29,8 @@ function readJson(file) {
 // seed-side values onto the snapshot entities by id. Auto-discovered entities
 // that are not in the seed get neutral defaults so the worthiness scorer never
 // blows up on an undefined value.
-const COMMERCIAL_FIELDS_ENTITY = ['creditRating', 'creditOutlook', 'riskFlags'];
-const DEFAULT_ENTITY_COMMERCIAL = { creditRating: 'BBB', creditOutlook: 'stable', riskFlags: [] };
+const COMMERCIAL_FIELDS_ENTITY = ['creditRating', 'creditOutlook', 'riskFlags', 'publicFinancials', 'linkedSubsidiaries'];
+const DEFAULT_ENTITY_COMMERCIAL = { creditRating: 'BBB', creditOutlook: 'stable', riskFlags: [], publicFinancials: null, linkedSubsidiaries: [] };
 
 function mergeCommercialFields(snapshotList, seedList) {
   if (!Array.isArray(snapshotList) || !snapshotList.length) return snapshotList;

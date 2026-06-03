@@ -1,5 +1,5 @@
 {
-  "bakedAt": "2026-05-16T07:18:36.142Z",
+  "bakedAt": "2026-06-03T12:37:16.723Z",
   "clients": [
     {
       "id": "c-bp",
@@ -48,6 +48,98 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "esg_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 152000000000,
+        "fiscalYear": 2024,
+        "source": "BP plc Annual Report 2024 (Form 20-F)",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "BP America Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Exploration Operating Company Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Pipelines (Alaska) Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Trading Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Castrol Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Chemicals Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Solar International Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Lightsource bp Renewable Energy Investments Ltd",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Wind Energy North America Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Lubricants USA Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Capital Markets plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BP Shipping Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Atlantic Methanol Production Company LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Air BP Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -90,6 +182,74 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "regulatory_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 52000000000,
+        "fiscalYear": 2024,
+        "source": "HSBC Holdings Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "HSBC Bank plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC USA Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Bank USA, National Association",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "The Hongkong and Shanghai Banking Corporation Limited",
+          "jurisdiction": "Hong Kong",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Bank Canada",
+          "jurisdiction": "Canada",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Private Bank (Suisse) SA",
+          "jurisdiction": "Switzerland",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Securities (USA) Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Trinkaus & Burkhardt AG",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Continental Europe",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "HSBC Investment Bank Holdings Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -128,7 +288,57 @@
       "primaryRelationshipPartner": "p-hartwell",
       "creditRating": "BBB+",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 45000000000,
+        "fiscalYear": 2024,
+        "source": "A.P. Moller-Maersk Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Maersk Line A/S",
+          "jurisdiction": "Denmark",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "APM Terminals B.V.",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Maersk Tankers A/S",
+          "jurisdiction": "Denmark",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Maersk Oil Trading A/S",
+          "jurisdiction": "Denmark",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Damco International A/S",
+          "jurisdiction": "Denmark",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Maersk Container Industry A/S",
+          "jurisdiction": "Denmark",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Maersk Supply Service A/S",
+          "jurisdiction": "Denmark",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-vw",
@@ -169,6 +379,68 @@
       "riskFlags": [
         "regulatory_pressure",
         "litigation_heavy"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 269000000000,
+        "fiscalYear": 2024,
+        "source": "Volkswagen AG Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Audi AG",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Porsche AG",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "SEAT, S.A.",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Škoda Auto a.s.",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Volkswagen Financial Services AG",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Volkswagen of America, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "MAN SE",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "TRATON SE",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Volkswagen Group of America Investments LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -208,6 +480,44 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "sanctions_adjacent"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 23500000000,
+        "fiscalYear": 2024,
+        "source": "ASML Annual Report 2024 (Form 20-F)",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "ASML US LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ASML Netherlands B.V.",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ASML Hong Kong Limited",
+          "jurisdiction": "Hong Kong",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Cymer LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Hermes Microvision Inc.",
+          "jurisdiction": "Taiwan",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -244,7 +554,51 @@
       "primaryRelationshipPartner": "p-lin",
       "creditRating": "BBB-",
       "creditOutlook": "positive",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 17800000000,
+        "fiscalYear": 2024,
+        "source": "Rolls-Royce Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Rolls-Royce plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Rolls-Royce Power Systems AG",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Rolls-Royce North America Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Rolls-Royce Civil Nuclear SAS",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Rolls-Royce SMR Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Rolls-Royce Marine North America Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-vodafone",
@@ -284,7 +638,63 @@
       "primaryRelationshipPartner": "p-stone",
       "creditRating": "BBB",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 31400000000,
+        "fiscalYear": 2024,
+        "source": "Vodafone Group Annual Report FY24",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Vodafone Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vodafone Italia S.p.A.",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vodafone Spain, S.A.",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vodafone Germany GmbH",
+          "jurisdiction": "EU",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vodafone Idea Limited",
+          "jurisdiction": "India",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vodafone Egypt Telecommunications S.A.E.",
+          "jurisdiction": "Egypt",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "VodafoneThree UK Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vodacom Group Limited",
+          "jurisdiction": "South Africa",
+          "discoveredVia": "annual_report",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-exxon",
@@ -324,6 +734,74 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "esg_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 271000000000,
+        "fiscalYear": 2024,
+        "source": "Exxon Mobil 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "ExxonMobil Production Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ExxonMobil Refining & Supply Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Exxon Mobil Chemical Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ExxonMobil Pipeline Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ExxonMobil Catalysts and Licensing LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Esso Italiana S.r.l.",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Esso Petroleum Company, Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ExxonMobil Asia Pacific Pte. Ltd.",
+          "jurisdiction": "Singapore",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Pioneer Natural Resources Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ExxonMobil Canada Ltd.",
+          "jurisdiction": "Canada",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -364,6 +842,56 @@
         "regulatory_pressure",
         "distressed",
         "litigation_heavy"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 52000000000,
+        "fiscalYear": 2024,
+        "source": "Boeing 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Boeing Commercial Airplanes Group",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Boeing Defense, Space & Security",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Boeing Capital Corporation",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Boeing Global Services",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Spirit AeroSystems Holdings, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Insitu, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Aurora Flight Sciences Corporation",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -402,7 +930,51 @@
       "primaryRelationshipPartner": "p-webb",
       "creditRating": "A+",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 40500000000,
+        "fiscalYear": 2024,
+        "source": "Goldman Sachs 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Goldman Sachs Bank USA",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Goldman Sachs International",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Goldman Sachs & Co. LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Goldman Sachs Asset Management, L.P.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Marcus by Goldman Sachs",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Goldman Sachs Japan Co., Ltd.",
+          "jurisdiction": "Japan",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-jpm",
@@ -441,7 +1013,57 @@
       "primaryRelationshipPartner": "p-webb",
       "creditRating": "A+",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 137000000000,
+        "fiscalYear": 2024,
+        "source": "JPMorgan Chase 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "JPMorgan Chase Bank, N.A.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "J.P. Morgan Securities LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "J.P. Morgan Securities plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "J.P. Morgan AG",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "JPMorgan Chase Bank, N.A. (Hong Kong Branch)",
+          "jurisdiction": "Hong Kong",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Chase Bank USA, National Association",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "J.P. Morgan Asset Management Holdings Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-msft",
@@ -484,6 +1106,56 @@
       ],
       "additionalPartners": [
         "p-chandrasekhar"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 195000000000,
+        "fiscalYear": 2024,
+        "source": "Microsoft 10-K FY24",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Microsoft Ireland Operations Limited",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "LinkedIn Corporation",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "GitHub, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Mojang AB",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Activision Blizzard, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Nuance Communications, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ZeniMax Media Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -531,6 +1203,44 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "regulatory_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 64000000000,
+        "fiscalYear": 2024,
+        "source": "Citigroup 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Citibank, N.A.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Citigroup Global Markets Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Citigroup Global Markets Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Banamex (Grupo Financiero Citibanamex)",
+          "jurisdiction": "Mexico",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Citibank Singapore Limited",
+          "jurisdiction": "Singapore",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -575,7 +1285,45 @@
       "primaryRelationshipPartner": "p-webb",
       "creditRating": "A",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 77000000000,
+        "fiscalYear": 2024,
+        "source": "Bank of America 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Bank of America, N.A.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Merrill Lynch, Pierce, Fenner & Smith Incorporated",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BofA Securities, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Merrill Lynch International",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Bank of America Merrill Lynch International DAC",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-ms",
@@ -618,7 +1366,45 @@
       "primaryRelationshipPartner": "p-stone",
       "creditRating": "A+",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 47300000000,
+        "fiscalYear": 2024,
+        "source": "Morgan Stanley 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Morgan Stanley & Co. LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Morgan Stanley Bank, N.A.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Morgan Stanley & Co. International plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Morgan Stanley Capital Group Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Morgan Stanley Investment Management Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-barclays",
@@ -663,7 +1449,45 @@
       "primaryRelationshipPartner": "p-webb",
       "creditRating": "A",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 26800000000,
+        "fiscalYear": 2024,
+        "source": "Barclays plc Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Barclays Bank plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Barclays Bank UK plc",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Barclays Capital Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Barclays Bank Ireland plc",
+          "jurisdiction": "EU",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Barclays Securities Japan Ltd.",
+          "jurisdiction": "Japan",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-gsk",
@@ -706,6 +1530,44 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "litigation_heavy"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 31400000000,
+        "fiscalYear": 2024,
+        "source": "GSK plc Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "GlaxoSmithKline LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "GlaxoSmithKline Consumer Healthcare",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "GlaxoSmithKline Services Unlimited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Stiefel Laboratories, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "ViiV Healthcare Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -750,7 +1612,45 @@
       "primaryRelationshipPartner": "p-vasquez",
       "creditRating": "AA-",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 50300000000,
+        "fiscalYear": 2024,
+        "source": "Merck & Co. 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Merck Sharp & Dohme Corp.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Organon & Co.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Merck Sharp & Dohme (Europe), Inc.",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "MSD Animal Health",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Sirna Therapeutics, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     },
     {
       "id": "c-alphabet",
@@ -798,6 +1698,56 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "regulatory_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 270000000000,
+        "fiscalYear": 2024,
+        "source": "Alphabet Inc. 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Google LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "YouTube, LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Google Ireland Limited",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Waymo LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "DeepMind Technologies Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Verily Life Sciences LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Wing Aviation LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -844,6 +1794,56 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "regulatory_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 304000000000,
+        "fiscalYear": 2024,
+        "source": "Apple Inc. 10-K FY24",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Apple Operations International Limited",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Apple Distribution International Limited",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Apple Services LATAM LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Beats Electronics, LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Apple Retail UK Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Apple Japan G.K.",
+          "jurisdiction": "Japan",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Apple Services Singapore Pte. Ltd.",
+          "jurisdiction": "Singapore",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -890,6 +1890,68 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "regulatory_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 504000000000,
+        "fiscalYear": 2024,
+        "source": "Amazon.com 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Amazon Services LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Amazon Web Services, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Whole Foods Market, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Twitch Interactive, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Amazon EU SARL",
+          "jurisdiction": "EU",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Amazon UK Services Ltd.",
+          "jurisdiction": "UK",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Ring LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "MGM Holdings Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Amazon Japan G.K.",
+          "jurisdiction": "Japan",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -939,6 +2001,68 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "esg_pressure"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 219000000000,
+        "fiscalYear": 2024,
+        "source": "Shell plc Annual Report 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Shell Petroleum N.V.",
+          "jurisdiction": "EU",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Shell USA, Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Shell Chemicals Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Shell Trading International Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Shell Energy Europe Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Shell Marine Products Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Pennzoil-Quaker State Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "BG Group Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Shell Recharge Solutions B.V.",
+          "jurisdiction": "EU",
+          "discoveredVia": "companies_house_psc",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -985,6 +2109,50 @@
       "creditOutlook": "stable",
       "riskFlags": [
         "sanctions_adjacent"
+      ],
+      "publicFinancials": {
+        "revenueGbp": 154000000000,
+        "fiscalYear": 2024,
+        "source": "Chevron Corporation 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Chevron U.S.A. Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Chevron Phillips Chemical Company LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Chevron Australia Pty Ltd",
+          "jurisdiction": "Australia",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Chevron Pipe Line Company",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Chevron Shipping Company LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Hess Corporation",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
       ]
     },
     {
@@ -1027,7 +2195,45 @@
       "primaryRelationshipPartner": "p-lin",
       "creditRating": "BBB+",
       "creditOutlook": "stable",
-      "riskFlags": []
+      "riskFlags": [],
+      "publicFinancials": {
+        "revenueGbp": 32400000000,
+        "fiscalYear": 2024,
+        "source": "Northrop Grumman 10-K 2024",
+        "retrievedAt": "2026-06-03T12:23:04.821Z"
+      },
+      "linkedSubsidiaries": [
+        {
+          "name": "Northrop Grumman Systems Corporation",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Northrop Grumman Innovation Systems LLC",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Orbital ATK Inc.",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Vinnell Corporation",
+          "jurisdiction": "USA",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        },
+        {
+          "name": "Northrop Grumman UK Limited",
+          "jurisdiction": "UK",
+          "discoveredVia": "edgar_exhibit_21",
+          "retrievedAt": "2026-06-03T12:37:16.723Z"
+        }
+      ]
     }
   ],
   "prospects": [
@@ -22064,6 +23270,2610 @@
         ],
         "matterReferences": [],
         "reasoning": "May 2 coverage confirms a £120m claim has been filed against BAE Systems plc concerning arms-sales practices, with broader implications for UK export-control compliance under the Export Control Order 2008 and the firm's ESG-disclosure obligations. Hartwell & Stone's sanctions / trade-controls practice has prior experience with FTSE-100 defense and aerospace clients on dual-use export classification and end-use monitoring; UK litigation bench supports the parallel civil-action defense. No prior BAE matter, but the £120m claim + concurrent ESG-litigation trend is a clean cross-practice pitch."
+      }
+    },
+    {
+      "id": "opp-c5c251e7c28ebef4",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-bp",
+      "entityType": "client",
+      "suggestedService": "export_controls",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 33594250,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "sanctions_trade",
+        "banking_finance",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:32.982Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:32.989Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~7.9% of BP plc's estimated £146M legal spend — £134M addressable, concentrated in Sanctions & Trade, Banking & Finance, Regulatory & Compliance.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0142",
+          "M-2023-0891",
+          "M-2024-0455"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £152.0bn (2024, BP plc Annual Report 2024 (Form 20-F)). Sector ratio: 8 bp (oil gas sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £12M. Estimated total: £146M → gap £134M (4 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 11543000,
+          "estimatedTotalGbp": 145920000,
+          "walletSharePct": 0.07910498903508772,
+          "gapGbp": 134377000,
+          "gapByPracticeArea": [
+            "sanctions_trade",
+            "banking_finance",
+            "regulatory_compliance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 152000000000,
+            "sectorRatio": 0.0008,
+            "sizeAdjustment": 1.2,
+            "source": "BP plc Annual Report 2024 (Form 20-F)",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-759c1b91ed173543",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-hsbc",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 17225000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "ip_technology"
+      ],
+      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:32.991Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~8.0% of HSBC Holdings plc's estimated £75M legal spend — £69M addressable, concentrated in Tax, Energy & Natural Resources, IP & Technology.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0331",
+          "M-2023-0421",
+          "M-2024-0667"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £52.0bn (2024, HSBC Holdings Annual Report 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £6M. Estimated total: £75M → gap £69M (3 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 5980000,
+          "estimatedTotalGbp": 74880000,
+          "walletSharePct": 0.0798611111111111,
+          "gapGbp": 68900000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 52000000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "HSBC Holdings Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-a1b95881c8a40b66",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-maersk",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 9600000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "sanctions_trade"
+      ],
+      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:32.991Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~5.2% of A.P. Moller-Maersk A/S's estimated £41M legal spend — £38M addressable, concentrated in Tax, Energy & Natural Resources, Sanctions & Trade.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2020-0312",
+          "M-2024-0117",
+          "M-2023-0544"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £45.0bn (2024, A.P. Moller-Maersk Annual Report 2024). Sector ratio: 9 bp (shipping sector benchmark). Size adjustment: ×1.00 (large-cap multinational premium). Trailing-12m internal billing: £2M. Estimated total: £41M → gap £38M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 2100000,
+          "estimatedTotalGbp": 40500000,
+          "walletSharePct": 0.05185185185185185,
+          "gapGbp": 38400000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 45000000000,
+            "sectorRatio": 0.0009,
+            "sizeAdjustment": 1,
+            "source": "A.P. Moller-Maersk Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-69716e602851fb45",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-vw",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 86850000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "banking_finance"
+      ],
+      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:32.991Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~2.2% of Volkswagen AG's estimated £355M legal spend — £347M addressable, concentrated in Tax, Energy & Natural Resources, Banking & Finance.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0552",
+          "M-2024-0388",
+          "M-2024-0290"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £269.0bn (2024, Volkswagen AG Annual Report 2024). Sector ratio: 11 bp (automotive sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £8M. Estimated total: £355M → gap £347M (4 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 7680000,
+          "estimatedTotalGbp": 355080000,
+          "walletSharePct": 0.021628928692125717,
+          "gapGbp": 347400000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 269000000000,
+            "sectorRatio": 0.0011,
+            "sizeAdjustment": 1.2,
+            "source": "Volkswagen AG Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-70f57dba0cd738df",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-asml",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 3775000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "corporate_ma"
+      ],
+      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:32.991Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~28.6% of ASML Holding NV's estimated £21M legal spend — £15M addressable, concentrated in Litigation & Disputes, Tax, Corporate M&A.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0511",
+          "M-2023-0814",
+          "M-2024-0233"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £23.5bn (2024, ASML Annual Report 2024 (Form 20-F)). Sector ratio: 9 bp (semiconductors sector benchmark). Size adjustment: ×1.00 (large-cap multinational premium). Trailing-12m internal billing: £6M. Estimated total: £21M → gap £15M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 6050000,
+          "estimatedTotalGbp": 21150000,
+          "walletSharePct": 0.2860520094562648,
+          "gapGbp": 15100000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "banking_finance",
+            "regulatory_compliance"
+          ],
+          "methodology": {
+            "revenueGbp": 23500000000,
+            "sectorRatio": 0.0009,
+            "sizeAdjustment": 1,
+            "source": "ASML Annual Report 2024 (Form 20-F)",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-6fe48f2c299f20c9",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-rolls",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 5872500,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "corporate_ma"
+      ],
+      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:32.991Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~12.0% of Rolls-Royce Holdings plc's estimated £27M legal spend — £23M addressable, concentrated in Litigation & Disputes, Tax, Corporate M&A.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0501",
+          "M-2024-0099",
+          "M-2022-0902"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £17.8bn (2024, Rolls-Royce Annual Report 2024). Sector ratio: 15 bp (defense aerospace sector benchmark). Size adjustment: ×1.00 (large-cap multinational premium). Trailing-12m internal billing: £3M. Estimated total: £27M → gap £23M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 3210000,
+          "estimatedTotalGbp": 26700000,
+          "walletSharePct": 0.12022471910112359,
+          "gapGbp": 23490000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "corporate_ma",
+            "banking_finance",
+            "regulatory_compliance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 17800000000,
+            "sectorRatio": 0.0015,
+            "sizeAdjustment": 1,
+            "source": "Rolls-Royce Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-ebe488e613dd0adc",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-vodafone",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 7850000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.034Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.034Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~<1% of Vodafone Group plc's estimated £31M legal spend — £31M addressable, concentrated in Litigation & Disputes, Tax, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0612",
+          "M-2024-0099-V",
+          "M-2023-0421-V"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £31.4bn (2024, Vodafone Group Annual Report FY24). Sector ratio: 10 bp (telecoms sector benchmark). Size adjustment: ×1.00 (large-cap multinational premium). Trailing-12m internal billing: £0. Estimated total: £31M → gap £31M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 0,
+          "estimatedTotalGbp": 31400000,
+          "walletSharePct": 0,
+          "gapGbp": 31400000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 31400000000,
+            "sectorRatio": 0.001,
+            "sizeAdjustment": 1,
+            "source": "Vodafone Group Annual Report FY24",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-b255ac3db59c84f9",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-exxon",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 63580000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "sanctions_trade"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.034Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.034Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~2.2% of Exxon Mobil Corporation's estimated £260M legal spend — £254M addressable, concentrated in Tax, Energy & Natural Resources, Sanctions & Trade.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0712-E",
+          "M-2023-0190-E",
+          "M-2024-0511-E"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £271.0bn (2024, Exxon Mobil 10-K 2024). Sector ratio: 8 bp (oil gas sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £6M. Estimated total: £260M → gap £254M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 5840000,
+          "estimatedTotalGbp": 260160000,
+          "walletSharePct": 0.022447724477244774,
+          "gapGbp": 254320000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 271000000000,
+            "sectorRatio": 0.0008,
+            "sizeAdjustment": 1.2,
+            "source": "Exxon Mobil 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-3ebd4f0a8fb6fa2c",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-boeing",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 19565000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "sanctions_trade"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.034Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.034Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~16.4% of The Boeing Company's estimated £94M legal spend — £78M addressable, concentrated in Tax, Energy & Natural Resources, Sanctions & Trade.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0501-B",
+          "M-2023-0552-B",
+          "M-2024-0388-B"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £52.0bn (2024, Boeing 10-K 2024). Sector ratio: 15 bp (defense aerospace sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £15M. Estimated total: £94M → gap £78M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 15340000,
+          "estimatedTotalGbp": 93600000,
+          "walletSharePct": 0.1638888888888889,
+          "gapGbp": 78260000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 52000000000,
+            "sectorRatio": 0.0015,
+            "sizeAdjustment": 1.2,
+            "source": "Boeing 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-726b5d4ef398a5e8",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-gs",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 13960000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "sanctions_trade"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~4.3% of The Goldman Sachs Group, Inc.'s estimated £58M legal spend — £56M addressable, concentrated in Tax, Energy & Natural Resources, Sanctions & Trade.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0612-G",
+          "M-2024-0667-G",
+          "M-2024-0241-G"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £40.5bn (2024, Goldman Sachs 10-K 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £2M. Estimated total: £58M → gap £56M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 2480000,
+          "estimatedTotalGbp": 58320000,
+          "walletSharePct": 0.04252400548696845,
+          "gapGbp": 55840000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 40500000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "Goldman Sachs 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-747ad293d3571a75",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-jpm",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 48515000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "corporate_ma"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~1.6% of JPMorgan Chase & Co.'s estimated £197M legal spend — £194M addressable, concentrated in Litigation & Disputes, Tax, Corporate M&A.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0501-J",
+          "M-2024-0388-J",
+          "M-2023-0814-J"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £137.0bn (2024, JPMorgan Chase 10-K 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £3M. Estimated total: £197M → gap £194M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 3220000,
+          "estimatedTotalGbp": 197280000,
+          "walletSharePct": 0.01632197891321979,
+          "gapGbp": 194060000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 137000000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "JPMorgan Chase 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-22819ccf5344d281",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-msft",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 33210000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~5.4% of Microsoft Corporation's estimated £140M legal spend — £133M addressable, concentrated in Litigation & Disputes, Tax, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0118-M",
+          "M-2023-0319-M",
+          "M-2024-0241-M"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £195.0bn (2024, Microsoft 10-K FY24). Sector ratio: 6 bp (technology sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £8M. Estimated total: £140M → gap £133M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 7560000,
+          "estimatedTotalGbp": 140400000,
+          "walletSharePct": 0.05384615384615385,
+          "gapGbp": 132840000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 195000000000,
+            "sectorRatio": 0.0006,
+            "sizeAdjustment": 1.2,
+            "source": "Microsoft 10-K FY24",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-0d06c36676f43bbb",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-citi",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 22279625,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "corporate_ma"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~3.3% of Citigroup Inc.'s estimated £92M legal spend — £89M addressable, concentrated in Litigation & Disputes, Tax, Corporate M&A.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1001",
+          "M-2024-1002",
+          "M-2024-1003"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £64.0bn (2024, Citigroup 10-K 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £3M. Estimated total: £92M → gap £89M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 3041500,
+          "estimatedTotalGbp": 92160000,
+          "walletSharePct": 0.03300238715277778,
+          "gapGbp": 89118500,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 64000000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "Citigroup 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-e3989ee5b440585f",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-bofa",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 27469250,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "corporate_ma",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~0.9% of Bank of America Corporation's estimated £111M legal spend — £110M addressable, concentrated in Tax, Corporate M&A, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1010",
+          "M-2024-1011",
+          "M-2024-1012"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £77.0bn (2024, Bank of America 10-K 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £1M. Estimated total: £111M → gap £110M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 1003000,
+          "estimatedTotalGbp": 110880000,
+          "walletSharePct": 0.009045815295815296,
+          "gapGbp": 109877000,
+          "gapByPracticeArea": [
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 77000000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "Bank of America 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-114c7d7b3d4f91c5",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-ms",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 16552025,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~2.8% of Morgan Stanley's estimated £68M legal spend — £66M addressable, concentrated in Litigation & Disputes, Tax, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1020",
+          "M-2024-1021",
+          "M-2024-1022"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £47.3bn (2024, Morgan Stanley 10-K 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £2M. Estimated total: £68M → gap £66M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 1903900,
+          "estimatedTotalGbp": 68112000,
+          "walletSharePct": 0.027952490016443506,
+          "gapGbp": 66208100,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "regulatory_compliance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 47300000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "Morgan Stanley 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-9391fe9a4ba60921",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-barclays",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 8753000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~9.3% of Barclays plc's estimated £39M legal spend — £35M addressable, concentrated in Litigation & Disputes, Tax, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1030",
+          "M-2024-1031",
+          "M-2024-1032"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £26.8bn (2024, Barclays plc Annual Report 2024). Sector ratio: 12 bp (banking sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £4M. Estimated total: £39M → gap £35M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 3580000,
+          "estimatedTotalGbp": 38592000,
+          "walletSharePct": 0.0927653399668325,
+          "gapGbp": 35012000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 26800000000,
+            "sectorRatio": 0.0012,
+            "sizeAdjustment": 1.2,
+            "source": "Barclays plc Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-37638a7acfc8aa2b",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-gsk",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 16424825,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "corporate_ma",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~12.8% of GSK plc's estimated £75M legal spend — £66M addressable, concentrated in Tax, Corporate M&A, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1050",
+          "M-2024-1051",
+          "M-2024-1052"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £31.4bn (2024, GSK plc Annual Report 2024). Sector ratio: 20 bp (pharma sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £10M. Estimated total: £75M → gap £66M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 9660700,
+          "estimatedTotalGbp": 75360000,
+          "walletSharePct": 0.12819400212314225,
+          "gapGbp": 65699300,
+          "gapByPracticeArea": [
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance"
+          ],
+          "methodology": {
+            "revenueGbp": 31400000000,
+            "sectorRatio": 0.002,
+            "sizeAdjustment": 1.2,
+            "source": "GSK plc Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-8b45c9d5321662fc",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-merck",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 28384725,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "sanctions_trade"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~5.9% of Merck & Co., Inc.'s estimated £121M legal spend — £114M addressable, concentrated in Tax, Energy & Natural Resources, Sanctions & Trade.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1060",
+          "M-2024-1061",
+          "M-2024-1062"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £50.3bn (2024, Merck & Co. 10-K 2024). Sector ratio: 20 bp (pharma sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £7M. Estimated total: £121M → gap £114M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 7181100,
+          "estimatedTotalGbp": 120720000,
+          "walletSharePct": 0.05948558648111332,
+          "gapGbp": 113538900,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "regulatory_compliance"
+          ],
+          "methodology": {
+            "revenueGbp": 50300000000,
+            "sectorRatio": 0.002,
+            "sizeAdjustment": 1.2,
+            "source": "Merck & Co. 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-2387a64aa627f52a",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-alphabet",
+      "entityType": "client",
+      "suggestedService": "commercial_litigation",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 46317500,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "litigation_disputes",
+        "tax",
+        "corporate_ma"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~4.7% of Alphabet Inc.'s estimated £194M legal spend — £185M addressable, concentrated in Litigation & Disputes, Tax, Corporate M&A.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1090",
+          "M-2024-1091",
+          "M-2024-1092"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £270.0bn (2024, Alphabet Inc. 10-K 2024). Sector ratio: 6 bp (technology sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £9M. Estimated total: £194M → gap £185M (7 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 9130000,
+          "estimatedTotalGbp": 194400000,
+          "walletSharePct": 0.04696502057613169,
+          "gapGbp": 185270000,
+          "gapByPracticeArea": [
+            "litigation_disputes",
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 270000000000,
+            "sectorRatio": 0.0006,
+            "sizeAdjustment": 1.2,
+            "source": "Alphabet Inc. 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-49744a789ba8812b",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-apple",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 53132100,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "corporate_ma",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.035Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~2.9% of Apple Inc.'s estimated £219M legal spend — £213M addressable, concentrated in Tax, Corporate M&A, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1100",
+          "M-2024-1101",
+          "M-2024-1102"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £304.0bn (2024, Apple Inc. 10-K FY24). Sector ratio: 6 bp (technology sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £6M. Estimated total: £219M → gap £213M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 6351600,
+          "estimatedTotalGbp": 218880000,
+          "walletSharePct": 0.029018640350877194,
+          "gapGbp": 212528400,
+          "gapByPracticeArea": [
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance"
+          ],
+          "methodology": {
+            "revenueGbp": 304000000000,
+            "sectorRatio": 0.0006,
+            "sizeAdjustment": 1.2,
+            "source": "Apple Inc. 10-K FY24",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-3c74dabaae586096",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-amazon",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 89566600,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "corporate_ma",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~1.3% of Amazon.com, Inc.'s estimated £363M legal spend — £358M addressable, concentrated in Tax, Corporate M&A, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1110",
+          "M-2024-1111",
+          "M-2024-1112"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £504.0bn (2024, Amazon.com 10-K 2024). Sector ratio: 6 bp (technology sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £5M. Estimated total: £363M → gap £358M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 4613600,
+          "estimatedTotalGbp": 362880000,
+          "walletSharePct": 0.012713844797178131,
+          "gapGbp": 358266400,
+          "gapByPracticeArea": [
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "sanctions_trade",
+            "banking_finance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 504000000000,
+            "sectorRatio": 0.0006,
+            "sizeAdjustment": 1.2,
+            "source": "Amazon.com 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-8a3a477732b0b846",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-shell",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 50481575,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "sanctions_trade",
+        "banking_finance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~4.0% of Shell plc's estimated £210M legal spend — £202M addressable, concentrated in Tax, Sanctions & Trade, Banking & Finance.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1120",
+          "M-2024-1121",
+          "M-2024-1122"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £219.0bn (2024, Shell plc Annual Report 2024). Sector ratio: 8 bp (oil gas sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £8M. Estimated total: £210M → gap £202M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 8313700,
+          "estimatedTotalGbp": 210240000,
+          "walletSharePct": 0.039543854642313546,
+          "gapGbp": 201926300,
+          "gapByPracticeArea": [
+            "tax",
+            "sanctions_trade",
+            "banking_finance",
+            "regulatory_compliance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 219000000000,
+            "sectorRatio": 0.0008,
+            "sizeAdjustment": 1.2,
+            "source": "Shell plc Annual Report 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-86b186c81aa98424",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-chevron",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 34941550,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "corporate_ma",
+        "energy_natural_resources"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~5.5% of Chevron Corporation's estimated £148M legal spend — £140M addressable, concentrated in Tax, Corporate M&A, Energy & Natural Resources.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1130",
+          "M-2024-1131",
+          "M-2024-1132"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £154.0bn (2024, Chevron Corporation 10-K 2024). Sector ratio: 8 bp (oil gas sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £8M. Estimated total: £148M → gap £140M (6 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 8073800,
+          "estimatedTotalGbp": 147840000,
+          "walletSharePct": 0.054611742424242424,
+          "gapGbp": 139766200,
+          "gapByPracticeArea": [
+            "tax",
+            "corporate_ma",
+            "energy_natural_resources",
+            "banking_finance",
+            "regulatory_compliance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 154000000000,
+            "sectorRatio": 0.0008,
+            "sizeAdjustment": 1.2,
+            "source": "Chevron Corporation 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-0225858f51c70812",
+      "type": "wallet_gap",
+      "engineSource": "wallet_gap",
+      "entity": "c-northrop",
+      "entityType": "client",
+      "suggestedService": "corporate_tax",
+      "urgencyTier": "steady_state",
+      "confidence": 0.85,
+      "severity": "p3",
+      "estimatedRevenue": 14580000,
+      "competitiveContext": "moderate",
+      "score": 90,
+      "triggers": [
+        "tax",
+        "energy_natural_resources",
+        "banking_finance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "wallet_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "You capture ~<1% of Northrop Grumman Corporation's estimated £58M legal spend — £58M addressable, concentrated in Tax, Energy & Natural Resources, Banking & Finance.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1140",
+          "M-2024-1141",
+          "M-2024-1142"
+        ],
+        "reasoning": "Heuristic: revenue × sector benchmark × size adjustment. Revenue £32.4bn (2024, Northrop Grumman 10-K 2024). Sector ratio: 15 bp (defense aerospace sector benchmark). Size adjustment: ×1.20 (mega-cap multinational premium). Trailing-12m internal billing: £0. Estimated total: £58M → gap £58M (5 firm practices not yet billed to this client).",
+        "walletGap": {
+          "internalBilledGbp": 0,
+          "estimatedTotalGbp": 58320000,
+          "walletSharePct": 0,
+          "gapGbp": 58320000,
+          "gapByPracticeArea": [
+            "tax",
+            "energy_natural_resources",
+            "banking_finance",
+            "regulatory_compliance",
+            "ip_technology"
+          ],
+          "methodology": {
+            "revenueGbp": 32400000000,
+            "sectorRatio": 0.0015,
+            "sizeAdjustment": 1.2,
+            "source": "Northrop Grumman 10-K 2024",
+            "fiscalYear": 2024
+          }
+        }
+      }
+    },
+    {
+      "id": "opp-1f9f0af9ba4e0bce",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-bp",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "BP plc operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0142",
+          "M-2023-0891",
+          "M-2024-0455"
+        ],
+        "reasoning": "Client operates in: UK, USA, Iraq, Azerbaijan, Egypt, Angola. HQ jurisdiction: UK. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for BP plc in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "UK",
+            "USA",
+            "Iraq",
+            "Azerbaijan",
+            "Egypt",
+            "Angola"
+          ],
+          "clientHqJurisdiction": "UK"
+        }
+      }
+    },
+    {
+      "id": "opp-83116dce616e94de",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-hsbc",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "HSBC Holdings plc operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0331",
+          "M-2023-0421",
+          "M-2024-0667"
+        ],
+        "reasoning": "Client operates in: UK, USA, Hong Kong, Singapore, Switzerland. HQ jurisdiction: UK. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for HSBC Holdings plc in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "UK",
+            "USA",
+            "Hong Kong",
+            "Singapore",
+            "Switzerland"
+          ],
+          "clientHqJurisdiction": "UK"
+        }
+      }
+    },
+    {
+      "id": "opp-3589925b409e30ca",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-maersk",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "A.P. Moller-Maersk A/S operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2020-0312",
+          "M-2024-0117",
+          "M-2023-0544"
+        ],
+        "reasoning": "Client operates in: Denmark, Singapore, USA, UAE. HQ jurisdiction: EU. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for A.P. Moller-Maersk A/S in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "Denmark",
+            "Singapore",
+            "USA",
+            "UAE"
+          ],
+          "clientHqJurisdiction": "EU"
+        }
+      }
+    },
+    {
+      "id": "opp-5c1eae9649722e84",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-vw",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Volkswagen AG operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0552",
+          "M-2024-0388",
+          "M-2024-0290"
+        ],
+        "reasoning": "Client operates in: Germany, USA, China, Brazil. HQ jurisdiction: EU. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for Volkswagen AG in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "Germany",
+            "USA",
+            "China",
+            "Brazil"
+          ],
+          "clientHqJurisdiction": "EU"
+        }
+      }
+    },
+    {
+      "id": "opp-15b2a05302b3905c",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-asml",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "ASML Holding NV operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0511",
+          "M-2023-0814",
+          "M-2024-0233"
+        ],
+        "reasoning": "Client operates in: Netherlands, USA, Taiwan, South Korea. HQ jurisdiction: EU. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for ASML Holding NV in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "Netherlands",
+            "USA",
+            "Taiwan",
+            "South Korea"
+          ],
+          "clientHqJurisdiction": "EU"
+        }
+      }
+    },
+    {
+      "id": "opp-179161502c62b8db",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-rolls",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Rolls-Royce Holdings plc operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0501",
+          "M-2024-0099",
+          "M-2022-0902"
+        ],
+        "reasoning": "Client operates in: UK, USA, Germany. HQ jurisdiction: UK. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for Rolls-Royce Holdings plc in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "UK",
+            "USA",
+            "Germany"
+          ],
+          "clientHqJurisdiction": "UK"
+        }
+      }
+    },
+    {
+      "id": "opp-875b285fbf5641b5",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-boeing",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.036Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "The Boeing Company operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0501-B",
+          "M-2023-0552-B",
+          "M-2024-0388-B"
+        ],
+        "reasoning": "Client operates in: USA, UK, Australia. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for The Boeing Company in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Australia"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-b820fde7fafb8bd5",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-gs",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "The Goldman Sachs Group, Inc. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0612-G",
+          "M-2024-0667-G",
+          "M-2024-0241-G"
+        ],
+        "reasoning": "Client operates in: USA, UK, Singapore, Japan. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for The Goldman Sachs Group, Inc. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Singapore",
+            "Japan"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-7472afc1e309d6ed",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-jpm",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "JPMorgan Chase & Co. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2023-0501-J",
+          "M-2024-0388-J",
+          "M-2023-0814-J"
+        ],
+        "reasoning": "Client operates in: USA, UK, Singapore, Brazil. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for JPMorgan Chase & Co. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Singapore",
+            "Brazil"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-aefd55268b670a59",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-msft",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Microsoft Corporation operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-0118-M",
+          "M-2023-0319-M",
+          "M-2024-0241-M"
+        ],
+        "reasoning": "Client operates in: USA, UK, Ireland, India. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Microsoft Corporation in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Ireland",
+            "India"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-4e2338c82fe7c6be",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-citi",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Citigroup Inc. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1001",
+          "M-2024-1002",
+          "M-2024-1003"
+        ],
+        "reasoning": "Client operates in: USA, UK, Mexico, Singapore, India. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Citigroup Inc. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Mexico",
+            "Singapore",
+            "India"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-6f9b21ff95582f21",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-bofa",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Bank of America Corporation operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1010",
+          "M-2024-1011",
+          "M-2024-1012"
+        ],
+        "reasoning": "Client operates in: USA, UK, Hong Kong, Brazil. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Bank of America Corporation in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Hong Kong",
+            "Brazil"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-4ecb8361714316e5",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-ms",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Morgan Stanley operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1020",
+          "M-2024-1021",
+          "M-2024-1022"
+        ],
+        "reasoning": "Client operates in: USA, UK, Japan, Hong Kong. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Morgan Stanley in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Japan",
+            "Hong Kong"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-ebdf23835b07b3a0",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-barclays",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Barclays plc operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1030",
+          "M-2024-1031",
+          "M-2024-1032"
+        ],
+        "reasoning": "Client operates in: UK, USA, Singapore, South Africa. HQ jurisdiction: UK. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for Barclays plc in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "UK",
+            "USA",
+            "Singapore",
+            "South Africa"
+          ],
+          "clientHqJurisdiction": "UK"
+        }
+      }
+    },
+    {
+      "id": "opp-468286cab44e98bf",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-gsk",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "GSK plc operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1050",
+          "M-2024-1051",
+          "M-2024-1052"
+        ],
+        "reasoning": "Client operates in: UK, USA, China, India. HQ jurisdiction: UK. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for GSK plc in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "UK",
+            "USA",
+            "China",
+            "India"
+          ],
+          "clientHqJurisdiction": "UK"
+        }
+      }
+    },
+    {
+      "id": "opp-2f8cf4505e0cbf51",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-merck",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Merck & Co., Inc. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1060",
+          "M-2024-1061",
+          "M-2024-1062"
+        ],
+        "reasoning": "Client operates in: USA, UK, Germany, Japan. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Merck & Co., Inc. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Germany",
+            "Japan"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-d8458abd417edfff",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-alphabet",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Alphabet Inc. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1090",
+          "M-2024-1091",
+          "M-2024-1092"
+        ],
+        "reasoning": "Client operates in: USA, UK, Ireland, Singapore, India. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Alphabet Inc. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Ireland",
+            "Singapore",
+            "India"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-47bd67d80f4b8f1c",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-apple",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Apple Inc. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1100",
+          "M-2024-1101",
+          "M-2024-1102"
+        ],
+        "reasoning": "Client operates in: USA, UK, Ireland, China, Japan. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Apple Inc. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Ireland",
+            "China",
+            "Japan"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-593b0c0d6cf38a28",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-amazon",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Amazon.com, Inc. operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1110",
+          "M-2024-1111",
+          "M-2024-1112"
+        ],
+        "reasoning": "Client operates in: USA, UK, Germany, India, Japan. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Amazon.com, Inc. in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Germany",
+            "India",
+            "Japan"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
+      }
+    },
+    {
+      "id": "opp-b8f632a0bd41bf35",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-shell",
+      "entityType": "client",
+      "suggestedService": "merger_control",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 90,
+      "triggers": [
+        "USA",
+        "regulatory_compliance"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Shell plc operates in USA but the firm has no matter history with them there. The firm has handled 48 regulatory compliance-adjacent matters in USA for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1120",
+          "M-2024-1121",
+          "M-2024-1122"
+        ],
+        "reasoning": "Client operates in: UK, Netherlands, USA, Nigeria, Qatar. HQ jurisdiction: UK. The firm's matter history with this client is concentrated there. Firm presence in USA: 48 matters across regulatory compliance, litigation disputes, corporate ma for other clients. Suggested play: introduce merger control for Shell plc in USA.",
+        "geographicGap": {
+          "missingCountry": "USA",
+          "firmReachMatterCount": 48,
+          "topPracticesInCountry": [
+            "regulatory_compliance",
+            "litigation_disputes",
+            "corporate_ma",
+            "banking_finance",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "UK",
+            "Netherlands",
+            "USA",
+            "Nigeria",
+            "Qatar"
+          ],
+          "clientHqJurisdiction": "UK"
+        }
+      }
+    },
+    {
+      "id": "opp-7ee973b72a4ddac2",
+      "type": "geographic_gap",
+      "engineSource": "geographic_gap",
+      "entity": "c-northrop",
+      "entityType": "client",
+      "suggestedService": "international_arbitration",
+      "urgencyTier": "steady_state",
+      "confidence": 0.75,
+      "severity": "p3",
+      "estimatedRevenue": null,
+      "competitiveContext": "open",
+      "score": 86,
+      "triggers": [
+        "UK",
+        "litigation_disputes"
+      ],
+      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "status": "new",
+      "statusHistory": [
+        {
+          "status": "new",
+          "changedBy": "geographic_gap_engine",
+          "changedAt": "2026-06-03T12:34:33.038Z"
+        }
+      ],
+      "notes": "",
+      "basis": {
+        "summary": "Northrop Grumman Corporation operates in UK but the firm has no matter history with them there. The firm has handled 32 litigation disputes-adjacent matters in UK for other clients — a credible cross-border move.",
+        "signalIds": [],
+        "matterReferences": [
+          "M-2024-1140",
+          "M-2024-1141",
+          "M-2024-1142"
+        ],
+        "reasoning": "Client operates in: USA, UK, Australia. HQ jurisdiction: USA. The firm's matter history with this client is concentrated there. Firm presence in UK: 32 matters across litigation disputes, corporate ma, regulatory compliance for other clients. Suggested play: introduce international arbitration for Northrop Grumman Corporation in UK.",
+        "geographicGap": {
+          "missingCountry": "UK",
+          "firmReachMatterCount": 32,
+          "topPracticesInCountry": [
+            "litigation_disputes",
+            "corporate_ma",
+            "regulatory_compliance",
+            "energy_natural_resources",
+            "sanctions_trade"
+          ],
+          "clientCountriesOfOperation": [
+            "USA",
+            "UK",
+            "Australia"
+          ],
+          "clientHqJurisdiction": "USA"
+        }
       }
     }
   ],

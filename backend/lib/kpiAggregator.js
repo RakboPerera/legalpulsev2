@@ -13,6 +13,10 @@ function normalizeToGbp(amount, currency) {
   return (Number(amount) || 0) * rate;
 }
 
+// Wallet-gap roll-up integration. Imported lazily so the kpiAggregator
+// stays usable in contexts that don't have the wallet libs loaded.
+import { computeWalletGapPortfolio } from './walletGap.js';
+
 function safePct(numerator, denominator) {
   if (!denominator || denominator === 0) return null;
   return numerator / denominator;
@@ -125,8 +129,34 @@ export function computeKpiSummary({ matters, clients = [], partners = [], range 
   const bySector = groupAggregate(filtered, m => clientById.get(m.client)?.sector || null)
     .slice(0, 10);
 
+  // Wallet-gap roll-up — runs across the FULL client roster (not the
+  // range-filtered matter set) because the estimator is a per-client
+  // calculation tied to publicFinancials.revenueGbp. The trailing-12m
+  // internal-billed slice is computed inside walletGap.js using the
+  // full matter ledger.
+  const walletPortfolio = computeWalletGapPortfolio({ clients, matters: matters || [] });
+  const walletByClient = new Map(walletPortfolio.rows.map(r => [r.clientId, r]));
+
+  // Attach the per-client wallet metrics to firm tiles so the KPI
+  // dashboard can render Estimated spend / Wallet share / Addressable gap.
+  firm.estimatedSpendGbp = walletPortfolio.firm.estimatedTotalGbp;
+  firm.walletSharePct    = walletPortfolio.firm.walletSharePct;
+  firm.walletGapGbp      = walletPortfolio.firm.gapGbp;
+  firm.clientsWithEstimate = walletPortfolio.firm.clientsWithEstimate;
+
   const byClient = groupAggregate(filtered, m => m.client)
-    .map(row => ({ ...row, name: clientById.get(row.key)?.legalName || row.key }))
+    .map(row => {
+      const wallet = walletByClient.get(row.key);
+      return {
+        ...row,
+        name: clientById.get(row.key)?.legalName || row.key,
+        // Wallet-share columns on the per-client breakdown. Null when
+        // we don't have public-finance data for the client (UI shows —).
+        estimatedSpendGbp: wallet?.estimatedTotalGbp ?? null,
+        walletSharePct:    wallet?.walletSharePct ?? null,
+        walletGapGbp:      wallet?.gapGbp ?? null
+      };
+    })
     .slice(0, 10);
 
   return {
@@ -137,6 +167,11 @@ export function computeKpiSummary({ matters, clients = [], partners = [], range 
     byPractice,
     byPartner,
     bySector,
-    byClient
+    byClient,
+    // Full wallet-gap leaderboard for components that want all clients
+    // (not just the top-10 by feesBilled). The KPI dashboard's main
+    // breakdown still uses the top-10 list above; this is for the
+    // wallet-gap-focused widget.
+    walletGapByClient: walletPortfolio.rows.slice(0, 15)
   };
 }

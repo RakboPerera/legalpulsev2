@@ -46,6 +46,98 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "esg_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 152000000000,
+      "fiscalYear": 2024,
+      "source": "BP plc Annual Report 2024 (Form 20-F)",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "BP America Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Exploration Operating Company Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Pipelines (Alaska) Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Trading Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Castrol Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Chemicals Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Solar International Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Lightsource bp Renewable Energy Investments Ltd",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Wind Energy North America Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Lubricants USA Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Capital Markets plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BP Shipping Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Atlantic Methanol Production Company LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Air BP Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -88,6 +180,74 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "regulatory_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 52000000000,
+      "fiscalYear": 2024,
+      "source": "HSBC Holdings Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "HSBC Bank plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC USA Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Bank USA, National Association",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "The Hongkong and Shanghai Banking Corporation Limited",
+        "jurisdiction": "Hong Kong",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Bank Canada",
+        "jurisdiction": "Canada",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Private Bank (Suisse) SA",
+        "jurisdiction": "Switzerland",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Securities (USA) Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Trinkaus & Burkhardt AG",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Continental Europe",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "HSBC Investment Bank Holdings Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -126,7 +286,57 @@
     "primaryRelationshipPartner": "p-hartwell",
     "creditRating": "BBB+",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 45000000000,
+      "fiscalYear": 2024,
+      "source": "A.P. Moller-Maersk Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Maersk Line A/S",
+        "jurisdiction": "Denmark",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "APM Terminals B.V.",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Maersk Tankers A/S",
+        "jurisdiction": "Denmark",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Maersk Oil Trading A/S",
+        "jurisdiction": "Denmark",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Damco International A/S",
+        "jurisdiction": "Denmark",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Maersk Container Industry A/S",
+        "jurisdiction": "Denmark",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Maersk Supply Service A/S",
+        "jurisdiction": "Denmark",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-vw",
@@ -167,6 +377,68 @@
     "riskFlags": [
       "regulatory_pressure",
       "litigation_heavy"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 269000000000,
+      "fiscalYear": 2024,
+      "source": "Volkswagen AG Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Audi AG",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Porsche AG",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "SEAT, S.A.",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Škoda Auto a.s.",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Volkswagen Financial Services AG",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Volkswagen of America, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "MAN SE",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "TRATON SE",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Volkswagen Group of America Investments LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -206,6 +478,44 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "sanctions_adjacent"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 23500000000,
+      "fiscalYear": 2024,
+      "source": "ASML Annual Report 2024 (Form 20-F)",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "ASML US LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ASML Netherlands B.V.",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ASML Hong Kong Limited",
+        "jurisdiction": "Hong Kong",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Cymer LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Hermes Microvision Inc.",
+        "jurisdiction": "Taiwan",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -242,7 +552,51 @@
     "primaryRelationshipPartner": "p-lin",
     "creditRating": "BBB-",
     "creditOutlook": "positive",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 17800000000,
+      "fiscalYear": 2024,
+      "source": "Rolls-Royce Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Rolls-Royce plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Rolls-Royce Power Systems AG",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Rolls-Royce North America Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Rolls-Royce Civil Nuclear SAS",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Rolls-Royce SMR Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Rolls-Royce Marine North America Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-vodafone",
@@ -282,7 +636,63 @@
     "primaryRelationshipPartner": "p-stone",
     "creditRating": "BBB",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 31400000000,
+      "fiscalYear": 2024,
+      "source": "Vodafone Group Annual Report FY24",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Vodafone Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vodafone Italia S.p.A.",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vodafone Spain, S.A.",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vodafone Germany GmbH",
+        "jurisdiction": "EU",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vodafone Idea Limited",
+        "jurisdiction": "India",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vodafone Egypt Telecommunications S.A.E.",
+        "jurisdiction": "Egypt",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "VodafoneThree UK Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vodacom Group Limited",
+        "jurisdiction": "South Africa",
+        "discoveredVia": "annual_report",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-exxon",
@@ -322,6 +732,74 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "esg_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 271000000000,
+      "fiscalYear": 2024,
+      "source": "Exxon Mobil 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "ExxonMobil Production Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ExxonMobil Refining & Supply Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Exxon Mobil Chemical Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ExxonMobil Pipeline Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ExxonMobil Catalysts and Licensing LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Esso Italiana S.r.l.",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Esso Petroleum Company, Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ExxonMobil Asia Pacific Pte. Ltd.",
+        "jurisdiction": "Singapore",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Pioneer Natural Resources Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ExxonMobil Canada Ltd.",
+        "jurisdiction": "Canada",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -362,6 +840,56 @@
       "regulatory_pressure",
       "distressed",
       "litigation_heavy"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 52000000000,
+      "fiscalYear": 2024,
+      "source": "Boeing 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Boeing Commercial Airplanes Group",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Boeing Defense, Space & Security",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Boeing Capital Corporation",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Boeing Global Services",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Spirit AeroSystems Holdings, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Insitu, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Aurora Flight Sciences Corporation",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -400,7 +928,51 @@
     "primaryRelationshipPartner": "p-webb",
     "creditRating": "A+",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 40500000000,
+      "fiscalYear": 2024,
+      "source": "Goldman Sachs 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Goldman Sachs Bank USA",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Goldman Sachs International",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Goldman Sachs & Co. LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Goldman Sachs Asset Management, L.P.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Marcus by Goldman Sachs",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Goldman Sachs Japan Co., Ltd.",
+        "jurisdiction": "Japan",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-jpm",
@@ -439,7 +1011,57 @@
     "primaryRelationshipPartner": "p-webb",
     "creditRating": "A+",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 137000000000,
+      "fiscalYear": 2024,
+      "source": "JPMorgan Chase 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "JPMorgan Chase Bank, N.A.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "J.P. Morgan Securities LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "J.P. Morgan Securities plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "J.P. Morgan AG",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "JPMorgan Chase Bank, N.A. (Hong Kong Branch)",
+        "jurisdiction": "Hong Kong",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Chase Bank USA, National Association",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "J.P. Morgan Asset Management Holdings Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-msft",
@@ -482,6 +1104,56 @@
     ],
     "additionalPartners": [
       "p-chandrasekhar"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 195000000000,
+      "fiscalYear": 2024,
+      "source": "Microsoft 10-K FY24",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Microsoft Ireland Operations Limited",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "LinkedIn Corporation",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "GitHub, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Mojang AB",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Activision Blizzard, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Nuance Communications, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ZeniMax Media Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -529,6 +1201,44 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "regulatory_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 64000000000,
+      "fiscalYear": 2024,
+      "source": "Citigroup 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Citibank, N.A.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Citigroup Global Markets Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Citigroup Global Markets Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Banamex (Grupo Financiero Citibanamex)",
+        "jurisdiction": "Mexico",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Citibank Singapore Limited",
+        "jurisdiction": "Singapore",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -573,7 +1283,45 @@
     "primaryRelationshipPartner": "p-webb",
     "creditRating": "A",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 77000000000,
+      "fiscalYear": 2024,
+      "source": "Bank of America 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Bank of America, N.A.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Merrill Lynch, Pierce, Fenner & Smith Incorporated",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BofA Securities, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Merrill Lynch International",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Bank of America Merrill Lynch International DAC",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-ms",
@@ -616,7 +1364,45 @@
     "primaryRelationshipPartner": "p-stone",
     "creditRating": "A+",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 47300000000,
+      "fiscalYear": 2024,
+      "source": "Morgan Stanley 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Morgan Stanley & Co. LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Morgan Stanley Bank, N.A.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Morgan Stanley & Co. International plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Morgan Stanley Capital Group Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Morgan Stanley Investment Management Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-barclays",
@@ -661,7 +1447,45 @@
     "primaryRelationshipPartner": "p-webb",
     "creditRating": "A",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 26800000000,
+      "fiscalYear": 2024,
+      "source": "Barclays plc Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Barclays Bank plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Barclays Bank UK plc",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Barclays Capital Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Barclays Bank Ireland plc",
+        "jurisdiction": "EU",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Barclays Securities Japan Ltd.",
+        "jurisdiction": "Japan",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-gsk",
@@ -704,6 +1528,44 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "litigation_heavy"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 31400000000,
+      "fiscalYear": 2024,
+      "source": "GSK plc Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "GlaxoSmithKline LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "GlaxoSmithKline Consumer Healthcare",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "GlaxoSmithKline Services Unlimited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Stiefel Laboratories, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "ViiV Healthcare Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -748,7 +1610,45 @@
     "primaryRelationshipPartner": "p-vasquez",
     "creditRating": "AA-",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 50300000000,
+      "fiscalYear": 2024,
+      "source": "Merck & Co. 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Merck Sharp & Dohme Corp.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Organon & Co.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Merck Sharp & Dohme (Europe), Inc.",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "MSD Animal Health",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Sirna Therapeutics, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   },
   {
     "id": "c-alphabet",
@@ -796,6 +1696,56 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "regulatory_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 270000000000,
+      "fiscalYear": 2024,
+      "source": "Alphabet Inc. 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Google LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "YouTube, LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Google Ireland Limited",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Waymo LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "DeepMind Technologies Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Verily Life Sciences LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Wing Aviation LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -842,6 +1792,56 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "regulatory_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 304000000000,
+      "fiscalYear": 2024,
+      "source": "Apple Inc. 10-K FY24",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Apple Operations International Limited",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Apple Distribution International Limited",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Apple Services LATAM LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Beats Electronics, LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Apple Retail UK Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Apple Japan G.K.",
+        "jurisdiction": "Japan",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Apple Services Singapore Pte. Ltd.",
+        "jurisdiction": "Singapore",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -888,6 +1888,68 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "regulatory_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 504000000000,
+      "fiscalYear": 2024,
+      "source": "Amazon.com 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Amazon Services LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Amazon Web Services, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Whole Foods Market, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Twitch Interactive, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Amazon EU SARL",
+        "jurisdiction": "EU",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Amazon UK Services Ltd.",
+        "jurisdiction": "UK",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Ring LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "MGM Holdings Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Amazon Japan G.K.",
+        "jurisdiction": "Japan",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -937,6 +1999,68 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "esg_pressure"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 219000000000,
+      "fiscalYear": 2024,
+      "source": "Shell plc Annual Report 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Shell Petroleum N.V.",
+        "jurisdiction": "EU",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Shell USA, Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Shell Chemicals Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Shell Trading International Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Shell Energy Europe Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Shell Marine Products Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Pennzoil-Quaker State Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "BG Group Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Shell Recharge Solutions B.V.",
+        "jurisdiction": "EU",
+        "discoveredVia": "companies_house_psc",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -983,6 +2107,50 @@
     "creditOutlook": "stable",
     "riskFlags": [
       "sanctions_adjacent"
+    ],
+    "publicFinancials": {
+      "revenueGbp": 154000000000,
+      "fiscalYear": 2024,
+      "source": "Chevron Corporation 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Chevron U.S.A. Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Chevron Phillips Chemical Company LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Chevron Australia Pty Ltd",
+        "jurisdiction": "Australia",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Chevron Pipe Line Company",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Chevron Shipping Company LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Hess Corporation",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
     ]
   },
   {
@@ -1025,6 +2193,44 @@
     "primaryRelationshipPartner": "p-lin",
     "creditRating": "BBB+",
     "creditOutlook": "stable",
-    "riskFlags": []
+    "riskFlags": [],
+    "publicFinancials": {
+      "revenueGbp": 32400000000,
+      "fiscalYear": 2024,
+      "source": "Northrop Grumman 10-K 2024",
+      "retrievedAt": "2026-06-03T12:23:04.821Z"
+    },
+    "linkedSubsidiaries": [
+      {
+        "name": "Northrop Grumman Systems Corporation",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Northrop Grumman Innovation Systems LLC",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Orbital ATK Inc.",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Vinnell Corporation",
+        "jurisdiction": "USA",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      },
+      {
+        "name": "Northrop Grumman UK Limited",
+        "jurisdiction": "UK",
+        "discoveredVia": "edgar_exhibit_21",
+        "retrievedAt": "2026-06-03T12:37:16.723Z"
+      }
+    ]
   }
 ]

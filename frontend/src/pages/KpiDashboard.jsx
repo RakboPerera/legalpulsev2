@@ -49,6 +49,21 @@ const TILE_DEFINITIONS = {
     definition: 'Matters with any closed status (won, lost, or simply closed).',
     formula:    'Count where status ∈ { closed, closed_won, closed_lost }',
     note:       'Population used as the denominator for realisation and DSO calculations.'
+  },
+  'Estimated spend': {
+    definition: 'Estimated total external legal spend across the client portfolio. The denominator the firm is competing for.',
+    formula:    'Σ (client.revenue × sector_benchmark_ratio × size_adjustment) across all clients with public-finance data',
+    note:       'Sector ratios anchored to industry benchmarks (Acritas / CounselLink / AmLaw 200). Range 6 bp (technology) to 20 bp (pharma) of revenue. Size adjustment ranges 0.6× (small) to 1.2× (mega-cap).'
+  },
+  'Wallet share': {
+    definition: 'Proportion of estimated total legal spend that the firm currently captures across the portfolio.',
+    formula:    'Σ feesBilled (trailing 12 months) / Σ estimatedSpend',
+    note:       'Mid-tier UK firms typically run 1–5% wallet share across mega-cap multinationals. Single-relationship "anchor" clients can run 20%+.'
+  },
+  'Addressable gap': {
+    definition: 'Estimated total spend minus what the firm has billed — the upside left on the table across the portfolio.',
+    formula:    'Σ estimatedSpend − Σ feesBilled (trailing 12 months)',
+    note:       'This is the deck\'s headline figure. Combine with the Wallet-gap leaderboard to see which clients carry the most addressable upside.'
   }
 };
 
@@ -93,6 +108,7 @@ function prettySector(s)   { return SECTOR_LABEL[s]   || (s || '—').replace(/_
 
 function fmtGbp(amount, { compact = false } = {}) {
   if (amount == null) return '—';
+  if (compact && Math.abs(amount) >= 1e9) return `£${(amount / 1e9).toFixed(1)}bn`;
   if (compact && Math.abs(amount) >= 1e6) return `£${(amount / 1e6).toFixed(1)}M`;
   if (compact && Math.abs(amount) >= 1e3) return `£${(amount / 1e3).toFixed(0)}k`;
   return `£${Math.round(amount).toLocaleString()}`;
@@ -188,14 +204,20 @@ function FirmTiles({ firm }) {
   const [openTile, setOpenTile] = useState(null);
   if (!firm) return null;
   const tiles = [
-    { label: 'Fees billed',   value: fmtGbp(firm.feesBilled,   { compact: true }) },
-    { label: 'Worked value',  value: fmtGbp(firm.workedValue,  { compact: true }) },
-    { label: 'Write-off',     value: fmtPct(firm.writeOffPct) },
-    { label: 'Realisation',   value: fmtPct(firm.realisationPct) },
-    { label: 'Avg margin',    value: fmtPct(firm.marginPct) },
-    { label: 'Avg DSO',       value: fmtDays(firm.avgDso) },
-    { label: 'Active matters',value: firm.activeCount },
-    { label: 'Closed matters',value: firm.closedCount }
+    { label: 'Fees billed',     value: fmtGbp(firm.feesBilled,     { compact: true }) },
+    { label: 'Worked value',    value: fmtGbp(firm.workedValue,    { compact: true }) },
+    { label: 'Write-off',       value: fmtPct(firm.writeOffPct) },
+    { label: 'Realisation',     value: fmtPct(firm.realisationPct) },
+    { label: 'Avg margin',      value: fmtPct(firm.marginPct) },
+    { label: 'Avg DSO',         value: fmtDays(firm.avgDso) },
+    { label: 'Active matters',  value: firm.activeCount },
+    { label: 'Closed matters',  value: firm.closedCount },
+    // Phase 3 — wallet-gap tiles. These three together tell the deck's
+    // slide-6 story at firm level: how much the portfolio spends, what
+    // share we have, what's left on the table.
+    { label: 'Estimated spend', value: firm.estimatedSpendGbp != null ? fmtGbp(firm.estimatedSpendGbp, { compact: true }) : '—' },
+    { label: 'Wallet share',    value: firm.walletSharePct    != null ? fmtPct(firm.walletSharePct) : '—' },
+    { label: 'Addressable gap', value: firm.walletGapGbp      != null ? fmtGbp(firm.walletGapGbp, { compact: true }) : '—' }
   ];
   return (
     <div className="kpi-tile-grid">
@@ -210,6 +232,67 @@ function FirmTiles({ firm }) {
         />
       ))}
     </div>
+  );
+}
+
+// Wallet-gap leaderboard — one row per client with public-finance data,
+// sorted by gap size descending. Reads from `data.walletGapByClient`
+// which kpiAggregator.js populates via computeWalletGapPortfolio.
+// Anchors the deck's slide-6 walkthrough at firm level: who carries the
+// biggest addressable upside, what share we currently hold, the
+// untapped practice areas per row.
+function WalletGapLeaderboard({ rows }) {
+  const { currentId } = useWorkspace();
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? rows : rows.slice(0, 6);
+  return (
+    <section className="kpi-section">
+      <div className="kpi-section-head">
+        <div>
+          <h3>Wallet-gap leaderboard</h3>
+          <p className="caption">
+            Estimated total legal spend, current share, and addressable gap per client. Combine with the worthiness lens before any pursuit decision — biggest gap ≠ best target.
+          </p>
+        </div>
+        {rows.length > 6 && (
+          <button className="btn btn-secondary kpi-section-toggle" onClick={() => setExpanded(e => !e)}>
+            {expanded ? 'Show top 6' : `Show all ${rows.length}`}
+          </button>
+        )}
+      </div>
+      <table className="kpi-table">
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th className="num">Internal billed</th>
+            <th className="num">Est. total spend</th>
+            <th className="metric">Wallet share</th>
+            <th className="num">Addressable gap</th>
+            <th>Top untapped practices</th>
+          </tr>
+        </thead>
+        <tbody>
+          {visible.map(r => (
+            <tr key={r.clientId}>
+              <td>
+                {currentId
+                  ? <a href={`/workspaces/${currentId}/clients/${r.clientId}`}>{r.clientName}</a>
+                  : r.clientName}
+              </td>
+              <td className="num">{fmtGbp(r.internalBilledGbp, { compact: true })}</td>
+              <td className="num">{fmtGbp(r.estimatedTotalGbp, { compact: true })}</td>
+              <td className="metric"><MetricBar value={r.walletSharePct} /></td>
+              <td className="num" style={{ fontWeight: 600 }}>{fmtGbp(r.gapGbp, { compact: true })}</td>
+              <td style={{ fontSize: 12, color: 'var(--octave-text-muted)' }}>
+                {r.gapByPracticeArea && r.gapByPracticeArea.length
+                  ? r.gapByPracticeArea.slice(0, 3).map(prettyPractice).join(', ')
+                  : '—'}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
   );
 }
 
@@ -312,6 +395,14 @@ export default function KpiDashboard() {
       {data && (
         <>
           <FirmTiles firm={data.firm} />
+
+          {/* Phase 3 — Wallet-gap leaderboard. Reads the per-client
+              wallet-gap rows from kpiAggregator and renders them as a
+              ranked list. Each row links to the client's detail page
+              where the partner gets the full breakdown + methodology. */}
+          {Array.isArray(data.walletGapByClient) && data.walletGapByClient.length > 0 && (
+            <WalletGapLeaderboard rows={data.walletGapByClient} />
+          )}
 
           <BreakdownTable
             title="By practice area"

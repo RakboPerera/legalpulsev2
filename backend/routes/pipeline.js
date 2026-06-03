@@ -22,6 +22,8 @@ import { runIngestionForWorkspace } from '../sources/orchestrator.js';
 import { runCrossSellEngine } from '../engines/crossSell.js';
 import { runProspectDiscoveryEngine } from '../engines/prospectDiscovery.js';
 import { runEventIntelligenceEngine } from '../engines/eventIntelligence.js';
+import { runWalletGapEngine } from '../engines/walletGap.js';
+import { runGeographicGapEngine } from '../engines/geographicGap.js';
 import { generateBriefing } from '../agents/briefingGenerator.js';
 import { gateOpportunity } from '../lib/opportunityPipeline.js';
 import { requireAuth } from './auth.js';
@@ -33,7 +35,17 @@ import { llmRateLimit } from '../lib/rateLimit.js';
 const ENGINE_RUNNERS = {
   cross_sell:           { fn: runCrossSellEngine,           oppType: 'cross_sell',   audit: 'cross_sell_engine' },
   prospect_discovery:   { fn: runProspectDiscoveryEngine,   oppType: 'prospect',     audit: 'prospect_discovery_engine' },
-  event_intelligence:   { fn: runEventIntelligenceEngine,   oppType: 'event_driven', audit: 'event_intelligence_engine' }
+  event_intelligence:   { fn: runEventIntelligenceEngine,   oppType: 'event_driven', audit: 'event_intelligence_engine' },
+  // Phase 3 — wallet-share gap engine. Slide-6 headline. Heuristic-only
+  // (no LLM dependency), so it runs in any workspace that has both a
+  // client list with publicFinancials.revenueGbp populated and at least
+  // one matter to compute the trailing-12m internal-billed figure.
+  wallet_gap:           { fn: runWalletGapEngine,           oppType: 'wallet_gap',   audit: 'wallet_gap_engine' },
+  // Phase 3 — geographic-gap engine (deck slide 9). Cross-border
+  // play: client operates in multiple countries; firm only has matter
+  // history with them in their HQ jurisdiction; firm has presence in
+  // the missing country via other clients. Heuristic-only.
+  geographic_gap:       { fn: runGeographicGapEngine,       oppType: 'geographic_gap', audit: 'geographic_gap_engine' }
 };
 
 function mergeOpportunities(ws, incoming, type) {
