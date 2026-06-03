@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Info, X } from 'lucide-react';
 import { useWorkspace } from '../components/WorkspaceContext.jsx';
 import { kpi as kpiApi } from '../api.js';
@@ -276,7 +277,7 @@ function WalletGapLeaderboard({ rows }) {
             <tr key={r.clientId}>
               <td>
                 {currentId
-                  ? <a href={`/workspaces/${currentId}/clients/${r.clientId}`}>{r.clientName}</a>
+                  ? <Link to={`/workspaces/${currentId}/clients/${r.clientId}`}>{r.clientName}</Link>
                   : r.clientName}
               </td>
               <td className="num">{fmtGbp(r.internalBilledGbp, { compact: true })}</td>

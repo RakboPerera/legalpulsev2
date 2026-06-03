@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight, Play, Pause, RotateCcw, ChevronRight,
   Search, Link2, Network, Scale, FileText, ShieldCheck,
-  Database, Check, Clock, Layers, TrendingUp
+  Database, Check, Clock, Layers
 } from 'lucide-react';
 import { useWorkspace } from './WorkspaceContext.jsx';
 import { opportunities as oppApi, workspaces as wsApi } from '../api.js';

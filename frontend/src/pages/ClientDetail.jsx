@@ -127,7 +127,7 @@ function WalletGapSection({ wallet, entity }) {
 // grouped by jurisdiction. Each entry shows the discoveredVia tag so
 // auditors can trace which public source the entry came from.
 function SubsidiariesSection({ subsidiaries }) {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
   const visible = expanded ? subsidiaries : subsidiaries.slice(0, 6);
   // Group counts by jurisdiction for the summary chip row.
   const byJurisdiction = {};

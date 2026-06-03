@@ -44,16 +44,24 @@ const fakeWorkspace = {
 const wgOpps  = await runWalletGapEngine({ workspace: fakeWorkspace, limit: 24 });
 const ggOpps  = await runGeographicGapEngine({ workspace: fakeWorkspace, limit: 30 });
 
+// Drop any pre-existing opps from the engines we're about to re-bake.
+// Without this, an opportunityId scheme change (e.g. moving country
+// from the signalIds slot into the entity-id slot in geographic_gap)
+// would leave the OLD ids orphaned in the snapshot alongside the NEW
+// ones. The deterministic-merge below only catches collisions on
+// identical ids, not "same logical opp, different id format".
+const REPLACED_ENGINES = new Set(['wallet_gap', 'geographic_gap']);
+const carriedOpps = (snapshot.opportunities || []).filter(o => !REPLACED_ENGINES.has(o.engineSource));
+const droppedCount = (snapshot.opportunities || []).length - carriedOpps.length;
+
 // Merge into snapshot.opportunities by ID. Existing wallet_gap /
 // geographic_gap opps (same id, deterministic via opportunityId) get
 // replaced.
-const oppById = new Map((snapshot.opportunities || []).map(o => [o.id, o]));
+const oppById = new Map(carriedOpps.map(o => [o.id, o]));
 let added = 0;
-let updated = 0;
 for (const o of [...wgOpps, ...ggOpps]) {
-  if (oppById.has(o.id)) updated++;
-  else added++;
   oppById.set(o.id, o);
+  added++;
 }
 snapshot.opportunities = Array.from(oppById.values());
 
@@ -72,6 +80,7 @@ snapshot.bakedAt = new Date().toISOString();
 fs.writeFileSync(snapshotPath, JSON.stringify(snapshot, null, 2) + '\n');
 
 console.log(`[bake-wallet-gap] ${wgOpps.length} wallet-gap + ${ggOpps.length} geographic-gap emitted`);
-console.log(`[bake-wallet-gap] ${added} new opportunities · ${updated} replaced`);
+console.log(`[bake-wallet-gap] ${droppedCount} prior opps from these engines removed before re-bake`);
+console.log(`[bake-wallet-gap] ${added} opportunities placed into snapshot`);
 console.log(`[bake-wallet-gap] total opportunities in snapshot: ${snapshot.opportunities.length}`);
 console.log(`[bake-wallet-gap] clients with publicFinancials: ${snapshot.clients.filter(c => c.publicFinancials).length} / ${snapshot.clients.length}`);

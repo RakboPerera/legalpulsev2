@@ -1,5 +1,5 @@
 {
-  "bakedAt": "2026-06-03T12:37:16.723Z",
+  "bakedAt": "2026-06-03T17:16:51.361Z",
   "clients": [
     {
       "id": "c-bp",
@@ -23290,13 +23290,13 @@
         "banking_finance",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:32.982Z",
+      "generatedAt": "2026-06-03T17:16:51.171Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:32.989Z"
+          "changedAt": "2026-06-03T17:16:51.191Z"
         }
       ],
       "notes": "",
@@ -23348,13 +23348,13 @@
         "energy_natural_resources",
         "ip_technology"
       ],
-      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "generatedAt": "2026-06-03T17:16:51.195Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:32.991Z"
+          "changedAt": "2026-06-03T17:16:51.195Z"
         }
       ],
       "notes": "",
@@ -23405,13 +23405,13 @@
         "energy_natural_resources",
         "sanctions_trade"
       ],
-      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "generatedAt": "2026-06-03T17:16:51.195Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:32.991Z"
+          "changedAt": "2026-06-03T17:16:51.195Z"
         }
       ],
       "notes": "",
@@ -23464,13 +23464,13 @@
         "energy_natural_resources",
         "banking_finance"
       ],
-      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "generatedAt": "2026-06-03T17:16:51.195Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:32.991Z"
+          "changedAt": "2026-06-03T17:16:51.195Z"
         }
       ],
       "notes": "",
@@ -23522,13 +23522,13 @@
         "tax",
         "corporate_ma"
       ],
-      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "generatedAt": "2026-06-03T17:16:51.196Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:32.991Z"
+          "changedAt": "2026-06-03T17:16:51.196Z"
         }
       ],
       "notes": "",
@@ -23582,13 +23582,13 @@
         "tax",
         "corporate_ma"
       ],
-      "generatedAt": "2026-06-03T12:34:32.991Z",
+      "generatedAt": "2026-06-03T17:16:51.196Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:32.991Z"
+          "changedAt": "2026-06-03T17:16:51.196Z"
         }
       ],
       "notes": "",
@@ -23642,13 +23642,13 @@
         "tax",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.034Z",
+      "generatedAt": "2026-06-03T17:16:51.350Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.034Z"
+          "changedAt": "2026-06-03T17:16:51.350Z"
         }
       ],
       "notes": "",
@@ -23702,13 +23702,13 @@
         "energy_natural_resources",
         "sanctions_trade"
       ],
-      "generatedAt": "2026-06-03T12:34:33.034Z",
+      "generatedAt": "2026-06-03T17:16:51.350Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.034Z"
+          "changedAt": "2026-06-03T17:16:51.350Z"
         }
       ],
       "notes": "",
@@ -23761,13 +23761,13 @@
         "energy_natural_resources",
         "sanctions_trade"
       ],
-      "generatedAt": "2026-06-03T12:34:33.034Z",
+      "generatedAt": "2026-06-03T17:16:51.351Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.034Z"
+          "changedAt": "2026-06-03T17:16:51.351Z"
         }
       ],
       "notes": "",
@@ -23820,13 +23820,13 @@
         "energy_natural_resources",
         "sanctions_trade"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.351Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.351Z"
         }
       ],
       "notes": "",
@@ -23879,13 +23879,13 @@
         "tax",
         "corporate_ma"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.352Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.352Z"
         }
       ],
       "notes": "",
@@ -23939,13 +23939,13 @@
         "tax",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.354Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.354Z"
         }
       ],
       "notes": "",
@@ -23999,13 +23999,13 @@
         "tax",
         "corporate_ma"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24058,13 +24058,13 @@
         "corporate_ma",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24118,13 +24118,13 @@
         "tax",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24178,13 +24178,13 @@
         "tax",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24237,13 +24237,13 @@
         "corporate_ma",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24296,13 +24296,13 @@
         "energy_natural_resources",
         "sanctions_trade"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24355,13 +24355,13 @@
         "tax",
         "corporate_ma"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24416,13 +24416,13 @@
         "corporate_ma",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.035Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.035Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24475,13 +24475,13 @@
         "corporate_ma",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24535,13 +24535,13 @@
         "sanctions_trade",
         "banking_finance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24594,13 +24594,13 @@
         "corporate_ma",
         "energy_natural_resources"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.355Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.355Z"
         }
       ],
       "notes": "",
@@ -24654,13 +24654,13 @@
         "energy_natural_resources",
         "banking_finance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.356Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "wallet_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.356Z"
         }
       ],
       "notes": "",
@@ -24696,7 +24696,7 @@
       }
     },
     {
-      "id": "opp-1f9f0af9ba4e0bce",
+      "id": "opp-da9dc42bd8471029",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-bp",
@@ -24712,13 +24712,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.357Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.357Z"
         }
       ],
       "notes": "",
@@ -24754,7 +24754,7 @@
       }
     },
     {
-      "id": "opp-83116dce616e94de",
+      "id": "opp-0500584c14a02459",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-hsbc",
@@ -24770,13 +24770,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.359Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.359Z"
         }
       ],
       "notes": "",
@@ -24811,7 +24811,7 @@
       }
     },
     {
-      "id": "opp-3589925b409e30ca",
+      "id": "opp-3509a018849aaaf8",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-maersk",
@@ -24827,13 +24827,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.359Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.359Z"
         }
       ],
       "notes": "",
@@ -24867,7 +24867,7 @@
       }
     },
     {
-      "id": "opp-5c1eae9649722e84",
+      "id": "opp-1732c362c48bf1a1",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-vw",
@@ -24883,13 +24883,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.359Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.359Z"
         }
       ],
       "notes": "",
@@ -24923,7 +24923,7 @@
       }
     },
     {
-      "id": "opp-15b2a05302b3905c",
+      "id": "opp-2c283c84c3894adb",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-asml",
@@ -24939,13 +24939,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -24979,7 +24979,7 @@
       }
     },
     {
-      "id": "opp-179161502c62b8db",
+      "id": "opp-45892842227c6c2d",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-rolls",
@@ -24995,13 +24995,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25034,7 +25034,7 @@
       }
     },
     {
-      "id": "opp-875b285fbf5641b5",
+      "id": "opp-310cc332b80670f1",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-boeing",
@@ -25050,13 +25050,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.036Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.036Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25089,7 +25089,7 @@
       }
     },
     {
-      "id": "opp-b820fde7fafb8bd5",
+      "id": "opp-b4e95828cd5a6c70",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-gs",
@@ -25105,13 +25105,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25145,7 +25145,7 @@
       }
     },
     {
-      "id": "opp-7472afc1e309d6ed",
+      "id": "opp-c2c6ab0cab40013b",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-jpm",
@@ -25161,13 +25161,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25201,7 +25201,7 @@
       }
     },
     {
-      "id": "opp-aefd55268b670a59",
+      "id": "opp-9e1b727a30a8582c",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-msft",
@@ -25217,13 +25217,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25257,7 +25257,7 @@
       }
     },
     {
-      "id": "opp-4e2338c82fe7c6be",
+      "id": "opp-3f86be352b875a2e",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-citi",
@@ -25273,13 +25273,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25314,7 +25314,7 @@
       }
     },
     {
-      "id": "opp-6f9b21ff95582f21",
+      "id": "opp-3d72361f05753ebc",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-bofa",
@@ -25330,13 +25330,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25370,7 +25370,7 @@
       }
     },
     {
-      "id": "opp-4ecb8361714316e5",
+      "id": "opp-48ba52e8bd4987f5",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-ms",
@@ -25386,13 +25386,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25426,7 +25426,7 @@
       }
     },
     {
-      "id": "opp-ebdf23835b07b3a0",
+      "id": "opp-8670f8721a49b957",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-barclays",
@@ -25442,13 +25442,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25482,7 +25482,7 @@
       }
     },
     {
-      "id": "opp-468286cab44e98bf",
+      "id": "opp-dbcb85bb2ecb1eb1",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-gsk",
@@ -25498,13 +25498,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25538,7 +25538,7 @@
       }
     },
     {
-      "id": "opp-2f8cf4505e0cbf51",
+      "id": "opp-d55ddc73acbdc605",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-merck",
@@ -25554,13 +25554,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25594,7 +25594,7 @@
       }
     },
     {
-      "id": "opp-d8458abd417edfff",
+      "id": "opp-c8e252db91670d73",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-alphabet",
@@ -25610,13 +25610,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25651,7 +25651,7 @@
       }
     },
     {
-      "id": "opp-47bd67d80f4b8f1c",
+      "id": "opp-0d86a60b10b0426d",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-apple",
@@ -25667,13 +25667,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.360Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.360Z"
         }
       ],
       "notes": "",
@@ -25708,7 +25708,7 @@
       }
     },
     {
-      "id": "opp-593b0c0d6cf38a28",
+      "id": "opp-5539e7754cff4e1f",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-amazon",
@@ -25724,13 +25724,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.361Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.361Z"
         }
       ],
       "notes": "",
@@ -25765,7 +25765,7 @@
       }
     },
     {
-      "id": "opp-b8f632a0bd41bf35",
+      "id": "opp-7400bbc6f5fd5e87",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-shell",
@@ -25781,13 +25781,13 @@
         "USA",
         "regulatory_compliance"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.361Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.361Z"
         }
       ],
       "notes": "",
@@ -25822,7 +25822,7 @@
       }
     },
     {
-      "id": "opp-7ee973b72a4ddac2",
+      "id": "opp-03e656e89bc6bf6a",
       "type": "geographic_gap",
       "engineSource": "geographic_gap",
       "entity": "c-northrop",
@@ -25838,13 +25838,13 @@
         "UK",
         "litigation_disputes"
       ],
-      "generatedAt": "2026-06-03T12:34:33.038Z",
+      "generatedAt": "2026-06-03T17:16:51.361Z",
       "status": "new",
       "statusHistory": [
         {
           "status": "new",
           "changedBy": "geographic_gap_engine",
-          "changedAt": "2026-06-03T12:34:33.038Z"
+          "changedAt": "2026-06-03T17:16:51.361Z"
         }
       ],
       "notes": "",

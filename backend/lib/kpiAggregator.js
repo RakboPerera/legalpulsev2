@@ -13,8 +13,10 @@ function normalizeToGbp(amount, currency) {
   return (Number(amount) || 0) * rate;
 }
 
-// Wallet-gap roll-up integration. Imported lazily so the kpiAggregator
-// stays usable in contexts that don't have the wallet libs loaded.
+// Wallet-gap roll-up integration. The KPI dashboard now surfaces three
+// firm-level tiles (Estimated spend / Wallet share / Addressable gap)
+// plus a per-client leaderboard — all computed from this lib's portfolio
+// helper.
 import { computeWalletGapPortfolio } from './walletGap.js';
 
 function safePct(numerator, denominator) {

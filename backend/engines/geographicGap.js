@@ -126,7 +126,13 @@ export async function runGeographicGapEngine({ workspace, limit = 20 } = {}) {
       ].join(' ');
 
       opportunities.push({
-        id: opportunityId('geographic_gap', client.id, suggestedService, [country]),
+        // Country is part of the entity-id slot rather than the signalIds
+        // slot — geographic_gap has no source signals (heuristic-only),
+        // and we want one stable id per (client, country) pair. Using
+        // signalIds for the country mis-uses the parameter semantically;
+        // composing it into the entity id is cleaner and produces an
+        // identical-shape deterministic hash.
+        id: opportunityId('geographic_gap', `${client.id}:${country}`, suggestedService, []),
         type: 'geographic_gap',
         engineSource: 'geographic_gap',
         entity: client.id,

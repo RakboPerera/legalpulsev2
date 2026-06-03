@@ -14,7 +14,11 @@ export default function EmailDraftModal({ workspaceId, opportunity, entity, brie
   // Phase 2 — recipient + send state. Pre-populated with the first
   // decision-maker email from the entity record if available; otherwise
   // the partner types it in.
-  const initialTo = (entity?.decisionMakers || [])
+  //
+  // Array.isArray guard: some entity records carry decisionMakers as an
+  // object (legacy shape) or null instead of an array. Without the guard
+  // .map would throw and the modal would fail to mount.
+  const initialTo = (Array.isArray(entity?.decisionMakers) ? entity.decisionMakers : [])
     .map(d => d?.email)
     .find(e => typeof e === 'string' && e.includes('@')) || '';
   const [recipient, setRecipient] = useState(initialTo);
