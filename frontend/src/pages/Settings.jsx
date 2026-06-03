@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Check, Key, AlertCircle, Loader2, ExternalLink, Trash2 } from 'lucide-react';
+import { Check, Key, AlertCircle, Loader2, ExternalLink, Trash2, Mail } from 'lucide-react';
 import { auth } from '../api.js';
 import { useTitle } from '../lib/useTitle.js';
 
@@ -43,11 +43,24 @@ export default function Settings() {
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState(null); // { kind: 'ok'|'err', message, modelTested? }
 
+  // Phase 2 — SendGrid email-send config. Mirrors the LLM-key state above.
+  const [sendgridKey, setSendgridKey] = useState('');
+  const [showSendgridKey, setShowSendgridKey] = useState(false);
+  const [fromAddress, setFromAddress] = useState('');
+  const [fromName, setFromName] = useState('');
+  const [emailSaving, setEmailSaving] = useState(false);
+  const [emailStatus, setEmailStatus] = useState(null);
+
   useEffect(() => {
     auth.me().then(r => {
       setMe(r.user);
       // Pre-select whichever provider the user already configured.
       if (r.user?.llmProvider) setProvider(r.user.llmProvider);
+      // Pre-populate the email from-address + from-name fields so the
+      // user can see what's currently set. The actual SendGrid key is
+      // never returned by /me — only the hasSendgridKey boolean.
+      if (r.user?.emailFromAddress) setFromAddress(r.user.emailFromAddress);
+      if (r.user?.emailFromName) setFromName(r.user.emailFromName);
     }).catch(() => {
       // Anonymous session error handling — /me returns 401 only when there's
       // no session cookie at all, which the anon-session middleware prevents.
@@ -90,6 +103,61 @@ export default function Settings() {
       }
     } finally {
       setSaving(false);
+    }
+  };
+
+  // === Phase 2 — SendGrid email-config save/clear handlers ===
+  // Same shape as the LLM key handlers above. Save validates the key
+  // with SendGrid before persisting; clear removes both key and
+  // from-address. The from-address must be a verified sender on the
+  // SendGrid account — that's a SendGrid-side setup, surfaced as a 403
+  // when an unverified address tries to send.
+  const handleEmailSave = async (e) => {
+    e?.preventDefault();
+    setEmailSaving(true);
+    setEmailStatus(null);
+    try {
+      const payload = {};
+      if (sendgridKey.trim()) payload.sendgridApiKey = sendgridKey.trim();
+      if (fromAddress.trim()) payload.emailFromAddress = fromAddress.trim();
+      if (fromName.trim() || me?.emailFromName) payload.emailFromName = fromName.trim() || null;
+      const r = await auth.setEmailConfig(payload);
+      setMe(prev => ({
+        ...prev,
+        hasSendgridKey: r.hasSendgridKey,
+        emailFromAddress: r.emailFromAddress,
+        emailFromName: r.emailFromName
+      }));
+      setSendgridKey('');
+      setEmailStatus({ kind: 'ok', message: 'Email config saved.' });
+    } catch (err) {
+      const body = err.response?.data;
+      if (body?.error === 'key_validation_failed') {
+        setEmailStatus({ kind: 'err', message: `SendGrid rejected the key. ${body.details || ''}`.trim() });
+      } else if (body?.error === 'invalid_from_address') {
+        setEmailStatus({ kind: 'err', message: body.message });
+      } else {
+        setEmailStatus({ kind: 'err', message: body?.message || body?.error || err.message });
+      }
+    } finally {
+      setEmailSaving(false);
+    }
+  };
+
+  const handleEmailClear = async () => {
+    setEmailSaving(true);
+    setEmailStatus(null);
+    try {
+      await auth.clearEmailConfig();
+      setMe(prev => ({ ...prev, hasSendgridKey: false, emailFromAddress: null, emailFromName: null }));
+      setFromAddress('');
+      setFromName('');
+      setSendgridKey('');
+      setEmailStatus({ kind: 'ok', message: 'Email config cleared.' });
+    } catch (err) {
+      setEmailStatus({ kind: 'err', message: err.response?.data?.message || err.message });
+    } finally {
+      setEmailSaving(false);
     }
   };
 
@@ -212,6 +280,106 @@ export default function Settings() {
                 disabled={saving}
               >
                 <Trash2 size={12} /> Clear key
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
+
+      {/* === Phase 2 — Pulse Briefing email-send (SendGrid) ===
+          Parallel section to the LLM provider above. Two fields:
+          SendGrid API key (encrypted) + verified sender address.
+          Without both, the Send button on the Pulse Briefing email
+          draft modal returns no_email_key_configured / no_email_from_configured. */}
+      <div className="settings-section" style={{ marginTop: 24 }}>
+        <div className="settings-section-head">
+          <Mail size={16} />
+          <h2>Pulse Briefing email-send (SendGrid)</h2>
+        </div>
+
+        <form onSubmit={handleEmailSave} className="settings-form">
+          <label className="settings-field">
+            <div className="settings-field-label">
+              SendGrid API key
+              {me?.hasSendgridKey && <span className="settings-status-chip"><Check size={11} /> Configured</span>}
+            </div>
+            <div className="settings-key-row">
+              <input
+                type={showSendgridKey ? 'text' : 'password'}
+                className="settings-input settings-key-input"
+                placeholder={me?.hasSendgridKey ? '••••••••••• (replace by typing a new key)' : 'SG.…'}
+                value={sendgridKey}
+                onChange={e => setSendgridKey(e.target.value)}
+                autoComplete="off"
+                spellCheck={false}
+              />
+              <button
+                type="button"
+                className="settings-key-toggle"
+                onClick={() => setShowSendgridKey(s => !s)}
+                tabIndex={-1}
+              >
+                {showSendgridKey ? 'Hide' : 'Show'}
+              </button>
+            </div>
+            <div className="settings-field-help">
+              SendGrid keys start with <code>SG.</code>{' '}
+              <a href="https://app.sendgrid.com/settings/api_keys" target="_blank" rel="noreferrer" className="settings-help-link">
+                Get a key <ExternalLink size={11} />
+              </a>
+            </div>
+          </label>
+
+          <label className="settings-field">
+            <div className="settings-field-label">Verified sender address</div>
+            <input
+              type="email"
+              className="settings-input"
+              placeholder="bd@firmname.com"
+              value={fromAddress}
+              onChange={e => setFromAddress(e.target.value)}
+              autoComplete="off"
+              spellCheck={false}
+            />
+            <div className="settings-field-help">
+              Must be verified in SendGrid (single-sender or domain auth). Unverified addresses return 403 on send.
+            </div>
+          </label>
+
+          <label className="settings-field">
+            <div className="settings-field-label">Sender display name <span className="caption">(optional)</span></div>
+            <input
+              type="text"
+              className="settings-input"
+              placeholder="Hartwell &amp; Stone — BD Team"
+              value={fromName}
+              onChange={e => setFromName(e.target.value)}
+            />
+          </label>
+
+          {emailStatus && (
+            <div className={`settings-status settings-status-${emailStatus.kind}`}>
+              {emailStatus.kind === 'ok' ? <Check size={14} /> : <AlertCircle size={14} />}
+              <span>{emailStatus.message}</span>
+            </div>
+          )}
+
+          <div className="settings-actions">
+            <button
+              type="submit"
+              className="btn btn-accent"
+              disabled={emailSaving || (!sendgridKey.trim() && !fromAddress.trim() && !fromName.trim())}
+            >
+              {emailSaving ? <><Loader2 size={14} className="spin" /> Verifying…</> : 'Save & verify'}
+            </button>
+            {(me?.hasSendgridKey || me?.emailFromAddress) && (
+              <button
+                type="button"
+                className="btn btn-secondary settings-clear"
+                onClick={handleEmailClear}
+                disabled={emailSaving}
+              >
+                <Trash2 size={12} /> Clear email config
               </button>
             )}
           </div>

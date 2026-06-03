@@ -42,7 +42,14 @@ export const auth = {
     api.put('/auth/me/api-key', { llmProvider, providerApiKey }).then(r => r.data),
   // Clear the configured key (sets it to null). Useful for "log out of provider".
   clearProviderKey: ({ llmProvider }) =>
-    api.put('/auth/me/api-key', { llmProvider, providerApiKey: null }).then(r => r.data)
+    api.put('/auth/me/api-key', { llmProvider, providerApiKey: null }).then(r => r.data),
+  // Phase 2 — SendGrid email-send config. The backend validates the
+  // SendGrid key (cheap /v3/scopes call) before persisting; an invalid
+  // key returns 400 with `key_validation_failed`.
+  setEmailConfig: ({ sendgridApiKey, emailFromAddress, emailFromName }) =>
+    api.put('/auth/me/email-config', { sendgridApiKey, emailFromAddress, emailFromName }).then(r => r.data),
+  clearEmailConfig: () =>
+    api.put('/auth/me/email-config', { sendgridApiKey: null, emailFromAddress: null }).then(r => r.data)
 };
 
 export const workspaces = {
@@ -83,6 +90,10 @@ export const opportunities = {
   generateBriefing: (id, oid) => api.post(`/workspaces/${id}/opportunities/${oid}/briefing`).then(r => r.data),
   getBriefing: (id, oid) => api.get(`/workspaces/${id}/opportunities/${oid}/briefing`).then(r => r.data),
   draftEmail: (id, oid) => api.post(`/workspaces/${id}/opportunities/${oid}/draft-email`).then(r => r.data),
+  // Phase 2 — send the email via the user's configured SendGrid account.
+  // Returns { ok: true, messageId } on 202, or { error, ... } on failure.
+  sendEmail: (id, oid, { to, subject, body }) =>
+    api.post(`/workspaces/${id}/opportunities/${oid}/send-email`, { to, subject, body }).then(r => r.data),
   conflictsCheck: (id, entityName) => api.post(`/workspaces/${id}/conflicts/check`, { entityName }).then(r => r.data),
   chat: (id, oid, message, history = []) => api.post(`/workspaces/${id}/opportunities/${oid}/chat`, { message, history }).then(r => r.data),
   // === Pitch document generator ===

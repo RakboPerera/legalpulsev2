@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import { randomUUID } from 'crypto';
 import { encryptSecret, decryptSecret } from '../lib/secrets.js';
 import { SUPPORTED_PROVIDERS, isValidProvider, validateProviderKey } from '../lib/llm/index.js';
+import { validateSendGridKey } from '../lib/email.js';
 
 const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 30;
 const ANON_DOMAIN = '@anon.legalpulse.local';
@@ -94,7 +95,14 @@ export function createAuthRouter(db) {
         isAnonymous: !!req.user.isAnonymous,
         llmProvider: req.user.llmProvider || 'anthropic',
         hasApiKey: !!req.user.anthropicApiKey,
-        supportedProviders: SUPPORTED_PROVIDERS
+        supportedProviders: SUPPORTED_PROVIDERS,
+        // Phase 2 — email-send config exposure. The key itself is never
+        // returned (it's encrypted at rest and decrypted only inside the
+        // process that actually calls SendGrid); only the configured flag
+        // and the plaintext from-address are surfaced for the Settings UI.
+        hasSendgridKey: !!req.user.sendgridApiKey,
+        emailFromAddress: req.user.emailFromAddress || null,
+        emailFromName: req.user.emailFromName || null
       }
     });
   });
@@ -143,6 +151,76 @@ export function createAuthRouter(db) {
     res.json({ ok: true, llmProvider: provider, hasApiKey: true, modelTested: check.model });
   });
 
+  // Save the user's SendGrid email-send config. Used by the Pulse Briefing
+  // email-send button on the opportunity page. Body shape:
+  //   { sendgridApiKey: string|null, emailFromAddress: string|null, emailFromName?: string }
+  // Sending null for either field clears it. The key is verified against
+  // SendGrid before persisting — mirrors the LLM /me/api-key pattern.
+  router.put('/me/email-config', async (req, res) => {
+    if (!req.user) return res.status(401).json({ error: 'unauthenticated' });
+    const body = req.body || {};
+    const { sendgridApiKey, emailFromAddress, emailFromName } = body;
+
+    // Clear request — set both nullable fields to NULL.
+    if (sendgridApiKey === null && emailFromAddress === null) {
+      db.prepare(`UPDATE users SET sendgridApiKey = NULL, emailFromAddress = NULL, emailFromName = NULL WHERE id = ?`)
+        .run(req.user.id);
+      return res.json({ ok: true, hasSendgridKey: false, emailFromAddress: null, emailFromName: null });
+    }
+
+    // Validation
+    if (sendgridApiKey !== undefined && sendgridApiKey !== null && typeof sendgridApiKey !== 'string') {
+      return res.status(400).json({ error: 'invalid_types', message: 'sendgridApiKey must be a string or null.' });
+    }
+    if (emailFromAddress !== undefined && emailFromAddress !== null) {
+      if (typeof emailFromAddress !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailFromAddress)) {
+        return res.status(400).json({ error: 'invalid_from_address', message: 'emailFromAddress must be a valid email.' });
+      }
+    }
+    if (emailFromName !== undefined && emailFromName !== null && typeof emailFromName !== 'string') {
+      return res.status(400).json({ error: 'invalid_types', message: 'emailFromName must be a string or null.' });
+    }
+
+    // If a key was provided, validate against SendGrid before persisting.
+    if (sendgridApiKey && sendgridApiKey.length > 0) {
+      const check = await validateSendGridKey(sendgridApiKey);
+      if (!check.ok) {
+        return res.status(400).json({ error: 'key_validation_failed', details: check.error });
+      }
+    }
+
+    // Build the partial UPDATE — only touch fields the caller actually sent.
+    // Encrypt the API key via the existing AES-256-GCM helper (secrets.js).
+    const fields = [];
+    const values = [];
+    if (sendgridApiKey !== undefined) {
+      fields.push('sendgridApiKey = ?');
+      values.push(sendgridApiKey ? encryptSecret(sendgridApiKey) : null);
+    }
+    if (emailFromAddress !== undefined) {
+      fields.push('emailFromAddress = ?');
+      values.push(emailFromAddress || null);
+    }
+    if (emailFromName !== undefined) {
+      fields.push('emailFromName = ?');
+      values.push(emailFromName || null);
+    }
+    if (fields.length === 0) {
+      return res.status(400).json({ error: 'no_fields_to_update' });
+    }
+    values.push(req.user.id);
+    db.prepare(`UPDATE users SET ${fields.join(', ')} WHERE id = ?`).run(...values);
+
+    // Re-read to return the current state — clients update UI from this.
+    const row = db.prepare(`SELECT sendgridApiKey, emailFromAddress, emailFromName FROM users WHERE id = ?`).get(req.user.id);
+    res.json({
+      ok: true,
+      hasSendgridKey: !!row.sendgridApiKey,
+      emailFromAddress: row.emailFromAddress,
+      emailFromName: row.emailFromName
+    });
+  });
+
   return router;
 }
 
@@ -151,7 +229,8 @@ export function authMiddleware(db) {
     const sid = req.cookies?.lp_session;
     if (!sid) return next();
     const row = db.prepare(
-      `SELECT u.id, u.email, u.anthropicApiKey, u.isAnonymous, u.llmProvider
+      `SELECT u.id, u.email, u.anthropicApiKey, u.isAnonymous, u.llmProvider,
+              u.sendgridApiKey, u.emailFromAddress, u.emailFromName
        FROM sessions s JOIN users u ON u.id = s.userId
        WHERE s.id = ? AND s.expiresAt > ?`
     ).get(sid, new Date().toISOString());
@@ -160,6 +239,9 @@ export function authMiddleware(db) {
       // req.user.anthropicApiKey as plaintext (column name preserved for
       // back-compat; now holds whichever provider's key the user configured).
       if (row.anthropicApiKey) row.anthropicApiKey = decryptSecret(row.anthropicApiKey);
+      // SendGrid API key — same AES-256-GCM scheme via secrets.js. Decrypt
+      // transparently so the email-send route can use it directly.
+      if (row.sendgridApiKey) row.sendgridApiKey = decryptSecret(row.sendgridApiKey);
       // Convenience alias — downstream code is migrating to this name.
       row.providerApiKey = row.anthropicApiKey;
       row.llmProvider = row.llmProvider || 'anthropic';

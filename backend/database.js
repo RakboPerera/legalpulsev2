@@ -201,6 +201,18 @@ async function initSchema(db) {
   if (!hasCol('llmProvider')) {
     db.exec(`ALTER TABLE users ADD COLUMN llmProvider TEXT NOT NULL DEFAULT 'anthropic'`);
   }
+  // Phase 2 — Email-send via SendGrid. The API key is stored encrypted
+  // via secrets.js (same AES-256-GCM pattern used for the LLM key). The
+  // from-address is plaintext (it's an email, not a secret).
+  if (!hasCol('sendgridApiKey')) {
+    db.exec(`ALTER TABLE users ADD COLUMN sendgridApiKey TEXT`);
+  }
+  if (!hasCol('emailFromAddress')) {
+    db.exec(`ALTER TABLE users ADD COLUMN emailFromAddress TEXT`);
+  }
+  if (!hasCol('emailFromName')) {
+    db.exec(`ALTER TABLE users ADD COLUMN emailFromName TEXT`);
+  }
 
   db.save();
 }

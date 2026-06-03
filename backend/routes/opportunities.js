@@ -5,6 +5,7 @@ import { checkConflicts } from '../lib/conflicts.js';
 import { findEntityById } from '../lib/entities.js';
 import { generateBriefing, generateOutreachDraft } from '../agents/briefingGenerator.js';
 import { generatePitch } from '../agents/pitchGenerator.js';
+import { sendEmailViaSendGrid } from '../lib/email.js';
 import { retrieveSimilarPitches } from '../lib/pitchRetrieval.js';
 import { buildHeuristicPitch } from '../lib/pitchHeuristic.js';
 import { pitchToDocxBuffer } from '../lib/pitchDocx.js';
@@ -235,6 +236,96 @@ export function createOpportunitiesRouter(db) {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
+  });
+
+  // Send the Pulse Briefing email draft via the user's configured SendGrid
+  // account. Body shape: { to, subject, body }. The draft is generated +
+  // edited on the client side via the EmailDraftModal; this route just
+  // takes the final values and delivers them.
+  //
+  // Failures (key missing, validation, SendGrid 4xx) return JSON with an
+  // `error` code and a human message — surfaces directly in the modal as
+  // a warning banner without crashing the UI.
+  router.post('/:id/opportunities/:oid/send-email', requireAuth, async (req, res) => {
+    const ws = getWorkspace(db, req.params.id, req.user.id);
+    if (!ws) return res.status(404).json({ error: 'not_found' });
+    const opp = (ws.opportunities || []).find(o => o.id === req.params.oid);
+    if (!opp) return res.status(404).json({ error: 'opportunity_not_found' });
+
+    if (!req.user.sendgridApiKey) {
+      return res.status(400).json({
+        error: 'no_email_key_configured',
+        message: 'Configure your SendGrid API key in Settings → Email to send emails.'
+      });
+    }
+    if (!req.user.emailFromAddress) {
+      return res.status(400).json({
+        error: 'no_email_from_configured',
+        message: 'Set a verified SendGrid sender address in Settings → Email before sending.'
+      });
+    }
+
+    const { to, subject, body } = req.body || {};
+    if (!isString(to, { max: 320 }) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) {
+      return badRequest(res, 'recipient `to` must be a valid email');
+    }
+    if (!isString(subject, { max: 998 })) {
+      return badRequest(res, 'subject is required');
+    }
+    if (!isString(body, { max: 32_000 })) {
+      return badRequest(res, 'body is required');
+    }
+
+    const result = await sendEmailViaSendGrid({
+      to,
+      subject,
+      body,
+      from: req.user.emailFromAddress,
+      fromName: req.user.emailFromName || undefined,
+      apiKey: req.user.sendgridApiKey
+    });
+
+    if (!result.ok) {
+      // SendGrid 403 → unverified sender; 401 → bad key. Surface the status
+      // so the modal can show a precise message rather than "Send failed".
+      return res.status(result.status === 401 || result.status === 403 ? 400 : 502).json({
+        error: 'sendgrid_send_failed',
+        sendgridStatus: result.status,
+        details: result.error || 'unknown'
+      });
+    }
+
+    // Persist the send into the opportunity's statusHistory + the workspace
+    // audit trail. statusHistory is read by the new OpportunityAuditPanel
+    // (Phase 0 work) so the partner sees an "email sent" lifecycle row.
+    try {
+      await withWorkspaceLock(req.params.id, async () => {
+        const ws2 = getWorkspace(db, req.params.id, req.user.id);
+        if (!ws2) return;
+        const opp2 = (ws2.opportunities || []).find(o => o.id === req.params.oid);
+        if (opp2) {
+          opp2.statusHistory = opp2.statusHistory || [];
+          opp2.statusHistory.push({
+            status: opp2.status,
+            changedBy: req.user.email,
+            changedAt: new Date().toISOString(),
+            event: 'email_sent',
+            notes: `Email sent to ${to}: ${subject}`
+          });
+        }
+        addAuditEntry(ws2, {
+          type: 'email_sent',
+          actor: req.user.email,
+          inputs: { opportunityId: opp.id, recipient: to, subject },
+          outputs: { messageId: result.messageId || null }
+        });
+        saveWorkspace(db, ws2);
+      });
+    } catch (lockErr) {
+      console.warn('[send-email] audit write failed:', lockErr.message);
+    }
+
+    res.json({ ok: true, messageId: result.messageId || null });
   });
 
   router.post('/:id/conflicts/check', requireAuth, (req, res) => {

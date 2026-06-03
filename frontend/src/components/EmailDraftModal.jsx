@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { X, ShieldCheck, AlertTriangle, Copy, Key } from 'lucide-react';
+import { X, ShieldCheck, AlertTriangle, Copy, Key, Send, Check } from 'lucide-react';
 import { opportunities as oppApi } from '../api.js';
 import { friendlyError, isKeyError } from '../lib/errorMessages.js';
 
@@ -11,6 +11,16 @@ export default function EmailDraftModal({ workspaceId, opportunity, entity, brie
   const [error, setError] = useState(null);
   const [subject, setSubject] = useState('');
   const [body, setBody] = useState('');
+  // Phase 2 — recipient + send state. Pre-populated with the first
+  // decision-maker email from the entity record if available; otherwise
+  // the partner types it in.
+  const initialTo = (entity?.decisionMakers || [])
+    .map(d => d?.email)
+    .find(e => typeof e === 'string' && e.includes('@')) || '';
+  const [recipient, setRecipient] = useState(initialTo);
+  const [sendBusy, setSendBusy] = useState(false);
+  const [sendError, setSendError] = useState(null);
+  const [sendOk, setSendOk] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -46,6 +56,36 @@ export default function EmailDraftModal({ workspaceId, opportunity, entity, brie
 
   const copy = () => {
     navigator.clipboard.writeText(`Subject: ${subject}\n\n${body}`).catch(() => {});
+  };
+
+  // Send the current subject/body via the backend SendGrid integration.
+  // The backend handles SendGrid auth + sender verification + audit-trail
+  // logging; the modal just surfaces success/failure.
+  const send = async () => {
+    setSendError(null);
+    setSendOk(null);
+    if (!recipient || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(recipient)) {
+      setSendError({ text: 'Enter a valid recipient email.' });
+      return;
+    }
+    setSendBusy(true);
+    try {
+      const res = await oppApi.sendEmail(workspaceId, opportunity.id, {
+        to: recipient,
+        subject,
+        body
+      });
+      setSendOk({ messageId: res.messageId });
+    } catch (err) {
+      const code = err.response?.data?.error;
+      const details = err.response?.data?.message || err.response?.data?.details;
+      setSendError({
+        text: details || friendlyError(err),
+        needsEmailKey: code === 'no_email_key_configured' || code === 'no_email_from_configured'
+      });
+    } finally {
+      setSendBusy(false);
+    }
   };
 
   return (
@@ -85,15 +125,56 @@ export default function EmailDraftModal({ workspaceId, opportunity, entity, brie
           )}
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <label className="caption">To</label>
+            <input
+              className="input"
+              type="email"
+              value={recipient}
+              placeholder="recipient@example.com"
+              onChange={e => setRecipient(e.target.value)}
+            />
             <label className="caption">Subject</label>
             <input className="input" value={subject} onChange={e => setSubject(e.target.value)} />
             <label className="caption">Body</label>
             <textarea className="input" rows={14} value={body} onChange={e => setBody(e.target.value)} style={{ fontFamily: 'var(--font-body)', resize: 'vertical' }} />
           </div>
+
+          {sendError && (
+            <div className="banner-warn" style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 12 }}>
+              <AlertTriangle size={14} />
+              <div style={{ flex: 1 }}>
+                {sendError.needsEmailKey
+                  ? 'Add your SendGrid API key + verified sender address in Settings → Email to enable sending.'
+                  : <>Couldn't send: {sendError.text}</>}
+              </div>
+              {sendError.needsEmailKey && (
+                <Link to="/settings" className="btn btn-secondary" style={{ padding: '6px 12px' }}>
+                  <Key size={12} /> Open Settings
+                </Link>
+              )}
+            </div>
+          )}
+
+          {sendOk && (
+            <div className="banner-pass" style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 12 }}>
+              <Check size={14} />
+              <div style={{ flex: 1 }}>
+                Email queued via SendGrid{sendOk.messageId ? ` (id: ${String(sendOk.messageId).slice(0, 20)}…)` : ''}. The lifecycle row will appear in the audit trail on next refresh.
+              </div>
+            </div>
+          )}
         </div>
         <div className="modal-footer">
           <button className="btn btn-secondary" onClick={() => { setSubject(draft?.subject || ''); setBody(draft?.body || ''); }}>Reset</button>
-          <button className="btn btn-primary" onClick={copy}><Copy size={14} /> Copy to clipboard</button>
+          <button className="btn btn-secondary" onClick={copy}><Copy size={14} /> Copy</button>
+          <button
+            className="btn btn-primary"
+            onClick={send}
+            disabled={sendBusy || conflict?.conflicted || !subject || !body}
+            title={conflict?.conflicted ? 'Cannot send while a conflict is flagged. Resolve the conflict first.' : ''}
+          >
+            <Send size={14} /> {sendBusy ? 'Sending…' : 'Send'}
+          </button>
         </div>
       </div>
     </div>
