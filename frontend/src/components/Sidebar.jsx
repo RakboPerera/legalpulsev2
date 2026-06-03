@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { Briefcase, Building2, Radio, ScrollText, Settings, UserPlus, BookOpen, BarChart3, AlertTriangle, GitBranch, Key, Sparkles, Globe, PlayCircle } from 'lucide-react';
+import { Briefcase, Building2, Radio, ScrollText, Settings, UserPlus, BookOpen, BarChart3, AlertTriangle, GitBranch, Key, Sparkles, Globe } from 'lucide-react';
 import { useWorkspace } from './WorkspaceContext.jsx';
 import { opportunities as oppApi } from '../api.js';
 
@@ -55,11 +55,6 @@ export default function Sidebar() {
       >
         <BookOpen size={16} /> <span className="nav-label">Overview</span>
       </NavLink>
-      {currentId && (
-        <NavLink to={`/workspaces/${currentId}/demo-flow`}>
-          <PlayCircle size={16} /> <span className="nav-label">Demo Flow</span>
-        </NavLink>
-      )}
 
       {currentId && (
         <>
