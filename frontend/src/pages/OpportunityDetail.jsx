@@ -8,7 +8,7 @@ import AcronymText from '../components/AcronymText.jsx';
 import OpportunityChat from '../components/OpportunityChat.jsx';
 import WorthinessBanner from '../components/WorthinessBanner.jsx';
 import PitchModal from '../components/PitchModal.jsx';
-import { prettyService, prettySector } from '../lib/labels.js';
+import { prettyService, prettySector, prettyEngine, prettyUrgency, prettyStatus, prettySource, labelize } from '../lib/labels.js';
 import { useTitle } from '../lib/useTitle.js';
 
 const ANGLE_LABEL = {
@@ -270,6 +270,225 @@ function CollapsibleSection({ title, tag, bullets, accent, open, onToggle }) {
   );
 }
 
+// === Opportunity audit trail ===
+// Renders three readable sections (Provenance / Lifecycle / Evidence) from
+// data the page already loads. Replaces the raw JSON dump that used to live
+// behind the audit-trail toggle. The dev-only raw JSON view is preserved
+// behind ?dev=1 / localStorage.lpDev=1 — same gate as the Raw JSON download
+// button in the action bar above.
+function fmtAuditTime(ts) {
+  if (!ts) return '—';
+  // ISO → "YYYY-MM-DD HH:MM UTC" — same shape AuditTrail.jsx uses.
+  return ts.replace('T', ' ').slice(0, 16) + ' UTC';
+}
+
+// Trigger / risk-domain identifiers used by the opportunity engines. labelize()
+// turns 'm-and-a' into 'M and a' (correct by its generic rules but reads
+// poorly for legal acronyms), so the most common ones get an explicit mapping.
+const TRIGGER_LABEL = {
+  'm-and-a':              'M&A',
+  'm_and_a':              'M&A',
+  'ma':                   'M&A',
+  'ip':                   'IP',
+  'esg':                  'ESG',
+  'ofac':                 'OFAC',
+  'cma':                  'CMA',
+  'fca':                  'FCA',
+  'sec':                  'SEC',
+  'doj':                  'DOJ',
+  'ftc':                  'FTC'
+};
+function prettyTrigger(t) {
+  if (!t) return '';
+  const key = String(t).toLowerCase();
+  return TRIGGER_LABEL[key] || labelize(t);
+}
+
+const AUDIT_SECTION_LABEL = {
+  fontFamily: 'var(--font-display)',
+  fontSize: 11,
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+  color: 'var(--octave-text-muted)',
+  marginBottom: 8
+};
+const AUDIT_TIMELINE = {
+  margin: 0,
+  padding: '0 0 0 4px',
+  listStyle: 'none',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 12,
+  borderLeft: '1px solid var(--octave-n300)'
+};
+const AUDIT_TIMELINE_ROW = {
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: 10,
+  marginLeft: -5,
+  paddingLeft: 4
+};
+const AUDIT_TIMELINE_DOT = {
+  width: 10,
+  height: 10,
+  borderRadius: '50%',
+  background: 'var(--octave-accent)',
+  marginTop: 4,
+  flexShrink: 0
+};
+
+function OpportunityAuditPanel({ opportunity, signals, entityMatters }) {
+  const [showJson, setShowJson] = useState(false);
+  const isDev = typeof window !== 'undefined' && (
+    new URLSearchParams(window.location.search).get('dev') === '1' ||
+    window.localStorage?.getItem('lpDev') === '1'
+  );
+
+  // Index loaded signals + matters so the evidence section can resolve titles
+  // without an extra fetch.
+  const signalById = new Map((signals || []).map(s => [s.id, s]));
+  const matterById = new Map((entityMatters || []).map(m => [m.id, m]));
+
+  // Lifecycle. Newest first. If the opp has no statusHistory yet, fall back to
+  // a single synthetic creation row so the section is never empty.
+  const lifecycle = (opportunity.statusHistory && opportunity.statusHistory.length)
+    ? opportunity.statusHistory.slice().reverse()
+    : [{ status: 'new', changedBy: opportunity.engineSource || 'system', changedAt: opportunity.generatedAt }];
+
+  // Provenance rows. Skip anything null/empty so the grid stays tight on opps
+  // where the engine didn't populate every field.
+  const prov = [];
+  const push = (label, value) => { if (value != null && value !== '') prov.push({ label, value }); };
+  push('Generated',         fmtAuditTime(opportunity.generatedAt));
+  push('Engine',            prettyEngine(opportunity.engineSource));
+  if (opportunity.confidence != null) push('Engine confidence', `${Math.round(opportunity.confidence * 100)}%`);
+  if (opportunity.score      != null) push('Opportunity score', `${opportunity.score}/100`);
+  if (opportunity.severity)   push('Severity', opportunity.severity.toUpperCase());
+  push('Initial urgency',     prettyUrgency(opportunity.urgencyTier));
+  if (Array.isArray(opportunity.triggers) && opportunity.triggers.length) {
+    push('Triggers', opportunity.triggers.map(prettyTrigger).join(', '));
+  }
+  if (opportunity.estimatedRevenue)   push('Estimated revenue', `£${Number(opportunity.estimatedRevenue).toLocaleString()}`);
+  if (opportunity.competitiveContext) push('Competitive context', labelize(opportunity.competitiveContext));
+  if (opportunity.type || opportunity.entityType) {
+    push('Type · entity', `${labelize(opportunity.type || '—')} · ${labelize(opportunity.entityType || '—')}`);
+  }
+
+  const signalIds  = opportunity.basis?.signalIds        || [];
+  const matterRefs = opportunity.basis?.matterReferences || [];
+  const noEvidence = signalIds.length === 0 && matterRefs.length === 0;
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginTop: 4 }}>
+      {/* PROVENANCE */}
+      <section>
+        <div style={AUDIT_SECTION_LABEL}>Provenance</div>
+        <dl className="audit-detail-grid">
+          {prov.map((r, i) => (
+            <React.Fragment key={i}>
+              <dt>{r.label}</dt>
+              <dd>{r.value}</dd>
+            </React.Fragment>
+          ))}
+        </dl>
+      </section>
+
+      {/* LIFECYCLE */}
+      <section>
+        <div style={AUDIT_SECTION_LABEL}>Lifecycle</div>
+        <ol style={AUDIT_TIMELINE}>
+          {lifecycle.map((s, i) => (
+            <li key={i} style={AUDIT_TIMELINE_ROW}>
+              <span style={AUDIT_TIMELINE_DOT} />
+              <div>
+                <div>
+                  <span style={{ color: 'var(--octave-text-muted)', fontVariantNumeric: 'tabular-nums', fontSize: 12 }}>
+                    {fmtAuditTime(s.changedAt)}
+                  </span>
+                  <span style={{ marginLeft: 8, fontWeight: 500 }}>
+                    marked {(s.status || '').toUpperCase()}
+                  </span>
+                </div>
+                <div className="caption" style={{ marginTop: 2 }}>by {s.changedBy || 'system'}</div>
+                {s.notes        && <div className="caption">notes: {s.notes}</div>}
+                {s.dismissReason && <div className="caption">reason: {labelize(s.dismissReason)}</div>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* EVIDENCE TRAIL */}
+      <section>
+        <div style={AUDIT_SECTION_LABEL}>Evidence trail</div>
+        {noEvidence ? (
+          <div className="caption">No supporting signals or matters cited.</div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {signalIds.length > 0 && (
+              <div className="audit-refs">
+                <div className="audit-refs-head">Signals cited ({signalIds.length})</div>
+                <ul className="audit-refs-list">
+                  {signalIds.map(id => {
+                    const s = signalById.get(id);
+                    if (!s) return <li key={id}><span className="caption">{id}</span> <span className="caption">· not in current view</span></li>;
+                    return (
+                      <li key={id}>
+                        <span className="caption">[{prettySource(s.source)}]</span>{' '}
+                        {s.sourceUrl
+                          ? <a href={s.sourceUrl} target="_blank" rel="noreferrer">{s.title}</a>
+                          : <span>{s.title}</span>}
+                        {s.publishedAt && <span className="caption"> · {s.publishedAt.slice(0, 10)}</span>}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+            {matterRefs.length > 0 && (
+              <div className="audit-refs">
+                <div className="audit-refs-head">Matters cited ({matterRefs.length})</div>
+                <ul className="audit-refs-list">
+                  {matterRefs.map(id => {
+                    const m = matterById.get(id);
+                    if (!m) return <li key={id}><span className="caption">{id}</span> <span className="caption">· not in current view</span></li>;
+                    return (
+                      <li key={id}>
+                        <span className="caption">{id}</span>{' '}
+                        <span>{m.matterTitle}</span>
+                        {m.status && <span className="caption"> · {prettyStatus(m.status)}</span>}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </section>
+
+      {/* DEV-ONLY RAW JSON */}
+      {isDev && (
+        <section>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => setShowJson(s => !s)}
+            style={{ width: 'fit-content' }}
+          >
+            {showJson ? 'Hide' : 'Show'} raw JSON (dev)
+          </button>
+          {showJson && (
+            <pre className="briefing-raw-json" style={{ marginTop: 10 }}>
+              {JSON.stringify(opportunity, null, 2)}
+            </pre>
+          )}
+        </section>
+      )}
+    </div>
+  );
+}
+
 export default function OpportunityDetail() {
   const { currentId, viewingRunId, isViewingHistorical } = useWorkspace();
   const { oid } = useParams();
@@ -421,7 +640,12 @@ export default function OpportunityDetail() {
             </span>
           ))}
           <StaleBadge days={signalAgeDays} />
-          <span className="caption">score {opportunity.score}</span>
+          <span
+            className="caption"
+            title="Engine-assigned strength for this specific opportunity (urgency × signal confidence, computed by the engine that produced it). Independent of the client-level Worthiness score above — a strong client can still surface a weak lead, and vice versa."
+          >
+            opportunity score {opportunity.score != null ? `${opportunity.score}/100` : '—'}
+          </span>
         </div>
 
         <div className="briefing-entity-row">
@@ -611,12 +835,14 @@ export default function OpportunityDetail() {
 
         <hr className="divider" />
         <button className="btn btn-secondary" onClick={() => setAuditOpen(o => !o)} style={{ width: 'fit-content' }}>
-          {auditOpen ? 'Hide' : 'Show'} audit trail entries for this opportunity
+          {auditOpen ? 'Hide' : 'Show'} audit trail for this opportunity
         </button>
         {auditOpen && (
-          <pre className="briefing-raw-json">
-            {JSON.stringify(opportunity, null, 2)}
-          </pre>
+          <OpportunityAuditPanel
+            opportunity={opportunity}
+            signals={signals}
+            entityMatters={entityMatters}
+          />
         )}
       </div>
 
