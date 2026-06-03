@@ -388,6 +388,10 @@ export function createOpportunitiesRouter(db) {
         // fallback so the demo always renders something even without a key.
         const wantLLM = req.body?.mode !== 'heuristic';
         const canLLM = Boolean(req.user.providerApiKey);
+        // Phase 4 — capture generation duration for pitch-metrics. The
+        // deck's slide-8 claim is "2 weeks → days" — the actual machine
+        // time (seconds) is the proof, surfaced on the Overview card.
+        const pitchStartedAt = Date.now();
         let pitch;
         if (wantLLM && canLLM) {
           try {
@@ -405,12 +409,14 @@ export function createOpportunitiesRouter(db) {
         } else {
           pitch = buildHeuristicPitch({ opportunity: opp, entity, briefing, exemplars, workspace: ws });
         }
+        const durationMs = Date.now() - pitchStartedAt;
 
         const stored = {
           id: `pitch-${opp.id}`,
           opportunityId: opp.id,
           generatedAt: new Date().toISOString(),
           generatedBy: req.user.email || 'system',
+          durationMs,
           ...pitch
         };
         const existing = (ws.pitches || []).findIndex(p =>
@@ -422,7 +428,7 @@ export function createOpportunitiesRouter(db) {
           type: 'pitch_generation',
           actor: pitch.generationMode === 'llm' ? 'pitch_generator_agent' : 'pitch_heuristic',
           inputs: { opportunityId: opp.id, exemplarIds: exemplars.map(e => e.id) },
-          outputs: { pitchId: stored.id, mode: pitch.generationMode }
+          outputs: { pitchId: stored.id, mode: pitch.generationMode, durationMs }
         });
         saveWorkspace(db, ws);
         return { status: 200, body: { pitch: stored, exemplars } };
@@ -431,6 +437,71 @@ export function createOpportunitiesRouter(db) {
       return res.status(500).json({ error: err.message });
     }
     res.status(out.status).json(out.body);
+  });
+
+  // Phase 4 — pitch metrics. The deck's slide 8 claims "2 weeks → days"
+  // for pitch prep + "~2× pitch coverage at the same headcount". The
+  // numbers below are the proof: how many pitches have been generated,
+  // how fast each one was, what proportion converted to a real partner
+  // action (mark-contacted or email_sent). No filter params — the
+  // Overview card consumes the whole payload.
+  router.get('/:id/pitch-metrics', requireAuth, (req, res) => {
+    const ws = getWorkspace(db, req.params.id, req.user.id);
+    if (!ws) return res.status(404).json({ error: 'not_found' });
+
+    const pitches = ws.pitches || [];
+    const opps    = ws.opportunities || [];
+    const oppById = new Map(opps.map(o => [o.id, o]));
+
+    // Quarter boundary: most-recently-started fiscal quarter (calendar Q,
+    // not firm-defined — the demo doesn't carry a firm fiscal start).
+    const now = new Date();
+    const q = Math.floor(now.getMonth() / 3);
+    const quarterStart = new Date(now.getFullYear(), q * 3, 1).toISOString();
+
+    let totalPitches = 0;
+    let pitchesThisQuarter = 0;
+    let sumDurationMs = 0;
+    let durationSamples = 0;
+    let llmPitches = 0;
+    let heuristicPitches = 0;
+    let conversions = 0;
+
+    for (const p of pitches) {
+      totalPitches++;
+      if (p.generatedAt && p.generatedAt >= quarterStart) pitchesThisQuarter++;
+      if (typeof p.durationMs === 'number' && p.durationMs > 0) {
+        sumDurationMs += p.durationMs;
+        durationSamples++;
+      }
+      if (p.generationMode === 'llm') llmPitches++;
+      else if (p.generationMode === 'heuristic') heuristicPitches++;
+
+      // Conversion: a pitch is "converted" if the linked opportunity has
+      // any subsequent statusHistory entry of contacted / won / pending,
+      // OR an email_sent lifecycle event, after the pitch's generation
+      // timestamp.
+      const opp = oppById.get(p.opportunityId);
+      if (!opp || !p.generatedAt) continue;
+      const after = (opp.statusHistory || []).some(h => {
+        if (!h.changedAt || h.changedAt <= p.generatedAt) return false;
+        return ['contacted', 'won', 'pending'].includes(h.status) || h.event === 'email_sent';
+      });
+      if (after) conversions++;
+    }
+
+    res.json({
+      asOf:                 now.toISOString(),
+      quarterStart,
+      totalPitches,
+      pitchesThisQuarter,
+      avgGenerationMs:      durationSamples > 0 ? Math.round(sumDurationMs / durationSamples) : null,
+      generationSamples:    durationSamples,
+      llmPitches,
+      heuristicPitches,
+      conversions,
+      conversionRate:       totalPitches > 0 ? conversions / totalPitches : null
+    });
   });
 
   router.get('/:id/opportunities/:oid/pitch', requireAuth, (req, res) => {

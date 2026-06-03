@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight, Play, Pause, RotateCcw, ChevronRight,
   Search, Link2, Network, Scale, FileText, ShieldCheck,
-  Database, Check
+  Database, Check, Clock, Layers, TrendingUp
 } from 'lucide-react';
 import { useWorkspace } from './WorkspaceContext.jsx';
-import { opportunities as oppApi } from '../api.js';
+import { opportunities as oppApi, workspaces as wsApi } from '../api.js';
 
 // Default numbers used when no workspace is loaded yet. The Overview reads
 // live workspace counts via the WorkspaceContext when available — so a
@@ -929,6 +929,244 @@ function PipelineFlowPanel({ workspace, opportunities, workspaceId }) {
 }
 
 /* =====================================================================
+ * 3c.  OPERATIONAL PULSE — pitch metrics + data completeness
+ * ===================================================================== */
+
+// Phase 4 / Change 7 — Pitch metrics card. Reads /pitch-metrics which
+// aggregates ws.pitches + opps.statusHistory server-side. Counters
+// turn the deck's slide-8 claims (2 wks → days, 1× → 2× coverage)
+// into auditable numbers the partner can defend.
+function PitchMetricsCard({ workspaceId }) {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    if (!workspaceId) return;
+    let cancelled = false;
+    oppApi.pitchMetrics(workspaceId)
+      .then(r => { if (!cancelled) setData(r); })
+      .catch(err => { if (!cancelled) setError(err.message); });
+    return () => { cancelled = true; };
+  }, [workspaceId]);
+
+  const fmtDuration = ms => {
+    if (ms == null) return '—';
+    if (ms < 1000) return `${ms}ms`;
+    if (ms < 60_000) return `${(ms / 1000).toFixed(1)}s`;
+    return `${(ms / 60_000).toFixed(1)} min`;
+  };
+  const fmtPct = v => v == null ? '—' : `${Math.round(v * 100)}%`;
+
+  return (
+    <div
+      style={{
+        flex: '1 1 320px',
+        background: 'var(--octave-bg)',
+        border: '1px solid var(--octave-n300)',
+        borderRadius: 'var(--radius-md)',
+        padding: '18px 20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 14
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <Clock size={14} style={{ color: 'var(--octave-accent)' }} />
+        <span
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 11,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--octave-text-muted)'
+          }}
+        >
+          Pitch metrics
+        </span>
+      </div>
+      {error && <div className="caption">Couldn't load pitch metrics.</div>}
+      {!data && !error && <div className="caption">Loading…</div>}
+      {data && (
+        <>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14 }}>
+            <Stat label="Pitches this quarter" value={data.pitchesThisQuarter} />
+            <Stat label="Avg generation time" value={fmtDuration(data.avgGenerationMs)} />
+            <Stat label="Total pitches" value={data.totalPitches} />
+            <Stat label="Conversion rate" value={fmtPct(data.conversionRate)} />
+          </div>
+          <div className="caption" style={{ fontStyle: 'italic' }}>
+            Deck claim: "2 weeks → days" of pitch prep. Actual machine time per pitch shown above; conversion rate counts opportunities that moved to contacted / pending / won / email_sent after the pitch was generated.
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+// Phase 4 / Change 12 — Data completeness card. Counts populated field
+// names across all loaded clients + matters and renders the slide-11
+// tier: ≤10 / 11-25 / 26-50 / 50+ fields. The point of the slide is
+// "good data in → good output; bad data in → rubbish" — this surfaces
+// where THIS workspace sits on that curve.
+const CLIENT_FIELDS = [
+  'legalName', 'knownAliases', 'sector', 'subSector', 'hqJurisdiction',
+  'countriesOfOperation', 'size', 'externalIdentifiers', 'publicEntityUrl',
+  'decisionMakers', 'relationshipMaturity', 'primaryRelationshipPartner',
+  'creditRating', 'creditOutlook', 'riskFlags', 'publicFinancials',
+  'linkedSubsidiaries'
+];
+const MATTER_FIELDS = [
+  'id', 'client', 'matterTitle', 'practiceArea', 'leadPartner', 'services',
+  'startDate', 'endDate', 'status', 'feesBilled', 'currency', 'outcome',
+  'workedValue', 'feesCollected', 'directCost', 'budget', 'paymentDays'
+];
+
+function countPopulatedFields(obj, fieldList) {
+  let n = 0;
+  for (const k of fieldList) {
+    const v = obj?.[k];
+    if (v == null) continue;
+    if (Array.isArray(v) && v.length === 0) continue;
+    if (typeof v === 'string' && v.trim() === '') continue;
+    if (typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0) continue;
+    n++;
+  }
+  return n;
+}
+
+function tierFor(uniqueFieldCount) {
+  if (uniqueFieldCount >= 50) return { label: 'Brilliant', color: 'var(--octave-accent)', note: 'The dataset has the full surface the demo needs — every engine, every tile, every breakdown populates.' };
+  if (uniqueFieldCount >= 26) return { label: 'Works well', color: 'var(--octave-accent)', note: 'Most surfaces populate — the wallet-gap, worthiness and KPI dashboards have enough to be useful.' };
+  if (uniqueFieldCount >= 11) return { label: 'Decent', color: '#c79933', note: 'Headline tiles work; some breakdowns and sub-scores degrade to neutral.' };
+  return { label: 'Minimum viable', color: 'var(--octave-warn)', note: 'Below the slide-11 floor — most surfaces will show "—" rather than a real value. Add more client + matter fields.' };
+}
+
+function DataCompletenessCard({ workspaceId }) {
+  const [clientCount, setClientCount] = useState(null);
+  const [matterCount, setMatterCount] = useState(null);
+  const [populated, setPopulated] = useState(null);
+  useEffect(() => {
+    if (!workspaceId) return;
+    let cancelled = false;
+    Promise.all([
+      wsApi.clients(workspaceId),
+      wsApi.matters(workspaceId)
+    ]).then(([clients, matters]) => {
+      if (cancelled) return;
+      const allClients = [...(clients.clients || []), ...(clients.prospects || [])];
+      // Union of distinct CLIENT field names that show up populated
+      // in at least one entity, plus same for matters. The tier
+      // boundary maps to deck slide 11 directly.
+      const clientPopulated = new Set();
+      for (const c of allClients) {
+        for (const k of CLIENT_FIELDS) {
+          const v = c?.[k];
+          if (v == null) continue;
+          if (Array.isArray(v) && v.length === 0) continue;
+          if (typeof v === 'string' && v.trim() === '') continue;
+          if (typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0) continue;
+          clientPopulated.add(`client.${k}`);
+        }
+      }
+      const matterPopulated = new Set();
+      for (const m of (matters || [])) {
+        for (const k of MATTER_FIELDS) {
+          const v = m?.[k];
+          if (v == null) continue;
+          if (Array.isArray(v) && v.length === 0) continue;
+          if (typeof v === 'string' && v.trim() === '') continue;
+          matterPopulated.add(`matter.${k}`);
+        }
+      }
+      setClientCount(allClients.length);
+      setMatterCount((matters || []).length);
+      setPopulated(clientPopulated.size + matterPopulated.size);
+    });
+    return () => { cancelled = true; };
+  }, [workspaceId]);
+
+  const tier = populated == null ? null : tierFor(populated);
+
+  return (
+    <div
+      style={{
+        flex: '1 1 320px',
+        background: 'var(--octave-bg)',
+        border: '1px solid var(--octave-n300)',
+        borderRadius: 'var(--radius-md)',
+        padding: '18px 20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 14
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <Layers size={14} style={{ color: 'var(--octave-accent)' }} />
+        <span
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 11,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--octave-text-muted)'
+          }}
+        >
+          Data completeness
+        </span>
+      </div>
+      {populated == null && <div className="caption">Loading…</div>}
+      {populated != null && (
+        <>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: 36,
+                lineHeight: 1,
+                color: tier.color
+              }}
+            >
+              {populated}
+            </span>
+            <span className="caption">populated fields across {clientCount} entities + {matterCount} matters</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 11,
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+                padding: '3px 8px',
+                borderRadius: 3,
+                border: `1px solid ${tier.color}`,
+                color: tier.color,
+                fontWeight: 600
+              }}
+            >
+              {tier.label}
+            </span>
+            <span className="caption">deck slide 11 tier</span>
+          </div>
+          <div className="caption" style={{ fontStyle: 'italic' }}>
+            {tier.note} Tier boundaries: ≤10 minimum · 11–25 decent · 26–50 works well · 50+ brilliant.
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function Stat({ label, value }) {
+  return (
+    <div>
+      <div className="caption" style={{ fontSize: 11 }}>{label}</div>
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 700, marginTop: 2 }}>{value ?? '—'}</div>
+    </div>
+  );
+}
+
+/* =====================================================================
  * 4.  PAGE
  * ===================================================================== */
 
@@ -1077,6 +1315,27 @@ export default function OverviewContent({ variant = 'standalone' }) {
             opportunities={opps}
             workspaceId={currentId || sourceId}
           />
+        </div>
+      </section>
+
+      {/* === OPERATIONAL PULSE — Phase 4 cards ===
+           Pitch metrics (deck slide 8 "2 wks → days" claim made literal)
+           and Data completeness (deck slide 11 tiering). Both read from
+           live workspace data, so the figures reflect whichever workspace
+           the user is browsing. */}
+      <section id="operational-pulse" className="landing-section">
+        <div className="landing-container">
+          <div className="overview-tag">Operational pulse</div>
+          <h2 className="landing-section-h2">
+            What this workspace has actually produced.
+          </h2>
+          <p className="landing-section-lead">
+            The deck makes claims about prep time, coverage, and data depth — the cards below show this workspace's numbers against those claims.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, marginTop: 24 }}>
+            <PitchMetricsCard workspaceId={currentId || sourceId} />
+            <DataCompletenessCard workspaceId={currentId || sourceId} />
+          </div>
         </div>
       </section>
 

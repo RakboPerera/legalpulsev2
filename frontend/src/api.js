@@ -94,6 +94,11 @@ export const opportunities = {
   // Returns { ok: true, messageId } on 202, or { error, ... } on failure.
   sendEmail: (id, oid, { to, subject, body }) =>
     api.post(`/workspaces/${id}/opportunities/${oid}/send-email`, { to, subject, body }).then(r => r.data),
+  // Phase 4 — pitch metrics (Overview card). Returns counts + avg
+  // generation time + conversion rate. Reads from ws.pitches[] + opps
+  // statusHistory; computed server-side.
+  pitchMetrics: id =>
+    api.get(`/workspaces/${id}/pitch-metrics`).then(r => r.data),
   conflictsCheck: (id, entityName) => api.post(`/workspaces/${id}/conflicts/check`, { entityName }).then(r => r.data),
   chat: (id, oid, message, history = []) => api.post(`/workspaces/${id}/opportunities/${oid}/chat`, { message, history }).then(r => r.data),
   // === Pitch document generator ===
