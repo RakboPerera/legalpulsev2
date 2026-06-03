@@ -12,7 +12,7 @@ import { opportunities as oppApi } from '../api.js';
 // live workspace counts via the WorkspaceContext when available — so a
 // partner doesn't see stale marketing numbers that diverge from the actual
 // sample data (e.g. "47 opportunities" rendered next to a 21-card board).
-const BASELINE = { opportunities: 21, briefings: 21, signals: 605, sources: 17 };
+const BASELINE = { opportunities: 21, briefings: 21, signals: 605, sources: 12 };
 
 /* =====================================================================
  * 1.  MANUAL vs LEGALPULSE — sharp two-card before/after
@@ -69,7 +69,7 @@ function ManualVsTool({ counts }) {
           <h3 className="vs-card-title">How a partner gets opportunities.</h3>
           <p className="vs-card-pitch">Open the workspace. Every entity, every source, ranked and briefed before coffee.</p>
           <ul className="vs-card-points">
-            <li>17 sources polled in parallel — every morning</li>
+            <li>12 sources polled in parallel — every morning</li>
             <li>10 specialised agents — classify, link, map, brief, self-check</li>
             <li>Partner-ready briefings with cited sources and conflicts cleared</li>
           </ul>
@@ -89,20 +89,26 @@ function ManualVsTool({ counts }) {
  * 2.  AGENTIC WORKFLOW — 4 stages, bespoke visualizations
  * ===================================================================== */
 
+// Each entry must correspond to an actually-implemented source fetcher in
+// backend/sources/. Lexology, JD Supra, EUR-Lex, EU Consolidated Sanctions
+// and USPTO PatentsView were previously listed here but have no working
+// implementation (the RSS feeds are commented out in rssSources.js and the
+// EU sanctions / USPTO fetchers were never written). Removed 2026-06 to
+// stop the overview from over-promising. Tavily added — it's the third-
+// largest contributing source in the demo bake.
 const SOURCE_GROUPS_VIZ = [
-  { name: 'News',       items: ['GDELT', 'Lexology', 'JD Supra'] },
-  { name: 'Filings',    items: ['SEC EDGAR', 'Companies House', 'Federal Register', 'EUR-Lex'] },
+  { name: 'News',       items: ['GDELT', 'Tavily'] },
+  { name: 'Filings',    items: ['SEC EDGAR', 'Companies House', 'Federal Register'] },
   { name: 'Courts',     items: ['CourtListener / PACER'] },
-  { name: 'Sanctions',  items: ['OFAC SDN', 'EU Consolidated', 'UK OFSI'] },
-  { name: 'Regulators', items: ['DOJ', 'FTC', 'FCA', 'DG COMP'] },
-  { name: 'IP',         items: ['USPTO PatentsView'] }
+  { name: 'Sanctions',  items: ['OFAC SDN', 'UK OFSI'] },
+  { name: 'Regulators', items: ['DOJ', 'FTC', 'FCA', 'DG COMP'] }
 ];
 
 /* Funnel now also carries the *dropped* count and the reason a signal was
    filtered out at each step — turns the visualization from "numbers shrinking"
    into a story of what got rejected and why. */
 const FUNNEL_STEPS = [
-  { count: 428, label: 'raw signals from 17 sources', width: '100%' },
+  { count: 428, label: 'raw signals from 12 sources', width: '100%' },
   { count: 89,  label: 'legally significant',         width: '62%',
     rejected: 339, rejectionReason: 'Routine 10-Qs, analyst chatter, generic news — no legal trigger' },
   { count: 47,  label: 'matched to portfolio',        width: '34%',
@@ -131,9 +137,9 @@ const STAGES = [
     name: 'Ingest',
     Icon: Database,
     title: 'Listen to the world.',
-    pitch: '17 public sources polled in parallel — news, filings, courts, sanctions, regulators. Real APIs, real signals.',
+    pitch: '12 public sources polled in parallel — news, filings, courts, sanctions, regulators. Real APIs, real signals.',
     visual: 'fan',
-    flow: { from: '17 sources', to: '428 raw signals' },
+    flow: { from: '12 sources', to: '428 raw signals' },
     agents: [],
     why: 'Most BD platforms watch news only. We watch news + filings + courts + sanctions + regulators — so events show up before they’re reported.'
   },
@@ -151,7 +157,7 @@ const STAGES = [
         Icon: Search,
         name: 'Signal Classifier',
         asks: 'Is this signal legally significant?',
-        input:  { value: '428', label: 'raw signals from 17 sources' },
+        input:  { value: '428', label: 'raw signals from 12 sources' },
         output: { value: '89',  label: 'legally significant', handoff: 'Hands off to Entity Linker' },
         reasoning: 'Reads each signal with a senior-partner mental model: tags it on a curated taxonomy (M&A · sanctions · litigation · regulatory · IP · disclosure) and discards routine 10-Qs without litigation markers, analyst chatter, and speculation. Roughly 80% of raw signals are dropped here.',
         bpEvidence: [
@@ -682,13 +688,16 @@ function VizBrief() {
  * 3.  THE SOURCES TABLE — grouped by area, with purpose
  * ===================================================================== */
 
+// Source rows must match implementations in backend/sources/. See the
+// SOURCE_GROUPS_VIZ comment above for the rationale behind the 2026-06
+// pruning (Lexology, JD Supra, EUR-Lex, EU Consolidated Sanctions, USPTO
+// PatentsView removed; Tavily added).
 const SOURCE_GROUPS = [
   {
     area: 'News & Open Web',
     rows: [
-      ['GDELT Project', 'Real-time global news event database', 'Catches event-driven signals on every named client and prospect — the primary feed.'],
-      ['Lexology (RSS)', 'Curated practice-area legal commentary', 'Picks up emerging legal themes earlier than mainstream news.'],
-      ['JD Supra (RSS)', 'Lawyer-authored client alerts', 'Surfaces what other firms are already advising clients on.']
+      ['GDELT Project', 'Real-time global news event database', 'Catches event-driven signals on every named client and prospect.'],
+      ['Tavily', 'AI-curated public news + web search', 'Primary news feed — high-relevance results per client and per theme, with citations.']
     ]
   },
   {
@@ -696,8 +705,7 @@ const SOURCE_GROUPS = [
     rows: [
       ['SEC EDGAR', 'Mandatory US public-company filings (8-K, 10-Q, 10-K, DEF 14A)', 'Material events — M&A, restatements, leadership change, litigation disclosure — straight from the company.'],
       ['Companies House', 'Statutory UK company filings & officers', 'UK subsidiaries, directorship changes, charges — companion to EDGAR.'],
-      ['Federal Register', 'US executive-branch rulemaking', 'New rules and proposed rules that create regulatory work.'],
-      ['EUR-Lex (RSS)', 'EU legislation & case law', 'Tracks EU directive and regulation pipeline.']
+      ['Federal Register', 'US executive-branch rulemaking', 'New rules and proposed rules that create regulatory work.']
     ]
   },
   {
@@ -710,7 +718,6 @@ const SOURCE_GROUPS = [
     area: 'Sanctions & Compliance',
     rows: [
       ['OFAC SDN list', 'US Treasury sanctions designations', 'Conflict-blocking input + cross-reference for clients\' counterparties.'],
-      ['EU Consolidated Sanctions', 'EU Council restrictive measures', 'EU jurisdictional check, used alongside OFAC and OFSI.'],
       ['UK OFSI', 'HM Treasury financial sanctions', 'UK jurisdictional check for the same risk surface.']
     ]
   },
@@ -721,12 +728,6 @@ const SOURCE_GROUPS = [
       ['FTC press releases (RSS)', 'US antitrust + consumer protection', 'Merger challenges, consent decrees, investigations.'],
       ['FCA news (RSS)', 'UK Financial Conduct Authority', 'UK financial-services enforcement and policy.'],
       ['DG COMP (RSS)', 'EU Directorate-General for Competition', 'EU merger reviews, antitrust decisions, state-aid rulings.']
-    ]
-  },
-  {
-    area: 'IP & Innovation',
-    rows: [
-      ['USPTO PatentsView', 'US Patent & Trademark Office data', 'Patent grants and disputes that signal IP litigation or transactional work.']
     ]
   }
 ];
@@ -892,12 +893,98 @@ export default function OverviewContent({ variant = 'standalone' }) {
         </div>
       </section>
 
+      {/* === READ THIS FIRST — disclosure ("Assumed / To confirm") ===
+           Mirrors pitch deck slide 10 so the product is honest about which
+           parts of the demo are illustrative vs validated. Two columns:
+           left = "assumed for this concept", right = "to confirm with the
+           client". The slim demo-banner at the top of App.jsx remains as a
+           one-line reminder across all pages; this section is the deeper
+           expansion that lives only on the Overview. */}
+      <section id="read-this-first" className="landing-section">
+        <div className="landing-container">
+          <div className="overview-tag">Read this first</div>
+          <h2 className="landing-section-h2">
+            What we assumed — and what to confirm with you.
+          </h2>
+          <p className="landing-section-lead">
+            This build was put together from discovery-call notes. Every gap below was filled with a reasonable assumption and is flagged here so the pitch and the product agree on what's illustrative versus validated.
+          </p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: 24,
+              marginTop: 24
+            }}
+          >
+            <div
+              style={{
+                background: 'var(--octave-bg)',
+                border: '1px solid var(--octave-n300)',
+                borderRadius: 'var(--radius-md)',
+                padding: '20px 22px'
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 11,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--octave-text-muted)',
+                  marginBottom: 12
+                }}
+              >
+                Assumed for this concept
+              </div>
+              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <li>All numbers are illustrative placeholders, not measured results.</li>
+                <li>Primary scenario = a client wallet-share gap (chosen for the clearest before/after contrast).</li>
+                <li>Data sources inferred from the systems named in discovery (Aderant, Elite 3E, Salesforce, etc.).</li>
+                <li>The 5-stage model pipeline was designed by us, not validated with end users.</li>
+                <li>Delivery surfaces (alert, email, dashboard) are our proposal.</li>
+                <li>Client names generalised per Octave content rules.</li>
+              </ul>
+            </div>
+            <div
+              style={{
+                background: 'var(--octave-bg)',
+                border: '1px solid var(--octave-n300)',
+                borderRadius: 'var(--radius-md)',
+                padding: '20px 22px'
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 11,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--octave-text-muted)',
+                  marginBottom: 12
+                }}
+              >
+                To confirm with the client
+              </div>
+              <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <li>Real baseline metrics — actual pitch effort, win rates, current coverage.</li>
+                <li>Which data the firm actually holds, and in which systems.</li>
+                <li>Minimum viable field set against their data (10 / 25 / 50 field tiering).</li>
+                <li>Reliability of external spend estimates from public filings.</li>
+                <li>Which scenario lands hardest with their leadership.</li>
+                <li>Whether this should run as a static deck or the interactive HTML demo.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* === SOURCES TABLE === */}
       <section id="sources" className="landing-section">
         <div className="landing-container">
           <div className="overview-tag">External data</div>
           <h2 className="landing-section-h2">
-            17 public sources. <span className="accent-word">No paywalled feeds.</span>
+            12 public sources. <span className="accent-word">No paywalled feeds.</span>
           </h2>
           <p className="landing-section-lead">
             Every recommendation cites one of these. Grouped by what they cover — with what each is, and why it’s in the pipeline.

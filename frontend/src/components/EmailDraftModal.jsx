@@ -52,7 +52,7 @@ export default function EmailDraftModal({ workspaceId, opportunity, entity, brie
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>Email Draft — {entity?.legalName}</h3>
+          <h3>Pulse Briefing — Email Draft for {entity?.legalName}</h3>
           <button onClick={onClose} style={{ background: 'transparent', border: 'none', color: '#fff', cursor: 'pointer' }}><X size={18} /></button>
         </div>
         <div className="modal-body">

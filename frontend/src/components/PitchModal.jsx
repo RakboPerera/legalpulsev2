@@ -168,7 +168,7 @@ export default function PitchModal({ workspaceId, opportunityId, entityName, onC
       <div className="modal pitch-modal" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <h3><FileText size={18} style={{ verticalAlign: -3 }} /> Pitch document</h3>
+            <h3><FileText size={18} style={{ verticalAlign: -3 }} /> Pulse Briefing — Pitch document</h3>
             <p className="caption" style={{ marginTop: 4 }}>
               {entityName ? <>For <strong>{entityName}</strong>. </> : null}
               The generator learns from the firm's prior pitches on similar mandates.

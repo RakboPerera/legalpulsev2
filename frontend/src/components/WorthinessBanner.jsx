@@ -85,9 +85,12 @@ export default function WorthinessBanner({ workspaceId, entityId }) {
   return (
     <section className={`worth-banner worth-banner-${data.tier}`} aria-label="Client worthiness assessment">
       <header className="worth-banner-head">
-        <div className="worth-banner-tag">
+        <div
+          className="worth-banner-tag"
+          title="Fit & Risk Scorer (originally 'Worthiness') — the pitch-deck name for this client-level evaluator. Combines Profitability, Business Health and Credit Risk into one pursuit verdict."
+        >
           <Icon size={14} />
-          <span>Worthiness</span>
+          <span>Fit &amp; Risk Scorer</span>
           {isProspect && <span className="worth-banner-tag-prospect">· 2 of 3 components</span>}
         </div>
         <div className="worth-banner-score-block">
