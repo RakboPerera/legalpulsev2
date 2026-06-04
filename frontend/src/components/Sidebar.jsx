@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { Briefcase, Building2, Radio, ScrollText, Settings, UserPlus, BookOpen, BarChart3, AlertTriangle, GitBranch, Key, Sparkles, Globe } from 'lucide-react';
+import { Briefcase, Building2, Radio, ScrollText, Settings, UserPlus, BookOpen, BarChart3, AlertTriangle, GitBranch, Key, Sparkles, Globe, Sliders } from 'lucide-react';
 import { useWorkspace } from './WorkspaceContext.jsx';
 import { opportunities as oppApi } from '../api.js';
 
@@ -88,6 +88,9 @@ export default function Sidebar() {
           <NavLink to={`/workspaces/${currentId}/signals`}><Radio size={16} /> <span className="nav-label">Signals</span></NavLink>
           <NavLink to={`/workspaces/${currentId}/reasoning`}><GitBranch size={16} /> <span className="nav-label">Signal &amp; reasoning audit</span></NavLink>
           <NavLink to={`/workspaces/${currentId}/sources`}><Globe size={16} /> <span className="nav-label">Signals &amp; sources</span></NavLink>
+
+          <div className="nav-section">Configuration</div>
+          <NavLink to={`/workspaces/${currentId}/calibration`}><Sliders size={16} /> <span className="nav-label">Calibration</span></NavLink>
         </>
       )}
 

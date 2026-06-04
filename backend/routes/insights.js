@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { getWorkspace } from '../lib/workspaceStore.js';
 import { computeOperationalInsights } from '../lib/operationalInsights.js';
+import { getEffectiveCalibration } from '../lib/calibration.js';
 import { requireAuth } from './auth.js';
 
 function clampFloat(value, lo, hi, fallback) {
@@ -27,9 +28,14 @@ export function createInsightsRouter(db) {
   router.get('/:id/insights/operational', requireAuth, (req, res) => {
     const ws = getWorkspace(db, req.params.id, req.user.id);
     if (!ws) return res.status(404).json({ error: 'not found' });
-    const budgetThreshold = clampFloat(req.query.budgetThreshold, 0, 1, 0.10);
-    const marginThreshold = clampFloat(req.query.marginThreshold, 0, 1, 0.20);
-    const staleDays       = clampInt(req.query.staleDays, 1, 365, 60);
+    // Calibration provides the firm-configured defaults; an explicit
+    // query string still overrides (useful for ad-hoc tuning on the
+    // KPI Dashboard without changing the firm setting). Order matters:
+    // query string → calibration → hardcoded default.
+    const cal = getEffectiveCalibration(ws).operational;
+    const budgetThreshold = clampFloat(req.query.budgetThreshold, 0, 1, cal.budgetThreshold);
+    const marginThreshold = clampFloat(req.query.marginThreshold, 0, 1, cal.marginThreshold);
+    const staleDays       = clampInt(req.query.staleDays, 1, 365, cal.staleDays);
     const out = computeOperationalInsights({
       matters:   ws.matters   || [],
       clients:   ws.clients   || [],

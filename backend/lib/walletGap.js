@@ -17,22 +17,24 @@
 
 import { estimateLegalSpend } from './walletEstimator.js';
 
-const FX_TO_GBP = { GBP: 1.0, USD: 0.79, EUR: 0.85 };
+const DEFAULT_FX_TO_GBP = { GBP: 1.0, USD: 0.79, EUR: 0.85 };
+const DEFAULT_TRAILING_DAYS = 365;
 const ACTIVE_STATUSES = new Set(['active', 'in_progress', 'open']);
 
-function gbp(amount, currency) {
-  const rate = FX_TO_GBP[currency || 'GBP'] ?? 1.0;
+function gbp(amount, currency, fxTable) {
+  const rate = (fxTable || DEFAULT_FX_TO_GBP)[currency || 'GBP'] ?? 1.0;
   return (Number(amount) || 0) * rate;
 }
 
-// 365-day window for "trailing 12 months". A matter contributes its
-// feesBilled to the trailing total if (a) it's still active OR (b) it
-// closed within the last 365 days. Same convention as the KPI
-// dashboard's '12m' range filter for consistency.
-function isWithinTrailing12m(matter, nowMs) {
+// "Trailing window" used by the internal-billed denominator. A matter
+// contributes its feesBilled if (a) it's still active OR (b) it
+// closed within the last `windowDays` days. Default 365 (the trailing
+// 12 months) — calibration can shorten it (e.g. 90d for a quarterly
+// view) or lengthen it.
+function isWithinTrailingWindow(matter, nowMs, windowDays) {
   if (ACTIVE_STATUSES.has(matter.status)) return true;
   const endTs = matter.endDate ? new Date(matter.endDate).getTime() : null;
-  return !!(endTs && (nowMs - endTs) <= 365 * 86_400_000);
+  return !!(endTs && (nowMs - endTs) <= (windowDays || DEFAULT_TRAILING_DAYS) * 86_400_000);
 }
 
 // Practice areas the firm covers across its full matter ledger. Used
@@ -60,18 +62,25 @@ function deriveClientPracticeAreas(clientMatters) {
 // estimate (no public-finance data on the client). Returns an object
 // with all the numerator/denominator parts so callers can render the
 // breakdown, not just the headline gap figure.
-export function computeWalletGap({ client, allMatters = [], nowMs = Date.now() }) {
+//
+// `calibration` is an optional bag with the merged overrides:
+//   { estimator: { sectorRatios, defaultSectorRatio, sizeAdjustment },
+//     fxAndTiming: { fxToGbp, trailingWindowDays } }
+// Missing keys fall back to module-level defaults.
+export function computeWalletGap({ client, allMatters = [], nowMs = Date.now(), calibration = {} }) {
   if (!client) return null;
-  const estimate = estimateLegalSpend(client);
+  const estimate = estimateLegalSpend(client, calibration.estimator);
   if (!estimate) return null;
 
+  const fxTable      = calibration.fxAndTiming?.fxToGbp || DEFAULT_FX_TO_GBP;
+  const windowDays   = calibration.fxAndTiming?.trailingWindowDays || DEFAULT_TRAILING_DAYS;
   const clientMatters = (allMatters || []).filter(m => m.client === client.id);
 
-  // Trailing-12m internal-billed sum, GBP-normalised.
+  // Trailing-window internal-billed sum, GBP-normalised.
   let internalBilledGbp = 0;
   for (const m of clientMatters) {
-    if (!isWithinTrailing12m(m, nowMs)) continue;
-    internalBilledGbp += gbp(m.feesBilled, m.currency);
+    if (!isWithinTrailingWindow(m, nowMs, windowDays)) continue;
+    internalBilledGbp += gbp(m.feesBilled, m.currency, fxTable);
   }
   internalBilledGbp = Math.round(internalBilledGbp);
 
@@ -98,12 +107,12 @@ export function computeWalletGap({ client, allMatters = [], nowMs = Date.now() }
 
 // Roll-up across all clients in a workspace. Returns an array sorted
 // by gapGbp descending plus firm-wide totals.
-export function computeWalletGapPortfolio({ clients = [], matters = [], nowMs = Date.now() }) {
+export function computeWalletGapPortfolio({ clients = [], matters = [], nowMs = Date.now(), calibration = {} }) {
   const rows = [];
   let totalInternal = 0;
   let totalEstimated = 0;
   for (const client of clients) {
-    const row = computeWalletGap({ client, allMatters: matters, nowMs });
+    const row = computeWalletGap({ client, allMatters: matters, nowMs, calibration });
     if (!row) continue;
     rows.push(row);
     totalInternal  += row.internalBilledGbp;

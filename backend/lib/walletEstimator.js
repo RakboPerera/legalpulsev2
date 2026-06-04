@@ -56,13 +56,23 @@ const SIZE_ADJUSTMENT = {
 // when we don't have enough data to estimate (no revenue figure on the
 // client record). The walletGap engine skips those clients rather than
 // emit a low-quality opportunity.
-export function estimateLegalSpend(client) {
+//
+// `overrides` accepts a subset of the estimator calibration block:
+//   { sectorRatios, defaultSectorRatio, sizeAdjustment }
+// Anything missing falls back to the module-level constants above, so
+// callers that don't care about calibration can keep calling the
+// single-argument signature.
+export function estimateLegalSpend(client, overrides = {}) {
   if (!client) return null;
   const revenue = Number(client.publicFinancials?.revenueGbp);
   if (!revenue || !isFinite(revenue) || revenue <= 0) return null;
 
-  const sectorRatio = SECTOR_LEGAL_SPEND_RATIOS[client.sector] ?? DEFAULT_RATIO;
-  const sizeAdj    = SIZE_ADJUSTMENT[client.size] ?? 1.0;
+  const ratios   = overrides.sectorRatios       || SECTOR_LEGAL_SPEND_RATIOS;
+  const fallback = overrides.defaultSectorRatio ?? DEFAULT_RATIO;
+  const sizes    = overrides.sizeAdjustment     || SIZE_ADJUSTMENT;
+
+  const sectorRatio = ratios[client.sector] ?? fallback;
+  const sizeAdj    = sizes[client.size] ?? 1.0;
   const estimateGbp = revenue * sectorRatio * sizeAdj;
 
   return {

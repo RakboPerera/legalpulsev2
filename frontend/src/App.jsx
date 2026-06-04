@@ -23,6 +23,7 @@ import Settings from './pages/Settings.jsx';
 import EventInquiry from './pages/EventInquiry.jsx';
 import KpiDashboard from './pages/KpiDashboard.jsx';
 import OperationalInsights from './pages/OperationalInsights.jsx';
+import Calibration from './pages/Calibration.jsx';
 import { WorkspaceProvider, useWorkspace } from './components/WorkspaceContext.jsx';
 
 function WorkspaceRoute({ Component }) {
@@ -126,6 +127,7 @@ function Shell() {
             <Route path="/workspaces/:id/sources" element={<WorkspaceRoute Component={Sources} />} />
             <Route path="/workspaces/:id/kpi" element={<WorkspaceRoute Component={KpiDashboard} />} />
             <Route path="/workspaces/:id/insights" element={<WorkspaceRoute Component={OperationalInsights} />} />
+            <Route path="/workspaces/:id/calibration" element={<WorkspaceRoute Component={Calibration} />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

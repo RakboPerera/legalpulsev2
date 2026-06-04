@@ -116,7 +116,12 @@ function groupAggregate(matters, keyFn) {
 
 // The full dashboard payload: firm-wide + breakdowns by practice / partner /
 // sector / client. Single trip from the API — no per-row fetches.
-export function computeKpiSummary({ matters, clients = [], partners = [], range = 'all' }) {
+//
+// `calibration` is the merged calibration bag (defaults + workspace
+// overrides) — read by the wallet-gap roll-up below so sector ratios,
+// size multipliers, FX rates and the trailing window all reflect the
+// firm's configured values.
+export function computeKpiSummary({ matters, clients = [], partners = [], range = 'all', calibration = {} }) {
   const filtered = filterMattersByRange(matters || [], range);
 
   const firm = aggregateMatters(filtered);
@@ -136,7 +141,7 @@ export function computeKpiSummary({ matters, clients = [], partners = [], range 
   // calculation tied to publicFinancials.revenueGbp. The trailing-12m
   // internal-billed slice is computed inside walletGap.js using the
   // full matter ledger.
-  const walletPortfolio = computeWalletGapPortfolio({ clients, matters: matters || [] });
+  const walletPortfolio = computeWalletGapPortfolio({ clients, matters: matters || [], calibration });
   const walletByClient = new Map(walletPortfolio.rows.map(r => [r.clientId, r]));
 
   // Attach the per-client wallet metrics to firm tiles so the KPI

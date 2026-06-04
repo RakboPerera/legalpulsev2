@@ -69,21 +69,34 @@ function fmtGbp(n) {
 // in backend/routes/pipeline.js passes { workspace, apiKey, provider }
 // — apiKey/provider are unused here (heuristic-only) but accepted for
 // consistency.
+//
+// Reads workspace.calibration to honour the firm's configured
+// thresholds + estimator constants. Defaults still apply when
+// calibration is absent or partial.
+const DEFAULT_GAP_FLOOR = 500_000;
+const DEFAULT_SHARE_CEILING = 0.60;
+const DEFAULT_CAPTURE_RATE = 0.25;
+
 export async function runWalletGapEngine({ workspace, limit = 20 } = {}) {
   const opportunities = [];
   const clients = workspace.clients || [];
   const matters = workspace.matters || [];
+  const cal = workspace.calibration || {};
+  const wg = cal.walletGap || {};
+  const gapFloor      = wg.gapFloorGbp     ?? DEFAULT_GAP_FLOOR;
+  const shareCeiling  = wg.shareCeilingPct ?? DEFAULT_SHARE_CEILING;
+  const captureRate   = wg.captureRatePct  ?? DEFAULT_CAPTURE_RATE;
 
   for (const client of clients) {
     if (opportunities.length >= limit) break;
-    const gap = computeWalletGap({ client, allMatters: matters });
+    const gap = computeWalletGap({ client, allMatters: matters, calibration: cal });
     if (!gap) continue;
 
     // Filter: only emit when there's a real, material upside left.
-    // - gap < £500k → not worth a partner conversation
-    // - share ≥ 60% → already deep into the wallet, no story to tell
-    if (gap.gapGbp < 500_000) continue;
-    if (gap.walletSharePct != null && gap.walletSharePct >= 0.60) continue;
+    // - gap < floor → not worth a partner conversation
+    // - share ≥ ceiling → already deep into the wallet, no story to tell
+    if (gap.gapGbp < gapFloor) continue;
+    if (gap.walletSharePct != null && gap.walletSharePct >= shareCeiling) continue;
 
     // Score scales with how UN-captured the client is. ≤30% share is
     // the big-gap territory; >30% scores lower. Floors at 50 so the
@@ -113,9 +126,9 @@ export async function runWalletGapEngine({ workspace, limit = 20 } = {}) {
       `Estimated total: ${fmtGbp(gap.estimatedTotalGbp)} → gap ${fmtGbp(gap.gapGbp)} (${gap.gapByPracticeArea.length} firm practices not yet billed to this client).`
     ].join(' ');
 
-    // Estimated revenue: conservative 25% capture-rate target of the
-    // identified gap. Used by KPI tiles and downstream pitch-prep.
-    const estimatedRevenueGbp = Math.round(gap.gapGbp * 0.25);
+    // Estimated revenue: configured capture-rate target × gap.
+    // Default 25% — calibration can raise/lower this.
+    const estimatedRevenueGbp = Math.round(gap.gapGbp * captureRate);
 
     opportunities.push({
       id: opportunityId('wallet_gap', client.id, suggestedService, []),

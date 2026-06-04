@@ -71,6 +71,14 @@ export const workspaces = {
   updateExternalSources: (id, payload) => api.put(`/workspaces/${id}/external-sources`, payload).then(r => r.data.config),
   ingestionStatus: id => api.get(`/workspaces/${id}/ingestion/status`).then(r => r.data),
   ingestionRun: id => api.post(`/workspaces/${id}/ingestion/run-now`).then(r => r.data),
+  // Per-firm calibration — the workspace-level dials a firm admin can
+  // turn (worthiness weights, operational thresholds, wallet-gap
+  // engine filters, sector ratios, FX rates, etc.). GET returns the
+  // effective values (defaults merged with stored overrides) plus a
+  // snapshot of the defaults; PUT replaces; DELETE resets.
+  calibrationGet: id => api.get(`/workspaces/${id}/calibration`).then(r => r.data),
+  calibrationSet: (id, payload) => api.put(`/workspaces/${id}/calibration`, payload).then(r => r.data),
+  calibrationReset: id => api.delete(`/workspaces/${id}/calibration`).then(r => r.data),
   enginesStatus: id => api.get(`/workspaces/${id}/engines/status`).then(r => r.data),
   runEngine: (id, engine) => api.post(`/workspaces/${id}/engines/${engine}/run`).then(r => r.data),
   // User Input Mode: upload one or both of clients.csv / matters.csv. Files

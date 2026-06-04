@@ -22,9 +22,9 @@ const ACTIVE_STATUSES = new Set(['active', 'in_progress', 'open']);
 
 const DEFAULT_WEIGHTS = { profitability: 0.40, health: 0.30, credit: 0.30 };
 
-const TIER_THRESHOLDS = { high: 75, medium: 60, low: 40 };
+const DEFAULT_TIER_THRESHOLDS = { high: 75, medium: 60, low: 40 };
 
-const RISK_FLAG_PENALTIES = {
+const DEFAULT_RISK_FLAG_PENALTIES = {
   distressed:          25,
   regulatory_pressure: 10,
   litigation_heavy:    8,
@@ -55,11 +55,11 @@ function clamp(value, lo, hi) {
   return Math.max(lo, Math.min(hi, value));
 }
 
-function tierFor(score) {
+function tierFor(score, thresholds = DEFAULT_TIER_THRESHOLDS) {
   if (score == null) return 'unknown';
-  if (score >= TIER_THRESHOLDS.high)   return 'high';
-  if (score >= TIER_THRESHOLDS.medium) return 'medium';
-  if (score >= TIER_THRESHOLDS.low)    return 'low';
+  if (score >= thresholds.high)   return 'high';
+  if (score >= thresholds.medium) return 'medium';
+  if (score >= thresholds.low)    return 'low';
   return 'avoid';
 }
 
@@ -170,7 +170,7 @@ function scoreProfitability(matters) {
 // already classifies the broad strokes via riskFlags on each entity — that
 // list does most of the work. Recent legally-significant signals tagged
 // against the entity in the workspace bias the score further.
-function scoreHealth(entity, signalsForEntity = []) {
+function scoreHealth(entity, signalsForEntity = [], penalties = DEFAULT_RISK_FLAG_PENALTIES) {
   let score = 70;
   const drivers = [];
   const cautions = [];
@@ -181,7 +181,7 @@ function scoreHealth(entity, signalsForEntity = []) {
     score += 10;
   } else {
     for (const flag of flags) {
-      const penalty = RISK_FLAG_PENALTIES[flag] ?? 5;
+      const penalty = penalties[flag] ?? 5;
       score -= penalty;
       const human = flag.replace(/_/g, ' ');
       cautions.push(`Flag: ${human}`);
@@ -241,12 +241,23 @@ function scoreCredit(entity) {
 }
 
 // ----- Aggregate -----
-export function scoreEntityWorthiness({ entity, matters = [], signals = [], weights = DEFAULT_WEIGHTS, now = Date.now() }) {
+//
+// `calibration` is an optional bag with the three knobs that affect
+// scoring:
+//   { weights, tierThresholds, riskFlagPenalties }
+// Missing keys fall back to the module-level defaults. The legacy
+// `weights` parameter is preserved for back-compat — callers that
+// pass just weights still work.
+export function scoreEntityWorthiness({ entity, matters = [], signals = [], weights = DEFAULT_WEIGHTS, calibration = {}, now = Date.now() }) {
   if (!entity) return null;
   const isProspect = (entity.id || '').startsWith('pr-');
 
+  const tierThresholds = calibration.tierThresholds || DEFAULT_TIER_THRESHOLDS;
+  const penalties = calibration.riskFlagPenalties || DEFAULT_RISK_FLAG_PENALTIES;
+  const effectiveWeights = calibration.weights || weights || DEFAULT_WEIGHTS;
+
   const credit = scoreCredit(entity);
-  const health = scoreHealth(entity, signals);
+  const health = scoreHealth(entity, signals, penalties);
 
   let profitability = null;
   if (!isProspect) {
@@ -261,7 +272,7 @@ export function scoreEntityWorthiness({ entity, matters = [], signals = [], weig
     overall = Math.round(0.50 * health.score + 0.50 * credit.score);
     componentsUsed = 2;
   } else {
-    const w = { ...DEFAULT_WEIGHTS, ...(weights || {}) };
+    const w = { ...DEFAULT_WEIGHTS, ...effectiveWeights };
     overall = Math.round(
       w.profitability * profitability.score +
       w.health        * health.score +
@@ -271,7 +282,7 @@ export function scoreEntityWorthiness({ entity, matters = [], signals = [], weig
   }
 
   // Verdict line — a one-sentence summary the partner can read at a glance.
-  const tier = tierFor(overall);
+  const tier = tierFor(overall, tierThresholds);
   let verdict;
   if (tier === 'high')      verdict = isProspect ? 'Strong target — pursue.' : 'Strong relationship — pursue.';
   else if (tier === 'medium') verdict = 'Pursue with care — see cautions.';
@@ -286,7 +297,7 @@ export function scoreEntityWorthiness({ entity, matters = [], signals = [], weig
     tier,
     verdict,
     componentsUsed,
-    weights:     isProspect ? { health: 0.50, credit: 0.50 } : { ...DEFAULT_WEIGHTS, ...(weights || {}) },
+    weights:     isProspect ? { health: 0.50, credit: 0.50 } : { ...DEFAULT_WEIGHTS, ...effectiveWeights },
     profitability,
     health,
     credit,
@@ -296,6 +307,9 @@ export function scoreEntityWorthiness({ entity, matters = [], signals = [], weig
 
 // Convenience helper — fetches the matters + signals for an entity from a
 // workspace state and scores. Used by routes that take just (workspace, entityId).
+// Reads the workspace's calibration block when present so a firm's
+// configured weights / tier thresholds / risk-flag penalties all flow
+// through automatically.
 export function scoreEntityFromWorkspace(workspace, entityId, opts = {}) {
   const entity = (workspace.clients || []).find(c => c.id === entityId)
               || (workspace.prospects || []).find(p => p.id === entityId);
@@ -306,6 +320,7 @@ export function scoreEntityFromWorkspace(workspace, entityId, opts = {}) {
   return scoreEntityWorthiness({
     entity, matters, signals,
     weights: workspace.firmProfile?.worthinessWeights,
+    calibration: workspace.calibration?.worthiness || {},
     ...opts
   });
 }

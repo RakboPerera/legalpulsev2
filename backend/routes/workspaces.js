@@ -7,6 +7,7 @@ import { pick, isString, isOneOf, isStringArray, badRequest } from '../lib/valid
 import { ALLOWED_SOURCES, ALLOWED_GEOGRAPHIES } from '../lib/sourcesConstants.js';
 import { viewForRun } from './runs.js';
 import { ingestCsv, CSV_LIMITS } from '../lib/csvImport.js';
+import { DEFAULTS as CALIBRATION_DEFAULTS, getEffectiveCalibration, normalizeCalibration } from '../lib/calibration.js';
 
 const csvUpload = multer({
   storage: multer.memoryStorage(),
@@ -266,6 +267,79 @@ export function createWorkspacesRouter(db) {
     const ws = getWorkspace(db, req.params.id, req.user.id);
     if (!ws) return res.status(404).json({ error: 'not found' });
     res.json({ firmProfile: ws.firmProfile, partners: ws.partners, serviceTaxonomy: ws.serviceTaxonomy });
+  });
+
+  // === Calibration ===
+  // GET returns the effective calibration (defaults merged with stored
+  // overrides) plus a snapshot of the defaults — the UI uses both: the
+  // effective values to populate the form, the defaults to power a
+  // "Reset to default" affordance per setting.
+  router.get('/:id/calibration', requireAuth, (req, res) => {
+    const ws = getWorkspace(db, req.params.id, req.user.id);
+    if (!ws) return res.status(404).json({ error: 'not found' });
+    res.json({
+      effective: getEffectiveCalibration(ws),
+      defaults:  CALIBRATION_DEFAULTS,
+      hasOverrides: !!(ws.calibration && Object.keys(ws.calibration).length > 0)
+    });
+  });
+
+  // PUT replaces the stored calibration override. Accepts the full
+  // payload OR a partial section update — the normaliser handles the
+  // schema, the merge happens at read time via getEffectiveCalibration.
+  router.put('/:id/calibration', requireAuth, async (req, res) => {
+    let out;
+    try {
+      out = await withWorkspaceLock(req.params.id, async () => {
+        const ws = getWorkspace(db, req.params.id, req.user.id);
+        if (!ws) return { status: 404, body: { error: 'not found' } };
+        const normalised = normalizeCalibration(req.body || {});
+        // Merge with existing override (caller can send only the
+        // section they're editing without clobbering the others).
+        ws.calibration = { ...(ws.calibration || {}), ...normalised };
+        addAuditEntry(ws, {
+          type: 'user_action',
+          actor: req.user.email,
+          inputs: { sections: Object.keys(normalised) },
+          outputs: { action: 'calibration_updated' }
+        });
+        saveWorkspace(db, ws);
+        return {
+          status: 200,
+          body: {
+            effective: getEffectiveCalibration(ws),
+            defaults:  CALIBRATION_DEFAULTS,
+            hasOverrides: Object.keys(ws.calibration).length > 0
+          }
+        };
+      });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(out.status).json(out.body);
+  });
+
+  // DELETE clears the stored override entirely — every section reverts
+  // to its hardcoded default at the next read.
+  router.delete('/:id/calibration', requireAuth, async (req, res) => {
+    let out;
+    try {
+      out = await withWorkspaceLock(req.params.id, async () => {
+        const ws = getWorkspace(db, req.params.id, req.user.id);
+        if (!ws) return { status: 404, body: { error: 'not found' } };
+        ws.calibration = {};
+        addAuditEntry(ws, {
+          type: 'user_action',
+          actor: req.user.email,
+          outputs: { action: 'calibration_reset_to_defaults' }
+        });
+        saveWorkspace(db, ws);
+        return { status: 200, body: { effective: getEffectiveCalibration(ws), defaults: CALIBRATION_DEFAULTS, hasOverrides: false } };
+      });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.status(out.status).json(out.body);
   });
 
   return router;

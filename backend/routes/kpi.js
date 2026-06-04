@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { getWorkspace } from '../lib/workspaceStore.js';
 import { computeKpiSummary } from '../lib/kpiAggregator.js';
+import { getEffectiveCalibration } from '../lib/calibration.js';
 import { requireAuth } from './auth.js';
 
 const ALLOWED_RANGES = new Set(['all', '12m', '6m', 'active']);
@@ -19,7 +20,8 @@ export function createKpiRouter(db) {
       matters:  ws.matters || [],
       clients:  ws.clients || [],
       partners: ws.partners || [],
-      range
+      range,
+      calibration: getEffectiveCalibration(ws)
     });
     res.json(summary);
   });
