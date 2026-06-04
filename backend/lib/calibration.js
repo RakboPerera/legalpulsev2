@@ -109,23 +109,45 @@ export function getEffectiveCalibration(workspace) {
   return out;
 }
 
+// Risk-flag key whitelist — only flags the backend actually understands
+// can have configured penalties. Anything else gets dropped silently to
+// stop junk keys polluting the workspace state.
+const ALLOWED_RISK_FLAG_KEYS = new Set(Object.keys(DEFAULTS.worthiness.riskFlagPenalties));
+
+// Sentinel used by the frontend reset action — `{ section: null }` in
+// the PUT body asks the route to DELETE that section's stored override
+// entirely (so the section reverts to the default and stops counting
+// against hasOverrides).
+export const SECTION_RESET = Symbol('SECTION_RESET');
+
 // Validate an incoming calibration payload. Coerces numbers, clamps
 // to sane bounds, and returns a normalised override blob to store.
 // Anything missing or unknown is dropped silently — the schema is
 // strict.
+//
+// A section sent as `null` is converted to the SECTION_RESET sentinel
+// so the PUT route can distinguish "leave this section alone" (key
+// absent) from "delete this section's override" (key === null).
 export function normalizeCalibration(input) {
   const out = {};
   if (!input || typeof input !== 'object') return out;
 
   // --- worthiness ---
-  if (input.worthiness) {
+  if (input.worthiness === null) {
+    out.worthiness = SECTION_RESET;
+  } else if (input.worthiness) {
     out.worthiness = {};
     const w = input.worthiness;
     if (w.weights) {
+      // Coerce to numbers; non-finite inputs fall back to the default
+      // weight for that component rather than silently zeroing. This
+      // means a user typing "abc" into Profitability ends up with the
+      // default 0.40 for that slot, not a stealth 0 that gets renormalised
+      // to 100% credit.
       const wt = {
-        profitability: clamp01(w.weights.profitability),
-        health:        clamp01(w.weights.health),
-        credit:        clamp01(w.weights.credit)
+        profitability: clamp01OrDefault(w.weights.profitability, DEFAULTS.worthiness.weights.profitability),
+        health:        clamp01OrDefault(w.weights.health,        DEFAULTS.worthiness.weights.health),
+        credit:        clamp01OrDefault(w.weights.credit,        DEFAULTS.worthiness.weights.credit)
       };
       // Re-normalise so the three sum to 1.0. Avoids silent drift
       // when a user enters 0.5 / 0.3 / 0.3 (totals 1.1) by hand.
@@ -139,15 +161,25 @@ export function normalizeCalibration(input) {
       }
     }
     if (w.tierThresholds) {
-      out.worthiness.tierThresholds = {
-        high:   clampInt(w.tierThresholds.high,   0, 100),
-        medium: clampInt(w.tierThresholds.medium, 0, 100),
-        low:    clampInt(w.tierThresholds.low,    0, 100)
-      };
+      const high   = clampInt(w.tierThresholds.high,   0, 100, DEFAULTS.worthiness.tierThresholds.high);
+      const medium = clampInt(w.tierThresholds.medium, 0, 100, DEFAULTS.worthiness.tierThresholds.medium);
+      const low    = clampInt(w.tierThresholds.low,    0, 100, DEFAULTS.worthiness.tierThresholds.low);
+      // Enforce strict ordering low < medium < high. Without this, a
+      // user who types high=40, medium=60, low=75 corrupts the
+      // tierFor classification silently — a score of 50 would land
+      // in 'medium' (passes the 40 check first). Drop the section
+      // rather than persist a broken triple.
+      if (low < medium && medium < high) {
+        out.worthiness.tierThresholds = { high, medium, low };
+      }
     }
     if (w.riskFlagPenalties && typeof w.riskFlagPenalties === 'object') {
       out.worthiness.riskFlagPenalties = {};
       for (const [k, v] of Object.entries(w.riskFlagPenalties)) {
+        // Whitelist check: only flags the scoreHealth function knows
+        // about can have configured penalties. Stops a typo or a
+        // malicious client from injecting arbitrary keys.
+        if (!ALLOWED_RISK_FLAG_KEYS.has(k)) continue;
         const num = Number(v);
         if (isFinite(num) && num >= 0 && num <= 100) {
           out.worthiness.riskFlagPenalties[k] = num;
@@ -157,7 +189,9 @@ export function normalizeCalibration(input) {
   }
 
   // --- operational ---
-  if (input.operational) {
+  if (input.operational === null) {
+    out.operational = SECTION_RESET;
+  } else if (input.operational) {
     const o = input.operational;
     out.operational = {
       budgetThreshold: clampNum(o.budgetThreshold, 0, 1, DEFAULTS.operational.budgetThreshold),
@@ -167,7 +201,9 @@ export function normalizeCalibration(input) {
   }
 
   // --- walletGap ---
-  if (input.walletGap) {
+  if (input.walletGap === null) {
+    out.walletGap = SECTION_RESET;
+  } else if (input.walletGap) {
     const g = input.walletGap;
     out.walletGap = {
       gapFloorGbp:     clampNum(g.gapFloorGbp,     0, 1e12, DEFAULTS.walletGap.gapFloorGbp),
@@ -177,15 +213,20 @@ export function normalizeCalibration(input) {
   }
 
   // --- estimator (sector ratios + size multipliers) ---
-  if (input.estimator) {
+  if (input.estimator === null) {
+    out.estimator = SECTION_RESET;
+  } else if (input.estimator) {
     const e = input.estimator;
     out.estimator = {};
     if (e.sectorRatios && typeof e.sectorRatios === 'object') {
       out.estimator.sectorRatios = {};
       for (const [k, v] of Object.entries(e.sectorRatios)) {
         const num = Number(v);
-        if (isFinite(num) && num >= 0 && num <= 0.1) { // 0–1000 bp range
-          out.estimator.sectorRatios[k] = num;
+        if (isFinite(num)) {
+          // Clamp negative / out-of-range values instead of silently
+          // dropping them so a typo doesn't leave the user thinking
+          // their edit was accepted.
+          out.estimator.sectorRatios[k] = Math.max(0, Math.min(0.1, num)); // 0–1000 bp
         }
       }
     }
@@ -196,25 +237,33 @@ export function normalizeCalibration(input) {
       out.estimator.sizeAdjustment = {};
       for (const [k, v] of Object.entries(e.sizeAdjustment)) {
         const num = Number(v);
-        if (isFinite(num) && num >= 0 && num <= 5) {
-          out.estimator.sizeAdjustment[k] = num;
+        if (isFinite(num)) {
+          out.estimator.sizeAdjustment[k] = Math.max(0, Math.min(5, num));
         }
       }
     }
   }
 
   // --- fxAndTiming ---
-  if (input.fxAndTiming) {
+  if (input.fxAndTiming === null) {
+    out.fxAndTiming = SECTION_RESET;
+  } else if (input.fxAndTiming) {
     const f = input.fxAndTiming;
     out.fxAndTiming = {};
     if (f.fxToGbp && typeof f.fxToGbp === 'object') {
       out.fxAndTiming.fxToGbp = {};
       for (const [k, v] of Object.entries(f.fxToGbp)) {
+        // GBP is the base currency by definition and must always be
+        // 1.00 — otherwise every GBP-normalised figure in the system
+        // breaks. Force it regardless of what the caller sent.
+        if (k === 'GBP') { out.fxAndTiming.fxToGbp.GBP = 1.0; continue; }
         const num = Number(v);
         if (isFinite(num) && num > 0 && num < 100) {
           out.fxAndTiming.fxToGbp[k] = num;
         }
       }
+      // GBP must always exist.
+      if (out.fxAndTiming.fxToGbp.GBP == null) out.fxAndTiming.fxToGbp.GBP = 1.0;
     }
     if (f.trailingWindowDays != null) {
       out.fxAndTiming.trailingWindowDays = clampInt(f.trailingWindowDays, 1, 3650, DEFAULTS.fxAndTiming.trailingWindowDays);
@@ -224,9 +273,9 @@ export function normalizeCalibration(input) {
   return out;
 }
 
-function clamp01(v) {
+function clamp01OrDefault(v, fallback) {
   const n = Number(v);
-  if (!isFinite(n)) return 0;
+  if (!isFinite(n)) return fallback;
   return Math.max(0, Math.min(1, n));
 }
 function clampNum(v, lo, hi, fallback) {

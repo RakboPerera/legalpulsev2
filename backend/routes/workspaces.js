@@ -7,7 +7,7 @@ import { pick, isString, isOneOf, isStringArray, badRequest } from '../lib/valid
 import { ALLOWED_SOURCES, ALLOWED_GEOGRAPHIES } from '../lib/sourcesConstants.js';
 import { viewForRun } from './runs.js';
 import { ingestCsv, CSV_LIMITS } from '../lib/csvImport.js';
-import { DEFAULTS as CALIBRATION_DEFAULTS, getEffectiveCalibration, normalizeCalibration } from '../lib/calibration.js';
+import { DEFAULTS as CALIBRATION_DEFAULTS, getEffectiveCalibration, normalizeCalibration, SECTION_RESET } from '../lib/calibration.js';
 
 const csvUpload = multer({
   storage: multer.memoryStorage(),
@@ -277,16 +277,23 @@ export function createWorkspacesRouter(db) {
   router.get('/:id/calibration', requireAuth, (req, res) => {
     const ws = getWorkspace(db, req.params.id, req.user.id);
     if (!ws) return res.status(404).json({ error: 'not found' });
+    const overriddenSections = ws.calibration ? Object.keys(ws.calibration) : [];
     res.json({
       effective: getEffectiveCalibration(ws),
       defaults:  CALIBRATION_DEFAULTS,
-      hasOverrides: !!(ws.calibration && Object.keys(ws.calibration).length > 0)
+      hasOverrides: overriddenSections.length > 0,
+      overriddenSections
     });
   });
 
   // PUT replaces the stored calibration override. Accepts the full
   // payload OR a partial section update — the normaliser handles the
   // schema, the merge happens at read time via getEffectiveCalibration.
+  //
+  // Sending `{ <section>: null }` on a section asks for a "true reset"
+  // on just that section: the override is DELETED rather than re-stored
+  // with the defaults. hasOverrides then reflects only sections the
+  // user is actually overriding.
   router.put('/:id/calibration', requireAuth, async (req, res) => {
     let out;
     try {
@@ -294,13 +301,26 @@ export function createWorkspacesRouter(db) {
         const ws = getWorkspace(db, req.params.id, req.user.id);
         if (!ws) return { status: 404, body: { error: 'not found' } };
         const normalised = normalizeCalibration(req.body || {});
-        // Merge with existing override (caller can send only the
-        // section they're editing without clobbering the others).
-        ws.calibration = { ...(ws.calibration || {}), ...normalised };
+        ws.calibration = ws.calibration || {};
+        const resetSections = [];
+        const updatedSections = [];
+        for (const [section, value] of Object.entries(normalised)) {
+          if (value === SECTION_RESET) {
+            delete ws.calibration[section];
+            resetSections.push(section);
+          } else {
+            // Section-internal merge — saving just `worthiness.weights`
+            // must not wipe a previously-set `worthiness.tierThresholds`.
+            // The normaliser already shapes each section as a partial
+            // object containing only the sub-fields the caller sent.
+            ws.calibration[section] = { ...(ws.calibration[section] || {}), ...value };
+            updatedSections.push(section);
+          }
+        }
         addAuditEntry(ws, {
           type: 'user_action',
           actor: req.user.email,
-          inputs: { sections: Object.keys(normalised) },
+          inputs: { updated: updatedSections, reset: resetSections },
           outputs: { action: 'calibration_updated' }
         });
         saveWorkspace(db, ws);
@@ -309,7 +329,11 @@ export function createWorkspacesRouter(db) {
           body: {
             effective: getEffectiveCalibration(ws),
             defaults:  CALIBRATION_DEFAULTS,
-            hasOverrides: Object.keys(ws.calibration).length > 0
+            hasOverrides: Object.keys(ws.calibration).length > 0,
+            // Surface which sections are currently overridden so the
+            // UI can show per-section badges rather than one global
+            // "overrides active" indicator.
+            overriddenSections: Object.keys(ws.calibration)
           }
         };
       });
@@ -334,7 +358,7 @@ export function createWorkspacesRouter(db) {
           outputs: { action: 'calibration_reset_to_defaults' }
         });
         saveWorkspace(db, ws);
-        return { status: 200, body: { effective: getEffectiveCalibration(ws), defaults: CALIBRATION_DEFAULTS, hasOverrides: false } };
+        return { status: 200, body: { effective: getEffectiveCalibration(ws), defaults: CALIBRATION_DEFAULTS, hasOverrides: false, overriddenSections: [] } };
       });
     } catch (err) {
       return res.status(500).json({ error: err.message });

@@ -168,7 +168,7 @@ function ActionRow({ onSave, onReset, saving, status }) {
   );
 }
 
-function NumberField({ label, value, onChange, step = 1, min, max, suffix, hint }) {
+function NumberField({ label, value, onChange, step = 1, min, max, suffix, hint, disabled }) {
   return (
     <div style={ROW_STYLE}>
       <div>
@@ -183,8 +183,9 @@ function NumberField({ label, value, onChange, step = 1, min, max, suffix, hint 
           step={step}
           min={min}
           max={max}
+          disabled={disabled}
           onChange={e => onChange(e.target.value)}
-          style={{ width: 110, textAlign: 'right' }}
+          style={{ width: 110, textAlign: 'right', opacity: disabled ? 0.55 : 1 }}
         />
         {suffix && <span className="caption" style={{ minWidth: 24 }}>{suffix}</span>}
       </div>
@@ -216,13 +217,22 @@ async function saveSection({ workspaceId, payload, setSaving, setStatus, onSaved
   }
 }
 
-async function resetSection({ workspaceId, section, defaults, setSaving, setStatus, onSaved }) {
-  // Reset = save the section with default values. The full DELETE
-  // route resets EVERY section; per-section reset is a partial PUT.
+// Two reset shapes:
+//   - `{ section, payload: { sub: defaults } }` — partial reset; overwrites
+//     just that sub-area with defaults. Used when a section has multiple
+//     sub-areas (e.g. worthiness weights vs tierThresholds vs penalties)
+//     and the user only wants to reset one of them.
+//   - `{ section, fullReset: true }` — true reset: tells the backend to
+//     DELETE the stored override for the whole section so it stops
+//     counting against hasOverrides.
+async function resetSection({ workspaceId, section, payload, fullReset, setSaving, setStatus, onSaved }) {
   setSaving(true);
   setStatus(null);
   try {
-    const r = await wsApi.calibrationSet(workspaceId, { [section]: defaults });
+    const body = fullReset
+      ? { [section]: null }
+      : { [section]: payload };
+    const r = await wsApi.calibrationSet(workspaceId, body);
     onSaved(r);
     setStatus({ kind: 'ok', message: 'Reset to default.' });
     setTimeout(() => setStatus(null), 2500);
@@ -255,7 +265,7 @@ function WorthinessSection({ effective, defaults, workspaceId, onSaved }) {
   });
   const resetWeights = () => resetSection({
     workspaceId, section: 'worthiness',
-    defaults: { weights: defaults.weights },
+    payload: { weights: defaults.weights },
     setSaving: setSaving1, setStatus: setStatus1, onSaved
   });
 
@@ -270,7 +280,7 @@ function WorthinessSection({ effective, defaults, workspaceId, onSaved }) {
   });
   const resetTiers = () => resetSection({
     workspaceId, section: 'worthiness',
-    defaults: { tierThresholds: defaults.tierThresholds },
+    payload: { tierThresholds: defaults.tierThresholds },
     setSaving: setSaving2, setStatus: setStatus2, onSaved
   });
 
@@ -334,6 +344,16 @@ function WorthinessSection({ effective, defaults, workspaceId, onSaved }) {
           value={tiers.low} step={1} min={0} max={100}
           onChange={v => setTiers({ ...tiers, low: v })}
         />
+        {(() => {
+          const lo = Number(tiers.low), me = Number(tiers.medium), hi = Number(tiers.high);
+          const ordered = isFinite(lo) && isFinite(me) && isFinite(hi) && lo < me && me < hi;
+          if (ordered) return null;
+          return (
+            <div className="caption" style={{ marginTop: 10, color: 'var(--octave-warn)' }}>
+              <AlertCircle size={12} style={{ verticalAlign: -1 }} /> low &lt; medium &lt; high. The save will be rejected until the three values are strictly increasing.
+            </div>
+          );
+        })()}
         <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
           <ActionRow onSave={saveTiers} onReset={resetTiers} saving={saving2} status={status2} />
         </div>
@@ -358,7 +378,7 @@ function OperationalSection({ effective, defaults, workspaceId, onSaved }) {
     }},
     setSaving, setStatus, onSaved
   });
-  const reset = () => resetSection({ workspaceId, section: 'operational', defaults, setSaving, setStatus, onSaved });
+  const reset = () => resetSection({ workspaceId, section: 'operational', fullReset: true, setSaving, setStatus, onSaved });
 
   return (
     <Section
@@ -410,7 +430,7 @@ function WalletGapSection({ effective, defaults, workspaceId, onSaved }) {
     }},
     setSaving, setStatus, onSaved
   });
-  const reset = () => resetSection({ workspaceId, section: 'walletGap', defaults, setSaving, setStatus, onSaved });
+  const reset = () => resetSection({ workspaceId, section: 'walletGap', fullReset: true, setSaving, setStatus, onSaved });
 
   return (
     <Section
@@ -467,7 +487,7 @@ function RiskFlagsSection({ effective, defaults, worthinessEffective, workspaceI
   };
   const reset = () => resetSection({
     workspaceId, section: 'worthiness',
-    defaults: { riskFlagPenalties: defaults },
+    payload: { riskFlagPenalties: defaults },
     setSaving, setStatus, onSaved
   });
 
@@ -522,7 +542,7 @@ function FxAndTimingSection({ effective, defaults, workspaceId, onSaved }) {
   };
   const resetFx = () => resetSection({
     workspaceId, section: 'fxAndTiming',
-    defaults: { fxToGbp: defaults.fxToGbp },
+    payload: { fxToGbp: defaults.fxToGbp },
     setSaving: setSavingFx, setStatus: setStatusFx, onSaved
   });
 
@@ -533,7 +553,7 @@ function FxAndTimingSection({ effective, defaults, workspaceId, onSaved }) {
   });
   const resetDays = () => resetSection({
     workspaceId, section: 'fxAndTiming',
-    defaults: { trailingWindowDays: defaults.trailingWindowDays },
+    payload: { trailingWindowDays: defaults.trailingWindowDays },
     setSaving: setSavingDays, setStatus: setStatusDays, onSaved
   });
 
@@ -550,9 +570,10 @@ function FxAndTimingSection({ effective, defaults, workspaceId, onSaved }) {
           <NumberField
             key={ccy}
             label={`${ccy} → GBP`}
-            hint={ccy === 'GBP' ? 'Base currency — always 1.00.' : `Default: ${(defaults.fxToGbp[ccy] ?? 1).toFixed(2)}`}
+            hint={ccy === 'GBP' ? 'Base currency — locked at 1.00.' : `Default: ${(defaults.fxToGbp[ccy] ?? 1).toFixed(2)}`}
             value={fx[ccy] ?? 1}
             step={0.01} min={0.001}
+            disabled={ccy === 'GBP'}
             onChange={x => setFx({ ...fx, [ccy]: x })}
           />
         ))}
