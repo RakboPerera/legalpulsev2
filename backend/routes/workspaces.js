@@ -313,8 +313,19 @@ export function createWorkspacesRouter(db) {
             // must not wipe a previously-set `worthiness.tierThresholds`.
             // The normaliser already shapes each section as a partial
             // object containing only the sub-fields the caller sent.
-            ws.calibration[section] = { ...(ws.calibration[section] || {}), ...value };
-            updatedSections.push(section);
+            const merged = { ...(ws.calibration[section] || {}), ...value };
+            ws.calibration[section] = merged;
+            // After a section-internal partial reset that brings the override
+            // back to exactly the defaults (e.g. user clicks Reset on each
+            // worthiness sub-area in turn), drop the override entirely so the
+            // "Firm overrides are active" badge clears instead of staying on
+            // forever pointing at a section identical to defaults.
+            if (deepEqualToDefault(section, merged)) {
+              delete ws.calibration[section];
+              resetSections.push(section);
+            } else {
+              updatedSections.push(section);
+            }
           }
         }
         addAuditEntry(ws, {
@@ -367,6 +378,30 @@ export function createWorkspacesRouter(db) {
   });
 
   return router;
+}
+
+// Check whether a stored calibration section is now a no-op — every key
+// in the override matches the corresponding key in the defaults. Used to
+// drop overrides that have been partial-reset back to defaults across
+// all their sub-areas. Without this, a section that "looks default but
+// is technically overridden" would still light up the hasOverrides badge.
+//
+// We only check the keys present in `value`. Missing sub-keys would fall
+// through to defaults at read time anyway, so they don't make this an
+// override.
+function deepEqualToDefault(section, value) {
+  const def = CALIBRATION_DEFAULTS[section];
+  if (def == null || value == null || typeof value !== 'object') return false;
+  for (const k of Object.keys(value)) {
+    if (stableStringify(value[k]) !== stableStringify(def[k])) return false;
+  }
+  return true;
+}
+function stableStringify(v) {
+  if (v == null || typeof v !== 'object' || Array.isArray(v)) return JSON.stringify(v);
+  const out = {};
+  for (const k of Object.keys(v).sort()) out[k] = JSON.parse(stableStringify(v[k]));
+  return JSON.stringify(out);
 }
 
 function sanitizeExternalConfig(input, current) {

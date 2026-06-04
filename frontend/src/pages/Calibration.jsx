@@ -146,10 +146,16 @@ function Section({ eyebrow, title, lead, children, footer }) {
   );
 }
 
-function ActionRow({ onSave, onReset, saving, status }) {
+function ActionRow({ onSave, onReset, saving, status, saveDisabled, saveDisabledHint }) {
   return (
     <>
-      <button type="button" className="btn btn-accent" onClick={onSave} disabled={saving}>
+      <button
+        type="button"
+        className="btn btn-accent"
+        onClick={onSave}
+        disabled={saving || saveDisabled}
+        title={saveDisabled && saveDisabledHint ? saveDisabledHint : undefined}
+      >
         {saving ? <><Loader2 size={14} className="spin" /> Saving…</> : <><Save size={14} /> Save section</>}
       </button>
       <button type="button" className="btn btn-secondary" onClick={onReset} disabled={saving}>
@@ -317,7 +323,14 @@ function WorthinessSection({ effective, defaults, workspaceId, onSaved }) {
           {sumValid && sum !== 1 && <> · will normalise to 100% on save</>}
         </div>
         <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-          <ActionRow onSave={saveWeights} onReset={resetWeights} saving={saving1} status={status1} />
+          <ActionRow
+            onSave={saveWeights}
+            onReset={resetWeights}
+            saving={saving1}
+            status={status1}
+            saveDisabled={!sumValid}
+            saveDisabledHint="At least one weight must be > 0"
+          />
         </div>
       </Section>
 
@@ -350,12 +363,25 @@ function WorthinessSection({ effective, defaults, workspaceId, onSaved }) {
           if (ordered) return null;
           return (
             <div className="caption" style={{ marginTop: 10, color: 'var(--octave-warn)' }}>
-              <AlertCircle size={12} style={{ verticalAlign: -1 }} /> low &lt; medium &lt; high. The save will be rejected until the three values are strictly increasing.
+              <AlertCircle size={12} style={{ verticalAlign: -1 }} /> low &lt; medium &lt; high. Save is disabled until the three values are strictly increasing.
             </div>
           );
         })()}
         <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-          <ActionRow onSave={saveTiers} onReset={resetTiers} saving={saving2} status={status2} />
+          {(() => {
+            const lo = Number(tiers.low), me = Number(tiers.medium), hi = Number(tiers.high);
+            const ordered = isFinite(lo) && isFinite(me) && isFinite(hi) && lo < me && me < hi;
+            return (
+              <ActionRow
+                onSave={saveTiers}
+                onReset={resetTiers}
+                saving={saving2}
+                status={status2}
+                saveDisabled={!ordered}
+                saveDisabledHint="Tier thresholds must satisfy low < medium < high"
+              />
+            );
+          })()}
         </div>
       </Section>
     </>
