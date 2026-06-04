@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Info, X } from 'lucide-react';
+import { Info, X, BookOpen } from 'lucide-react';
 import { useWorkspace } from '../components/WorkspaceContext.jsx';
 import { kpi as kpiApi } from '../api.js';
 import { useTitle } from '../lib/useTitle.js';
+import WalletGapMethodologyModal from '../components/WalletGapMethodologyModal.jsx';
 
 // Partner-readable definitions for each KPI tile. The info icon on each tile
 // opens a popover with the definition, the calculation formula (in plain
@@ -236,6 +237,87 @@ function FirmTiles({ firm }) {
   );
 }
 
+// Column-header info popover. Same shape as the Matters table HeaderInfo
+// pattern: click toggles, outside-click closes, only one open at a time.
+// Used on the four numeric leaderboard columns so a partner reading the
+// table can drill into what each number means without leaving the page.
+function LeaderboardColumnInfo({ label, info, isOpen, onToggle }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!isOpen) return;
+    function onDocClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) onToggle(null);
+    }
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, [isOpen, onToggle]);
+  return (
+    <span ref={ref} style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 4, whiteSpace: 'nowrap' }}>
+      <span>{label}</span>
+      <button
+        type="button"
+        className="kpi-tile-info"
+        onClick={(e) => { e.stopPropagation(); onToggle(isOpen ? null : label); }}
+        aria-label={`What is ${label}?`}
+        aria-expanded={isOpen}
+      >
+        <Info size={11} />
+      </button>
+      {isOpen && (
+        <div
+          className="kpi-tile-popover"
+          role="tooltip"
+          style={{ left: 0, right: 'auto', width: 340, textAlign: 'left', whiteSpace: 'normal', textTransform: 'none', letterSpacing: 'normal', fontWeight: 400 }}
+        >
+          <button type="button" className="kpi-tile-popover-close" onClick={() => onToggle(null)} aria-label="Close">
+            <X size={12} />
+          </button>
+          <div className="kpi-tile-popover-section">
+            <div className="kpi-tile-popover-label">What it is</div>
+            <p className="kpi-tile-popover-text">{info.definition}</p>
+          </div>
+          <div className="kpi-tile-popover-section">
+            <div className="kpi-tile-popover-label">How it's calculated</div>
+            <div className="kpi-tile-popover-formula">{info.formula}</div>
+          </div>
+          {info.note && (
+            <div className="kpi-tile-popover-section">
+              <div className="kpi-tile-popover-label">Note</div>
+              <p className="kpi-tile-popover-text">{info.note}</p>
+            </div>
+          )}
+        </div>
+      )}
+    </span>
+  );
+}
+
+// Definitions for the four numeric columns on the wallet-gap
+// leaderboard. Same vocabulary the partner already sees on the firm-
+// level TILE_DEFINITIONS so the cross-page reading is consistent.
+const LEADERBOARD_COL_INFO = {
+  'Internal billed': {
+    definition: 'Fees the firm billed THIS client over the trailing 12 months, FX-normalised to GBP.',
+    formula: 'Σ feesBilled across this client\'s matters in the last 365 days',
+    note: 'Active matters always count; closed matters count if endDate is within 365 days.'
+  },
+  'Est. total spend': {
+    definition: 'Estimated total external legal spend this client pays across all firms in a year — the denominator the firm is competing for.',
+    formula: 'revenue × sector_benchmark_ratio × size_adjustment',
+    note: 'Heuristic anchored to industry benchmarks (Acritas / CounselLink / AmLaw 200). Sector ratios range 6 bp (technology) to 20 bp (pharma); size multiplier ranges 0.6× (small) to 1.2× (mega).'
+  },
+  'Wallet share': {
+    definition: 'Proportion of this client\'s total external legal spend that the firm currently captures.',
+    formula: 'internal_billed / estimated_total',
+    note: 'Mid-tier UK firms typically run 1–5% across mega-cap multinationals. Anchor clients can reach 20%+.'
+  },
+  'Addressable gap': {
+    definition: 'Estimated total minus what the firm has billed — upside left on the table for this client.',
+    formula: 'estimated_total − internal_billed',
+    note: 'A wallet-gap opportunity is emitted only when gap > £500k AND wallet share < 60%.'
+  }
+};
+
 // Wallet-gap leaderboard — one row per client with public-finance data,
 // sorted by gap size descending. Reads from `data.walletGapByClient`
 // which kpiAggregator.js populates via computeWalletGapPortfolio.
@@ -245,55 +327,76 @@ function FirmTiles({ firm }) {
 function WalletGapLeaderboard({ rows }) {
   const { currentId } = useWorkspace();
   const [expanded, setExpanded] = useState(false);
+  const [openCol, setOpenCol] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const visible = expanded ? rows : rows.slice(0, 6);
   return (
-    <section className="kpi-section">
-      <div className="kpi-section-head">
-        <div>
-          <h3>Wallet-gap leaderboard</h3>
-          <p className="caption">
-            Estimated total legal spend, current share, and addressable gap per client. Combine with the worthiness lens before any pursuit decision — biggest gap ≠ best target.
-          </p>
+    <>
+      <section className="kpi-section">
+        <div className="kpi-section-head">
+          <div>
+            <h3>Wallet-gap leaderboard</h3>
+            <p className="caption" style={{ marginBottom: 4 }}>
+              Estimated total legal spend, current share, and addressable gap per client. Combine with the worthiness lens before any pursuit decision — biggest gap ≠ best target.
+            </p>
+            <button
+              type="button"
+              className="btn-link"
+              onClick={() => setShowModal(true)}
+              style={{ fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 4 }}
+            >
+              <BookOpen size={12} /> How is this computed?
+            </button>
+          </div>
+          {rows.length > 6 && (
+            <button className="btn btn-secondary kpi-section-toggle" onClick={() => setExpanded(e => !e)}>
+              {expanded ? 'Show top 6' : `Show all ${rows.length}`}
+            </button>
+          )}
         </div>
-        {rows.length > 6 && (
-          <button className="btn btn-secondary kpi-section-toggle" onClick={() => setExpanded(e => !e)}>
-            {expanded ? 'Show top 6' : `Show all ${rows.length}`}
-          </button>
-        )}
-      </div>
-      <table className="kpi-table">
-        <thead>
-          <tr>
-            <th>Client</th>
-            <th className="num">Internal billed</th>
-            <th className="num">Est. total spend</th>
-            <th className="metric">Wallet share</th>
-            <th className="num">Addressable gap</th>
-            <th>Top untapped practices</th>
-          </tr>
-        </thead>
-        <tbody>
-          {visible.map(r => (
-            <tr key={r.clientId}>
-              <td>
-                {currentId
-                  ? <Link to={`/workspaces/${currentId}/clients/${r.clientId}`}>{r.clientName}</Link>
-                  : r.clientName}
-              </td>
-              <td className="num">{fmtGbp(r.internalBilledGbp, { compact: true })}</td>
-              <td className="num">{fmtGbp(r.estimatedTotalGbp, { compact: true })}</td>
-              <td className="metric"><MetricBar value={r.walletSharePct} /></td>
-              <td className="num" style={{ fontWeight: 600 }}>{fmtGbp(r.gapGbp, { compact: true })}</td>
-              <td style={{ fontSize: 12, color: 'var(--octave-text-muted)' }}>
-                {r.gapByPracticeArea && r.gapByPracticeArea.length
-                  ? r.gapByPracticeArea.slice(0, 3).map(prettyPractice).join(', ')
-                  : '—'}
-              </td>
+        <table className="kpi-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th className="num">
+                <LeaderboardColumnInfo label="Internal billed" info={LEADERBOARD_COL_INFO['Internal billed']} isOpen={openCol === 'Internal billed'} onToggle={setOpenCol} />
+              </th>
+              <th className="num">
+                <LeaderboardColumnInfo label="Est. total spend" info={LEADERBOARD_COL_INFO['Est. total spend']} isOpen={openCol === 'Est. total spend'} onToggle={setOpenCol} />
+              </th>
+              <th className="metric">
+                <LeaderboardColumnInfo label="Wallet share" info={LEADERBOARD_COL_INFO['Wallet share']} isOpen={openCol === 'Wallet share'} onToggle={setOpenCol} />
+              </th>
+              <th className="num">
+                <LeaderboardColumnInfo label="Addressable gap" info={LEADERBOARD_COL_INFO['Addressable gap']} isOpen={openCol === 'Addressable gap'} onToggle={setOpenCol} />
+              </th>
+              <th>Top untapped practices</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </section>
+          </thead>
+          <tbody>
+            {visible.map(r => (
+              <tr key={r.clientId}>
+                <td>
+                  {currentId
+                    ? <Link to={`/workspaces/${currentId}/clients/${r.clientId}`}>{r.clientName}</Link>
+                    : r.clientName}
+                </td>
+                <td className="num">{fmtGbp(r.internalBilledGbp, { compact: true })}</td>
+                <td className="num">{fmtGbp(r.estimatedTotalGbp, { compact: true })}</td>
+                <td className="metric"><MetricBar value={r.walletSharePct} /></td>
+                <td className="num" style={{ fontWeight: 600 }}>{fmtGbp(r.gapGbp, { compact: true })}</td>
+                <td style={{ fontSize: 12, color: 'var(--octave-text-muted)' }}>
+                  {r.gapByPracticeArea && r.gapByPracticeArea.length
+                    ? r.gapByPracticeArea.slice(0, 3).map(prettyPractice).join(', ')
+                    : '—'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+      {showModal && <WalletGapMethodologyModal onClose={() => setShowModal(false)} />}
+    </>
   );
 }
 

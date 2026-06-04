@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ChevronLeft, ExternalLink, AlertCircle } from 'lucide-react';
+import { ChevronLeft, ExternalLink, AlertCircle, Info, X, BookOpen } from 'lucide-react';
 import { useWorkspace } from '../components/WorkspaceContext.jsx';
 import { workspaces as wsApi } from '../api.js';
 import { useTitle } from '../lib/useTitle.js';
+import WalletGapMethodologyModal from '../components/WalletGapMethodologyModal.jsx';
 
 // Phase 3 / Change 1 — Wallet-gap section. Reads the methodology
 // payload attached to the client's wallet_gap opportunity by
@@ -37,6 +38,75 @@ const PRACTICE_LABEL_DETAIL = {
 };
 const prettyPracticeDetail = p => PRACTICE_LABEL_DETAIL[p] || (p || '').replace(/_/g, ' ');
 
+// Layer 1 — per-number info popover anchored next to each big number's
+// label. Mirrors the Matters table HeaderInfo pattern and the KPI
+// dashboard tile-info pattern. Click toggles; outside-click closes.
+// The popover content is shaped { definition, formula, perClient[],
+// note } — same vocabulary the partner already sees on the KPI tiles.
+function BigNumberInfo({ label, info, isOpen, onToggle }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!isOpen) return;
+    function onDocClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) onToggle(null);
+    }
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, [isOpen, onToggle]);
+  return (
+    <span ref={ref} style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+      <span className="caption">{label}</span>
+      <button
+        type="button"
+        className="kpi-tile-info"
+        onClick={() => onToggle(isOpen ? null : label)}
+        aria-label={`What is ${label}?`}
+        aria-expanded={isOpen}
+      >
+        <Info size={11} />
+      </button>
+      {isOpen && (
+        <div
+          className="kpi-tile-popover"
+          role="tooltip"
+          style={{ left: 0, right: 'auto', width: 360, textAlign: 'left', whiteSpace: 'normal', textTransform: 'none', letterSpacing: 'normal', fontWeight: 400 }}
+        >
+          <button
+            type="button"
+            className="kpi-tile-popover-close"
+            onClick={() => onToggle(null)}
+            aria-label="Close"
+          >
+            <X size={12} />
+          </button>
+          <div className="kpi-tile-popover-section">
+            <div className="kpi-tile-popover-label">What it is</div>
+            <p className="kpi-tile-popover-text">{info.definition}</p>
+          </div>
+          <div className="kpi-tile-popover-section">
+            <div className="kpi-tile-popover-label">How it's calculated</div>
+            <div className="kpi-tile-popover-formula">{info.formula}</div>
+          </div>
+          {Array.isArray(info.perClient) && info.perClient.length > 0 && (
+            <div className="kpi-tile-popover-section">
+              <div className="kpi-tile-popover-label">For this client</div>
+              <ul style={{ margin: 0, paddingLeft: 16, fontSize: 13, lineHeight: 1.5 }}>
+                {info.perClient.map((line, i) => <li key={i}>{line}</li>)}
+              </ul>
+            </div>
+          )}
+          {info.note && (
+            <div className="kpi-tile-popover-section">
+              <div className="kpi-tile-popover-label">Note</div>
+              <p className="kpi-tile-popover-text">{info.note}</p>
+            </div>
+          )}
+        </div>
+      )}
+    </span>
+  );
+}
+
 function WalletGapSection({ wallet, entity }) {
   const {
     internalBilledGbp,
@@ -46,78 +116,158 @@ function WalletGapSection({ wallet, entity }) {
     gapByPracticeArea = [],
     methodology = {}
   } = wallet;
+
+  const [openLabel, setOpenLabel] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  // Build the per-client "for this client" lines that go into each
+  // popover. The lines render LIVE numbers from the engine output —
+  // not boilerplate — so a partner reading the popover sees the
+  // actual inputs that produced the big number above.
+  const revenueGbp = methodology.revenueGbp;
+  const sectorRatioBp = methodology.sectorRatio != null ? (methodology.sectorRatio * 10_000).toFixed(0) : null;
+  const sizeMult = methodology.sizeAdjustment != null ? methodology.sizeAdjustment.toFixed(2) : null;
+  const fy = methodology.fiscalYear;
+  const source = methodology.source;
+  const sectorLabel = entity?.sector ? prettyPracticeDetail(entity.sector) : null;
+
+  const ESTIMATE_INFO = {
+    definition: "External legal spend the client is likely to pay across all firms in a given year — the denominator the firm is competing for on this account.",
+    formula: "revenue × sector_benchmark_ratio × size_adjustment",
+    perClient: [
+      revenueGbp ? `Revenue: ${fmtGbpCompact(revenueGbp)}${fy ? ` (FY${String(fy).slice(-2)}` : ''}${source ? `, ${source}` : ''}${fy ? ')' : ''}` : null,
+      sectorRatioBp ? `Sector ratio: ${sectorRatioBp} bp${sectorLabel ? ` (${sectorLabel.toLowerCase()} benchmark)` : ''}` : null,
+      sizeMult ? `Size adjustment: ×${sizeMult}${entity?.size ? ` (${entity.size}-cap multiplier)` : ''}` : null,
+      `Estimated total: ${fmtGbpCompact(estimatedTotalGbp)}`
+    ].filter(Boolean),
+    note: "Heuristic anchored to Acritas / CounselLink / AmLaw 200 industry benchmarks. A real-firm deployment refines per sub-sector after calibration; the deck-promised next step is LLM-parsed extraction of the 'legal & professional fees' line item from the client's most recent annual filing."
+  };
+
+  const SHARE_INFO = {
+    definition: "The proportion of the client's total external legal spend that the firm currently captures.",
+    formula: "internal_billed (trailing 12 months) / estimated_total_spend",
+    perClient: [
+      `Internal billed (trailing 12m): ${fmtGbpCompact(internalBilledGbp)}`,
+      `Estimated total spend: ${fmtGbpCompact(estimatedTotalGbp)}`,
+      `Wallet share: ${fmtPctOrDash(walletSharePct)}`
+    ],
+    note: "Mid-tier UK firms typically run 1–5% share across mega-cap multinationals. Single-relationship anchor clients can reach 20%+. The trailing-12m window matches the KPI Dashboard's 12m range filter."
+  };
+
+  const GAP_INFO = {
+    definition: "Estimated total minus what the firm has billed — the upside left on the table for this client.",
+    formula: "estimated_total − internal_billed",
+    perClient: [
+      `Estimated total: ${fmtGbpCompact(estimatedTotalGbp)}`,
+      `Internal billed: ${fmtGbpCompact(internalBilledGbp)}`,
+      `Addressable gap: ${fmtGbpCompact(gapGbp)}`,
+      gapByPracticeArea.length > 0
+        ? `Concentrated in: ${gapByPracticeArea.slice(0, 3).map(prettyPracticeDetail).join(', ')}`
+        : null
+    ].filter(Boolean),
+    note: "An opportunity is emitted for a client only when gap > £500k AND wallet share < 60%. Combine with the Fit & Risk Scorer before any pursuit decision — biggest gap ≠ best target."
+  };
+
   return (
-    <section
-      style={{
-        marginTop: 16,
-        marginBottom: 16,
-        padding: '18px 20px',
-        border: '1px solid var(--octave-n300)',
-        borderRadius: 'var(--radius-md)',
-        background: 'var(--octave-bg)'
-      }}
-    >
-      <div
+    <>
+      <section
         style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 11,
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
-          color: 'var(--octave-text-muted)',
-          marginBottom: 12
+          marginTop: 16,
+          marginBottom: 16,
+          padding: '18px 20px',
+          border: '1px solid var(--octave-n300)',
+          borderRadius: 'var(--radius-md)',
+          background: 'var(--octave-bg)'
         }}
       >
-        Wallet opportunity
-      </div>
+        <div
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 11,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--octave-text-muted)',
+            marginBottom: 12
+          }}
+        >
+          Wallet opportunity
+        </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
-        <div>
-          <div className="caption">Estimated total legal spend</div>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, marginTop: 2 }}>
-            {fmtGbpCompact(estimatedTotalGbp)}
-          </div>
-          {methodology.fiscalYear && (
-            <div className="caption" style={{ marginTop: 2 }}>
-              {methodology.fiscalYear} revenue × {((methodology.sectorRatio || 0) * 10_000).toFixed(0)} bp
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
+          <div>
+            <BigNumberInfo
+              label="Estimated total legal spend"
+              info={ESTIMATE_INFO}
+              isOpen={openLabel === 'Estimated total legal spend'}
+              onToggle={setOpenLabel}
+            />
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, marginTop: 2 }}>
+              {fmtGbpCompact(estimatedTotalGbp)}
             </div>
+            {methodology.fiscalYear && (
+              <div className="caption" style={{ marginTop: 2 }}>
+                {methodology.fiscalYear} revenue × {((methodology.sectorRatio || 0) * 10_000).toFixed(0)} bp
+              </div>
+            )}
+          </div>
+          <div>
+            <BigNumberInfo
+              label="Your wallet share"
+              info={SHARE_INFO}
+              isOpen={openLabel === 'Your wallet share'}
+              onToggle={setOpenLabel}
+            />
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, marginTop: 2 }}>
+              {fmtPctOrDash(walletSharePct)}
+            </div>
+            <div className="caption" style={{ marginTop: 2 }}>
+              {fmtGbpCompact(internalBilledGbp)} billed over the trailing 12 months
+            </div>
+          </div>
+          <div>
+            <BigNumberInfo
+              label="Addressable gap"
+              info={GAP_INFO}
+              isOpen={openLabel === 'Addressable gap'}
+              onToggle={setOpenLabel}
+            />
+            <div
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 24,
+                fontWeight: 700,
+                marginTop: 2,
+                color: 'var(--octave-accent)'
+              }}
+            >
+              {fmtGbpCompact(gapGbp)}
+            </div>
+            {gapByPracticeArea.length > 0 && (
+              <div className="caption" style={{ marginTop: 2 }}>
+                concentrated in {gapByPracticeArea.slice(0, 3).map(prettyPracticeDetail).join(', ')}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          {methodology.source && (
+            <span className="caption" style={{ fontStyle: 'italic' }}>
+              Source: {methodology.source}
+            </span>
           )}
-        </div>
-        <div>
-          <div className="caption">Your wallet share</div>
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 700, marginTop: 2 }}>
-            {fmtPctOrDash(walletSharePct)}
-          </div>
-          <div className="caption" style={{ marginTop: 2 }}>
-            {fmtGbpCompact(internalBilledGbp)} billed over the trailing 12 months
-          </div>
-        </div>
-        <div>
-          <div className="caption">Addressable gap</div>
-          <div
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 24,
-              fontWeight: 700,
-              marginTop: 2,
-              color: 'var(--octave-accent)'
-            }}
+          <button
+            type="button"
+            className="btn-link"
+            onClick={() => setShowModal(true)}
+            style={{ fontSize: 12, display: 'inline-flex', alignItems: 'center', gap: 4 }}
           >
-            {fmtGbpCompact(gapGbp)}
-          </div>
-          {gapByPracticeArea.length > 0 && (
-            <div className="caption" style={{ marginTop: 2 }}>
-              concentrated in {gapByPracticeArea.slice(0, 3).map(prettyPracticeDetail).join(', ')}
-            </div>
-          )}
+            <BookOpen size={12} /> How is this computed?
+          </button>
         </div>
-      </div>
-
-      {methodology.source && (
-        <div className="caption" style={{ marginTop: 14, fontStyle: 'italic' }}>
-          Source: {methodology.source}. Heuristic estimator (revenue × sector benchmark × size adjustment) — a real-firm deployment refines per sub-sector after calibration.
-        </div>
-      )}
-    </section>
+      </section>
+      {showModal && <WalletGapMethodologyModal onClose={() => setShowModal(false)} />}
+    </>
   );
 }
 
